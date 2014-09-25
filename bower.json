@@ -1,9 +1,9 @@
 {
-  "name": "angular-phonecat",
-  "description": "A starter project for AngularJS",
+  "name": "cours_angular",
+  "description": "",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-phonecat",
-  "license": "MIT",
+  "homepage": "",
+  "license": "",
   "private": true,
   "dependencies": {
     "angular": "1.2.x",

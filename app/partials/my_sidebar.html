@@ -1,0 +1,53 @@
+<div class="my-sidebar hidden-xs">
+	<h1>Titre</h1>
+	<ul>
+		<li>
+			<a href="#">Chapter1</a>
+			<ul>
+				<li><a href="#">SubChapter1 SubChapter1 SubChapter1 SubChapter1 </a></li>
+				<li><a href="#">SubChapter2</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Chapter2</a></li>
+		<li><a href="#">Chapter3</a></li>
+		<li><a href="#">Chapter4</a></li>
+		<li><a href="#">Chapter2</a></li>
+		<li><a href="#">Chapter3</a></li>
+		<li><a href="#">Chapter4</a></li>
+		<li><a href="#">Chapter2</a></li>
+		<li><a href="#">Chapter3</a></li>
+		<li><a href="#">Chapter4</a></li>
+		<li><a href="#">Chapter2</a></li>
+		<li><a href="#">Chapter3</a></li>
+		<li><a href="#">Chapter4</a></li>
+		<li><a href="#">Chapter2</a></li>
+		<li><a href="#">Chapter3</a></li>
+		<li><a href="#">Chapter4</a></li>
+		<li><a href="#">Chapter2</a></li>
+		<li><a href="#">Chapter3</a></li>
+		<li><a href="#">Chapter4</a></li>
+		<li><a href="#">Chapter2</a></li>
+		<li><a href="#">Chapter3</a></li>
+		<li><a href="#">Chapter4</a></li>
+	</ul>
+</div>
+<script>
+function setSidebarHeight() {
+	var winHeight = $(window).height();
+	var height = winHeight - 88;
+
+	var winBottom = $(window).scrollTop() + winHeight;
+
+	var footerPos = $('footer').offset().top;
+	if (winBottom > footerPos) {
+		// The footer is on the screen
+		height -= winBottom - footerPos
+	}
+
+	$('.my-sidebar').height(height);
+}
+$(window).resize(setSidebarHeight);
+
+$(window).scroll(setSidebarHeight);
+
+</script>
