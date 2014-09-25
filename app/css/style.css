@@ -35,6 +35,10 @@ body > .container-fluid {
 	-moz-box-sizing: border-box;
 }
 
+.my-sidebar h1 {
+	font-size: 1.5em;
+}
+
 /* CONTENT */
 @media (min-width: 768px) {
 	.my-content {

@@ -17,14 +17,29 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
+					<!--
+					<h1>{{map.title}}</h1>
+					<ul>
+						<li ng-repeat="chapter in map.content">
+							<a href="{{chapter.url}}">{{chapter.title}}</a>
+							<ul ng-show="chapter.content && chapter.content.length > 0">
+								<li ng-repeat="subchapter in chapter.content">
+									<a href="{{subchapter.url}}">{{subchapter.title}}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					-->
 
 					<li class="visible-xs dropdown">
 						<a class="dropdown-toogle" data-toggle="dropdown" href="#">
-							Tutorial <span class="caret"></span>
+							{{map.title}} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="#license">License</a></li>
-							<li><a href="#contact">Contact</a></li>
+							<li ng-repeat="chapter in map.content"
+								ng-init="isDrpDown = (chapter.content && chapter.content.length > 0)">
+								<a href="{{chapter.url}}">{{chapter.title}}</a>
+							</li>
 						</ul>
 					</li>
 
