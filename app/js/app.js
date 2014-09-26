@@ -28,14 +28,11 @@ function setSidebarHeight() {
 				// Code not stable because $includeContentError does not exists
 				// in AngularJS 1.2
 				scope.$on("$includeContentError", function(event, args){
-					console.log('fail');
 					scope.loadFailed = true;
 				});
 				scope.$on("$includeContentLoaded", function(event, args){
-					console.log('loaded');
 					scope.loadFailed = false;
 				});
-				console.log(scope);
 			},
 			template: "<div ng-include='myInclude || src'></div><div ng-show='loadFailed' ng-transclude/>"
 		};
@@ -43,6 +40,15 @@ function setSidebarHeight() {
 
 	var app = angular.module('angular_cours_app', [ 'ngRoute', 'my_layout', 'myUtilities' ]);
 	var scope;
+
+	function build_hash(data) {
+		var result = {};
+		for (var i = 0; i < data.content.length; i++) {
+			result[data.content[i].path] = data.content[i].title;
+		}
+		result[data.path] = data.title;
+		return result;
+	}
 
 	app.controller('MyAppController', ['$scope','$http', function($scope, $http) {
 		$scope.now = new Date();
@@ -59,6 +65,7 @@ function setSidebarHeight() {
 		$http.get('data/map.json')
 			.success(function(data) {
 				$scope.map = data;
+				$scope.hash = build_hash(data);
 			})
 			.error(function() {
 				alert('Cannot find map...');
