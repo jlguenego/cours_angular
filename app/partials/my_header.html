@@ -62,9 +62,9 @@
 
 	<div class="header_breadcrumb">
 		<ol class="breadcrumb">
-			<li><a href="#">One</a></li>
-			<li><a href="#">Two</a></li>
-			<li><a href="#">Three</a></li>
+			<li ng-repeat="name in breadcrumb">
+				<a href="{{breadcrumb_href($index)}}">{{name}}</a>
+			</li>
 		</ol>
 	</div>
 </header>

@@ -38,6 +38,7 @@
 
 	app.controller('ChapterController', ['$scope', '$http', '$routeParams',
 		function($scope, $http, $routeParams) {
+			$scope.update_breadcrumb();
 			$scope.chapterPath = 'data/' + $routeParams.chapter + '.html';
 		}
 	]);

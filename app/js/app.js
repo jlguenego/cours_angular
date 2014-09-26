@@ -48,6 +48,14 @@ function setSidebarHeight() {
 		$scope.now = new Date();
 		scope = $scope;
 
+		$scope.update_breadcrumb = function() {
+			$scope.breadcrumb = window.location.hash.split('/').slice(1);
+		}
+		$scope.breadcrumb_href = function(index) {
+			return '#/' + $scope.breadcrumb.slice(0, index + 1).join('/');
+		};
+		console.log($scope.breadcrumb);
+
 		$http.get('data/map.json')
 			.success(function(data) {
 				$scope.map = data;
