@@ -66,6 +66,11 @@ body > .container-fluid {
 	height: 10px;
 }
 
+.btn.disabled {
+	background-color: #AAAAAA;
+	border-color: gray;
+}
+
 /* FOOTER */
 body {
 	/* Margin bottom by footer height */

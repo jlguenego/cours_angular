@@ -13,6 +13,19 @@ function setSidebarHeight() {
 	$('.my-sidebar').height(height);
 }
 
+function fixXsMenu() {
+	$('header ul a:not(.dropdown-toogle)').click(function() {
+		if ($('#menu-xs-button').is(':visible')) {
+			$('#menu-xs-button').click();
+		}
+	});
+}
+
+/*
+$(document).ready(function() {
+	});
+	*/
+
 (function() {
 	angular.module('myUtilities', [])
 	.directive("myInclude", function() {
@@ -41,6 +54,20 @@ function setSidebarHeight() {
 	var app = angular.module('angular_cours_app', [ 'ngRoute', 'my_layout', 'myUtilities' ]);
 	var scope;
 
+	app.directive('onFinishRender', ['$timeout', function($timeout) {
+		return {
+			restrict: 'A',
+			link: function(scope, element, attr) {
+				if (scope.$last === true) {
+					$timeout(function() {
+						scope.$emit(attr.onFinishRender);
+					});
+				}
+			}
+		};
+	}]);
+
+
 	function build_hash(data) {
 		var result = {};
 		for (var i = 0; i < data.content.length; i++) {
@@ -56,11 +83,27 @@ function setSidebarHeight() {
 
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = window.location.hash.split('/').slice(1);
+
+			var content_path = $scope.map.content.map(function(x) {return x.path;});
+			var last = content_path.slice(0).pop();
+			var index = content_path.indexOf(last);
+
+			if (index > 0) {
+				$scope.previous = 'data/' + content_path[index - 1] + '.html';
+			}
+
+			if (index < content_path.length) {
+				$scope.next = 'data/' + content_path[index + 1] + '.html';
+			}
 		}
+
 		$scope.breadcrumb_href = function(index) {
 			return '#/' + $scope.breadcrumb.slice(0, index + 1).join('/');
 		};
-		console.log($scope.breadcrumb);
+
+		$scope.$on('fix-menu', function() {
+			fixXsMenu();
+		});
 
 		$http.get('data/map.json')
 			.success(function(data) {
