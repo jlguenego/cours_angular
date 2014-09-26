@@ -28,4 +28,11 @@
 			templateUrl: 'partials/my_footer.html'
 		};
 	});
+
+	app.directive('myButtonNav', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/my_button_nav.html'
+		};
+	});
 })();
