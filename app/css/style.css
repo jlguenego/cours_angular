@@ -40,6 +40,16 @@ body > .container-fluid {
 }
 
 /* CONTENT */
+.my-content {
+	padding-bottom: 20px;
+}
+
+.my-content h2 {
+	padding-top: 30px;
+	margin-top: 30px;
+	border-top: 1px solid #DEDEDE;
+}
+
 @media (min-width: 768px) {
 	.my-content {
 		padding-left: 215px;
