@@ -35,4 +35,10 @@
 			templateUrl: 'partials/my_button_nav.html'
 		};
 	});
+
+	app.controller('ChapterController', ['$scope', '$http', '$routeParams',
+		function($scope, $http, $routeParams) {
+			$scope.chapterPath = 'data/' + $routeParams.chapter + '.html';
+		}
+	]);
 })();

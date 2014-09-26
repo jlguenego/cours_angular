@@ -2,7 +2,7 @@
 	<h1>{{map.title}}</h1>
 	<ul>
 		<li ng-repeat="chapter in map.content">
-			<a href="{{chapter.url}}">{{chapter.title}}</a>
+			<a href="#{{'/' + map.path + '/' + chapter.path}}">{{chapter.title}}</a>
 		</li>
 	</ul>
 </div>

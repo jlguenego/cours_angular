@@ -14,10 +14,39 @@ function setSidebarHeight() {
 }
 
 (function() {
-	var app = angular.module('angular_cours_app', [ 'my_layout' ]);
+	angular.module('myUtilities', [])
+	.directive("myInclude", function() {
+		return {
+			restrict: 'CAE',
+			scope: {
+				src: '=',
+				myInclude: '='
+			},
+			transclude: true,
+			link: function(scope, iElement, iAttrs, controller) {
+				scope.loadFailed = true;
+				// Code not stable because $includeContentError does not exists
+				// in AngularJS 1.2
+				scope.$on("$includeContentError", function(event, args){
+					console.log('fail');
+					scope.loadFailed = true;
+				});
+				scope.$on("$includeContentLoaded", function(event, args){
+					console.log('loaded');
+					scope.loadFailed = false;
+				});
+				console.log(scope);
+			},
+			template: "<div ng-include='myInclude || src'></div><div ng-show='loadFailed' ng-transclude/>"
+		};
+	});
+
+	var app = angular.module('angular_cours_app', [ 'ngRoute', 'my_layout', 'myUtilities' ]);
+	var scope;
 
 	app.controller('MyAppController', ['$scope','$http', function($scope, $http) {
 		$scope.now = new Date();
+		scope = $scope;
 
 		$http.get('data/map.json')
 			.success(function(data) {
@@ -27,7 +56,19 @@ function setSidebarHeight() {
 				alert('Cannot find map...');
 			});
 	}]);
-	$(window).resize(setSidebarHeight);
 
+	app.config(['$routeProvider', function($routeProvider) {
+			$routeProvider
+				.when('/cours_angularjs/:chapter', {
+					templateUrl: 'partials/chapter.html',
+					controller: 'ChapterController'
+				})
+				.otherwise({
+					redirectTo: '/cours_angularjs/chapter0'
+				});
+	}]);
+
+
+	$(window).resize(setSidebarHeight);
 	$(window).scroll(setSidebarHeight);
 })();

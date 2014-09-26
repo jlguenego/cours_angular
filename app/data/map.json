@@ -1,57 +1,18 @@
 {
 	"title": "Cours AngularJS",
+	"path": "cours_angularjs",
 	"content": [
 		{
+			"title": "Introduction",
+			"path": "chapter0"
+		},
+		{
 			"title": "Chapter 1",
-			"url": "#chapter1"
+			"path": "chapter1"
 		},
 		{
 			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
-		},
-		{
-			"title": "Chapter 2",
-			"url": "#chapter2"
+			"path": "chapter2"
 		}
 	]
 }
