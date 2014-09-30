@@ -80,6 +80,7 @@ $(document).ready(function() {
 	app.controller('MyAppController', ['$scope','$http', function($scope, $http) {
 		$scope.now = new Date();
 		scope = $scope;
+		$scope.window = window;
 
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = window.location.hash.split('/').slice(1);
@@ -104,6 +105,14 @@ $(document).ready(function() {
 		$scope.$on('fix-menu', function() {
 			fixXsMenu();
 		});
+/*
+		$http.get('data/cours.json')
+			.success(function(data) {
+				$scope.cours = data;
+			})
+			.error(function() {
+				alert('Cannot find map...');
+			});
 
 		$http.get('data/map.json')
 			.success(function(data) {
@@ -113,16 +122,20 @@ $(document).ready(function() {
 			.error(function() {
 				alert('Cannot find map...');
 			});
+*/
 	}]);
 
 	app.config(['$routeProvider', function($routeProvider) {
 			$routeProvider
+				.when('/', {
+					templateUrl: 'partials/cover.html'
+				})
 				.when('/cours_angularjs/:chapter', {
 					templateUrl: 'partials/chapter.html',
 					controller: 'ChapterController'
 				})
 				.otherwise({
-					redirectTo: '/cours_angularjs/chapter0'
+					redirectTo: '/'
 				});
 	}]);
 

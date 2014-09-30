@@ -1,0 +1,16 @@
+{
+	"title": "Cours",
+	"path": "cours",
+	"content": [
+		{
+			"title": "JavaScript",
+			"path": "javascript",
+			"file": "javascript.json"
+		},
+		{
+			"title": "AngularJS",
+			"path": "angularjs",
+			"file": "angularjs.json"
+		}
+	]
+}

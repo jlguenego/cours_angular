@@ -17,7 +17,17 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li class=""><a href="#test">Test</a></li>
+					<li class=""><a href="#test">Cours</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toogle" data-toggle="dropdown" href="#">
+							Cours <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-repeat="chapter in map.content" on-finish-render="fix-menu">
+								<a href="#{{'/' + map.path + '/' + chapter.path}}">{{chapter.title}}</a>
+							</li>
+						</ul>
+					</li>
 
 					<li class="visible-xs dropdown">
 						<a class="dropdown-toogle" data-toggle="dropdown" href="#">
@@ -47,7 +57,7 @@
 		</div>
 	</div>
 
-	<div class="header_breadcrumb">
+	<div class="header_breadcrumb" ng-hide="window.location.hash == '#/'">
 		<ol class="breadcrumb">
 			<li></li>
 			<li ng-repeat="name in breadcrumb">
