@@ -1,30 +1,18 @@
-function setSidebarHeight() {
-	var winHeight = $(window).height();
-	var height = winHeight - 88;
+if (typeof String.prototype.startsWith != 'function') {
+	// see below for better implementation!
+	String.prototype.startsWith = function(str) {
+		return this.indexOf(str) == 0;
+	};
+}
 
-	var winBottom = $(window).scrollTop() + winHeight;
-
-	var footerPos = $('footer').offset().top;
-	if (winBottom > footerPos) {
-		// The footer is on the screen
-		height -= winBottom - footerPos
+function build_hash(data) {
+	var result = {};
+	for (var i = 0; i < data.content.length; i++) {
+		result[data.content[i].path] = data.content[i].title;
 	}
-
-	$('.my-sidebar').height(height);
+	result[data.path] = data.title;
+	return result;
 }
-
-function fixXsMenu() {
-	$('header ul a:not(.dropdown-toogle)').click(function() {
-		if ($('#menu-xs-button').is(':visible')) {
-			$('#menu-xs-button').click();
-		}
-	});
-}
-
-/*
-$(document).ready(function() {
-	});
-	*/
 
 (function() {
 	angular.module('myUtilities', [])
@@ -67,36 +55,56 @@ $(document).ready(function() {
 		};
 	}]);
 
-
-	function build_hash(data) {
-		var result = {};
-		for (var i = 0; i < data.content.length; i++) {
-			result[data.content[i].path] = data.content[i].title;
-		}
-		result[data.path] = data.title;
-		return result;
-	}
-
 	app.controller('MyAppController', ['$scope','$http', function($scope, $http) {
+		$scope.update_breadcrumb = function() {
+			$scope.breadcrumb = window.location.hash.split('/').slice(1);
+			$scope.path = '/' + $scope.breadcrumb.join('/');
+			console.log($scope.path);
+		}
+
+		$scope.manage_nav_buttons = function() {
+			var content_path = $scope.map.content.map(function(x) {return x.path;});
+			var parent_breadcrumb = $scope.breadcrumb.slice(0);
+
+			var current = parent_breadcrumb.pop();
+			var index = content_path.indexOf(current);
+
+
+			$scope.chapter_previous = undefined;
+			if (index > 0) {
+				var tmp = parent_breadcrumb.slice(0);
+				tmp.push(content_path[index - 1]);
+				$scope.chapter_previous = '#/' + tmp.join('/');
+			}
+
+			$scope.chapter_next = undefined;
+			if (index < content_path.length - 1) {
+				var tmp = parent_breadcrumb.slice(0);
+				tmp.push(content_path[index + 1]);
+				$scope.chapter_next = '#/' + tmp.join('/');
+			}
+		};
+
+		$scope.$on('$routeChangeStart', function(next, current) {
+			$scope.update_breadcrumb();
+		});
+
+		$scope.getData = function(url) {
+			$scope.map = {};
+			$http.get(url)
+				.success(function(data) {
+					$scope.map = data;
+					$scope.hash = build_hash(data);
+					$scope.manage_nav_buttons();
+				})
+				.error(function() {
+					alert('Cannot find "' + url + '"...');
+				});
+		};
+
 		$scope.now = new Date();
 		scope = $scope;
 		$scope.window = window;
-
-		$scope.update_breadcrumb = function() {
-			$scope.breadcrumb = window.location.hash.split('/').slice(1);
-
-			var content_path = $scope.map.content.map(function(x) {return x.path;});
-			var last = content_path.slice(0).pop();
-			var index = content_path.indexOf(last);
-
-			if (index > 0) {
-				$scope.previous = 'data/' + content_path[index - 1] + '.html';
-			}
-
-			if (index < content_path.length) {
-				$scope.next = 'data/' + content_path[index + 1] + '.html';
-			}
-		}
 
 		$scope.breadcrumb_href = function(index) {
 			return '#/' + $scope.breadcrumb.slice(0, index + 1).join('/');
@@ -105,24 +113,14 @@ $(document).ready(function() {
 		$scope.$on('fix-menu', function() {
 			fixXsMenu();
 		});
-/*
+
 		$http.get('data/cours.json')
 			.success(function(data) {
 				$scope.cours = data;
 			})
 			.error(function() {
-				alert('Cannot find map...');
+				alert('Cannot find cours...');
 			});
-
-		$http.get('data/map.json')
-			.success(function(data) {
-				$scope.map = data;
-				$scope.hash = build_hash(data);
-			})
-			.error(function() {
-				alert('Cannot find map...');
-			});
-*/
 	}]);
 
 	app.config(['$routeProvider', function($routeProvider) {
@@ -130,16 +128,20 @@ $(document).ready(function() {
 				.when('/', {
 					templateUrl: 'partials/cover.html'
 				})
-				.when('/cours_angularjs/:chapter', {
-					templateUrl: 'partials/chapter.html',
+				.when('/cours', {
+					templateUrl: 'partials/lesson_list.html',
+					controller: 'LessonController'
+				})
+				.when('/cours/:lesson', {
+					templateUrl: 'partials/chapter_list.html',
+					controller: 'ChapterController'
+				})
+				.when('/cours/:lesson/:chapter', {
+					templateUrl: 'partials/lesson_content.html',
 					controller: 'ChapterController'
 				})
 				.otherwise({
 					redirectTo: '/'
 				});
 	}]);
-
-
-	$(window).resize(setSidebarHeight);
-	$(window).scroll(setSidebarHeight);
 })();

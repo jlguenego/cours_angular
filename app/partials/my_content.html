@@ -1,11 +1,13 @@
-<!-- VIEW -->
 <div class="my-content">
 
 	<my-button-nav></my-button-nav>
 
 	<div class="my-content-body">
 
-		<div ng-view></div>
+		<div ng-include="partials/chapter.html"></div>
+		<ng-include src="chapterPath">
+			<h1>Not found</h1>
+		</ng-include>
 
 	</div>
 

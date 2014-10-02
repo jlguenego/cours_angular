@@ -38,8 +38,17 @@
 
 	app.controller('ChapterController', ['$scope', '$http', '$routeParams',
 		function($scope, $http, $routeParams) {
-			$scope.update_breadcrumb();
-			$scope.chapterPath = 'data/' + $routeParams.chapter + '.html';
+			
+			$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.html';
+			
+			$scope.getData('data/' + $routeParams.lesson + '.json');
+		}
+	]);
+
+	app.controller('LessonController', ['$scope', '$http', '$routeParams',
+		function($scope, $http, $routeParams) {
+						
+			$scope.getData('data/cours.json');
 		}
 	]);
 })();

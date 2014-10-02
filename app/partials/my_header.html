@@ -16,37 +16,43 @@
 
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li class=""><a href="#test">Cours</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toogle" data-toggle="dropdown" href="#">
+					<li ng-class="{active: path == '/'}"><a href="#">Home</a></li>
+					<li class="dropdown" ng-class="{active: path.startsWith('/cours')}">
+						<a class="dropdown-toogle" data-toggle="dropdown" href="javascrip:void(0)">
 							Cours <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li ng-repeat="chapter in map.content" on-finish-render="fix-menu">
-								<a href="#{{'/' + map.path + '/' + chapter.path}}">{{chapter.title}}</a>
+							<li>
+								<a href="#/cours">Liste des cours</a>
+							</li>
+							<li class="divider"></li>
+							<li ng-repeat="lesson in cours.content" on-finish-render="fix-menu"
+								 ng-class="{active: path.startsWith('/cours/' + lesson.path)}">
+								<a href="{{'#/cours' + '/' + lesson.path}}">{{lesson.title}}</a>
 							</li>
 						</ul>
 					</li>
 
-					<li class="visible-xs dropdown">
-						<a class="dropdown-toogle" data-toggle="dropdown" href="#">
+					<li class="dropdown" ng-show="path.startsWith('/cours/')"
+						ng-class="{'visible-xs': path.startsWith('/cours/')}">
+						<a class="dropdown-toogle" data-toggle="dropdown" href="javascrip:void(0)">
 							{{map.title}} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li ng-repeat="chapter in map.content" on-finish-render="fix-menu">
-								<a href="#{{'/' + map.path + '/' + chapter.path}}">{{chapter.title}}</a>
+							<li ng-repeat="chapter in map.content" on-finish-render="fix-menu"
+								ng-class="{active: path.startsWith('/cours/' + map.path + '/' + chapter.path)}">
+								<a href="{{'#/cours/' + map.path + '/' + chapter.path}}">{{chapter.title}}</a>
 							</li>
 						</ul>
 					</li>
 
-					<li class="dropdown">
-						<a class="dropdown-toogle" data-toggle="dropdown" href="#">
+					<li class="dropdown" ng-class="{active: path.startsWith('/help')}">
+						<a class="dropdown-toogle" data-toggle="dropdown" href="javascrip:void(0)">
 							Help <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="#license">License</a></li>
-							<li><a href="#contact">Contact</a></li>
+							<li><a href="#/help/license">License</a></li>
+							<li><a href="#/help/contact">Contact</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -61,8 +67,12 @@
 		<ol class="breadcrumb">
 			<li></li>
 			<li ng-repeat="name in breadcrumb">
-				<a href="{{breadcrumb_href($index)}}">{{hash[name]}}</a>
+				<a href="{{breadcrumb_href($index)}}">{{hash[name] || 'Cours'}}</a>
 			</li>
 		</ol>
 	</div>
 </header>
+
+<script>
+	$(document).ready(fixHeaderHeight);
+</script>

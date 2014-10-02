@@ -2,7 +2,11 @@
 	<h1>{{map.title}}</h1>
 	<ul>
 		<li ng-repeat="chapter in map.content">
-			<a href="#{{'/' + map.path + '/' + chapter.path}}">{{chapter.title}}</a>
+			<a href="#{{'/' + cours.path + '/' + map.path + '/' + chapter.path}}" onClick="(function() {
+					$(window).scrollTop(0);
+				})()">
+				{{chapter.title}}
+			</a>
 		</li>
 	</ul>
 </div>

@@ -1,6 +1,7 @@
 html {
 	position: relative;
 	min-height: 100%;
+	min-width: 310px;
 }
 
 /* HEADER */
@@ -11,12 +12,19 @@ html {
 
 	border-bottom: 1px solid #DDDDDD;
 }
+
+@media (max-width: 768px) {
+	.header_breadcrumb .breadcrumb {
+		line-height: 30px;
+	}
+}
+
 .header_breadcrumb .breadcrumb {
 	margin: 0px;
 }
 
 /* MAIN CONTAINER */
-body > .container-fluid {
+body .container-fluid {
 	position: relative;
 	padding-top: 88px;
 }
@@ -61,6 +69,11 @@ body > .container-fluid {
 	}
 }
 
+/* IMAGES */
+.lesson-logo {
+	height: 150px;
+}
+
 /* BUTTON */
 .button-vert-spacer {
 	height: 10px;
@@ -75,7 +88,7 @@ body > .container-fluid {
 body {
 	/* Margin bottom by footer height */
 	margin-bottom: 57px;
-	height: 100%;
+	min-height: 100%;
 }
 
 footer {

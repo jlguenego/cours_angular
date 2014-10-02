@@ -1,20 +1,53 @@
 <style>
-.jumbotron {
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-
-	width: 100%;
-
-	padding: 8em 0px;
+.cover {
+	padding: 120px 0px ;
 	margin: 0px;
 
 	text-align: center;
-	background: #000000;
 }
+
+.cover h1 {
+	margin: 30px;
+}
+
+.cover p {
+	width: 70%;
+	margin: 30px auto;
+	font-size: 2em;
+}
+
+.cover a {
+	font-size: 1.5em;
+	line-height: 2em;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+@media (max-width: 768px) {
+	.cover {
+		padding: 40px 0px ;
+		margin: 0px;
+
+		text-align: center;
+	}
+
+	.cover h1 {
+		margin-bottom: 10px;
+	}
+
+	.cover p {
+		width: 90%;
+		font-size: 1.2em;
+		margin-top: 10px;
+	}
+}
+
 </style>
 
-<div class="jumbotron">
-	<img width="300" src="img/earth.png" />
-	CONTENT
+<div class="jumbotron cover">
+	<h1>Des supers cours ...</h1>
+	<p>
+		... pour les stagiaires d'Orsys qui suivent le cours sur AngularJS.
+	</p>
+	<a class="btn btn-success" href="#/cours">Voir les cours</a>
 </div>

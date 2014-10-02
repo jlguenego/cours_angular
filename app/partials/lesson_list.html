@@ -1,0 +1,39 @@
+<style>
+.lesson-title {
+	display: inline-block;
+	margin: 20px 50px;
+}
+
+.lesson-title a {
+	text-decoration: none;
+}
+
+@media (max-width: 768px) {
+	.lesson-title {
+		display: block;
+		margin: 10px 0px;
+	}
+
+	.lesson-logo {
+		height: 50px;
+	}
+
+	.lesson-title h2 {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0px;
+	}
+}
+</style>
+
+<div class="container-fluid">
+	<h1>Liste des cours</h1>
+	<div class="text-center">
+		<div class="lesson-title" ng-repeat="lesson in map.content">
+			<a href="#{{'/' + map.path + '/' + lesson.path}}">
+				<img ng-src="{{'img/' + lesson.img}}" class="lesson-logo" alt="{{lesson.title}}" />
+				<h2>{{lesson.title}}</h2>
+			</a>
+		</div>
+	</div>
+</div>

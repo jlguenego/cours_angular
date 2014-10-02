@@ -5,12 +5,14 @@
 		{
 			"title": "JavaScript",
 			"path": "javascript",
-			"file": "javascript.json"
+			"file": "javascript.json",
+			"img": "js.png"
 		},
 		{
 			"title": "AngularJS",
 			"path": "angularjs",
-			"file": "angularjs.json"
+			"file": "angularjs.json",
+			"img": "angularjs.png"
 		}
 	]
 }
