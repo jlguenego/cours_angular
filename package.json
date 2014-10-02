@@ -14,7 +14,13 @@
     "protractor": "~1.0.0",
     "http-server": "^0.6.1",
     "bower": "^1.3.1",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "express": "~4.x",
+    "mime": "~1.2.x",
+    "connect": "",
+    "serve-static": "",
+    "serve-index": "",
+    "finalhandler": ""
   },
   "scripts": {
     "postinstall": "bower install",

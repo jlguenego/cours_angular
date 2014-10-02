@@ -55,7 +55,9 @@ function build_hash(data) {
 		};
 	}]);
 
-	app.controller('MyAppController', ['$scope','$http', function($scope, $http) {
+	app.controller('MyAppController', ['$scope','$http', '$location', function($scope, $http, $location) {
+		console.log('location=');
+		console.log($location);
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = window.location.hash.split('/').slice(1);
 			$scope.path = '/' + $scope.breadcrumb.join('/');
