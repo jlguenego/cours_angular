@@ -153,9 +153,14 @@ function build_hash(data) {
 
 		$scope.scrollTo = function(path, anchor) {
 			$location.path(path);
+
 			$timeout(function() {
-				$location.hash(anchor);
-				$anchorScroll();
+				if (anchor) {
+					$location.hash(anchor);
+					$anchorScroll();
+				} else {
+					$(window).scrollTop(0);
+				}
 			});
 		}
 	}]);
