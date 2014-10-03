@@ -11,6 +11,7 @@ function build_hash(data) {
 		result[data.content[i].path] = data.content[i].title;
 	}
 	result[data.path] = data.title;
+	result['cours'] = 'Cours';
 	return result;
 }
 
@@ -55,13 +56,16 @@ function build_hash(data) {
 		};
 	}]);
 
-	app.controller('MyAppController', ['$scope','$http', '$location', function($scope, $http, $location) {
-		console.log('location=');
-		console.log($location);
+	app.controller('MyAppController', ['$scope','$http', '$location', '$anchorScroll',
+	function($scope, $http, $location, $anchorScroll) {
+		$scope.chapter_previous = undefined;
+		$scope.chapter_next = undefined;
+		$scope.breadcrumb = undefined;
+		$scope.location = $location;
+
 		$scope.update_breadcrumb = function() {
-			$scope.breadcrumb = window.location.hash.split('/').slice(1);
-			$scope.path = '/' + $scope.breadcrumb.join('/');
-			console.log($scope.path);
+			$scope.breadcrumb = $location.path().split('/').slice(1);
+			console.log($scope.breadcrumb);
 		}
 
 		$scope.manage_nav_buttons = function() {
@@ -70,7 +74,6 @@ function build_hash(data) {
 
 			var current = parent_breadcrumb.pop();
 			var index = content_path.indexOf(current);
-
 
 			$scope.chapter_previous = undefined;
 			if (index > 0) {
@@ -100,7 +103,7 @@ function build_hash(data) {
 					$scope.manage_nav_buttons();
 				})
 				.error(function() {
-					alert('Cannot find "' + url + '"...');
+					$location.path('/cours');
 				});
 		};
 
@@ -109,7 +112,7 @@ function build_hash(data) {
 		$scope.window = window;
 
 		$scope.breadcrumb_href = function(index) {
-			return '#/' + $scope.breadcrumb.slice(0, index + 1).join('/');
+			return $scope.breadcrumb.slice(0, index + 1).join('/');
 		};
 
 		$scope.$on('fix-menu', function() {
@@ -123,27 +126,40 @@ function build_hash(data) {
 			.error(function() {
 				alert('Cannot find cours...');
 			});
+
+		$scope.scrollTo = function(id) {
+			$location.hash(id);
+			$anchorScroll();
+		}
 	}]);
 
-	app.config(['$routeProvider', function($routeProvider) {
-			$routeProvider
-				.when('/', {
-					templateUrl: 'partials/cover.html'
-				})
-				.when('/cours', {
-					templateUrl: 'partials/lesson_list.html',
-					controller: 'LessonController'
-				})
-				.when('/cours/:lesson', {
-					templateUrl: 'partials/chapter_list.html',
-					controller: 'ChapterController'
-				})
-				.when('/cours/:lesson/:chapter', {
-					templateUrl: 'partials/lesson_content.html',
-					controller: 'ChapterController'
-				})
-				.otherwise({
-					redirectTo: '/'
-				});
+	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+		$locationProvider.html5Mode(true);
+		$routeProvider
+			.when('/', {
+				templateUrl: 'partials/cover.html'
+			})
+			.when('/cours', {
+				templateUrl: 'partials/lesson_list.html',
+				controller: 'LessonController'
+			})
+			.when('/cours/:lesson', {
+				templateUrl: 'partials/chapter_list.html',
+				controller: 'ChapterController'
+			})
+			.when('/cours/:lesson/:chapter', {
+				templateUrl: 'partials/lesson_content.html',
+				controller: 'ChapterController'
+			})
+			.when('/:anchor', {
+				templateUrl: 'partials/cover.html',
+				controller: function($scope, $routeParams) {
+					$scope.location.path('/');
+					$scope.scrollTo($routeParams.anchor);
+				}
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
 	}]);
 })();
