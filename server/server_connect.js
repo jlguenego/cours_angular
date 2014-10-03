@@ -29,9 +29,7 @@ var server = http.createServer(function(req, res){
 function urlRewrite(req) {
 	console.log(req.url);
 
-
-
-	if (req.url.match(/^\/app\/a\//)) {
+	if (req.url.match(/^\/app\/content\//)) {
 
 		req.url = '/app/index.html';
 	}
