@@ -56,8 +56,32 @@ function build_hash(data) {
 		};
 	}]);
 
-	app.controller('MyAppController', ['$scope','$http', '$location', '$anchorScroll',
-	function($scope, $http, $location, $anchorScroll) {
+	app.directive("myInclude", function() {
+		return {
+			restrict: 'CAE',
+			scope: {
+				src: '=',
+				myInclude: '='
+			},
+			transclude: true,
+			link: function(scope, iElement, iAttrs, controller) {
+
+				scope.loadFailed = true;
+				// Code not stable because $includeContentError does not exists
+				// in AngularJS 1.2
+				scope.$on("$includeContentError", function(event, args){
+					scope.loadFailed = true;
+				});
+				scope.$on("$includeContentLoaded", function(event, args){
+					scope.loadFailed = false;
+				});
+			},
+			template: "<div ng-include='myInclude || src'></div><div ng-show='loadFailed' ng-transclude/>"
+		};
+	});
+
+	app.controller('MyAppController', ['$scope','$http', '$location', '$anchorScroll', '$timeout',
+	function($scope, $http, $location, $anchorScroll, $timeout) {
 		$scope.chapter_previous = undefined;
 		$scope.chapter_next = undefined;
 		$scope.breadcrumb = undefined;
@@ -127,9 +151,12 @@ function build_hash(data) {
 				alert('Cannot find cours...');
 			});
 
-		$scope.scrollTo = function(id) {
-			$location.hash(id);
-			$anchorScroll();
+		$scope.scrollTo = function(path, anchor) {
+			$location.path(path);
+			$timeout(function() {
+				$location.hash(anchor);
+				$anchorScroll();
+			});
 		}
 	}]);
 
