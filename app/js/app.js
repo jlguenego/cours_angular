@@ -17,7 +17,7 @@ function build_hash(data) {
 
 (function() {
 	angular.module('myUtilities', [])
-	.directive("myInclude", function() {
+/*	.directive("myInclude", function() {
 		return {
 			restrict: 'CAE',
 			scope: {
@@ -39,7 +39,7 @@ function build_hash(data) {
 			template: "<div ng-include='myInclude || src'></div><div ng-show='loadFailed' ng-transclude/>"
 		};
 	});
-
+*/
 	var app = angular.module('angular_cours_app', [ 'ngRoute', 'my_layout', 'myUtilities' ]);
 	var scope;
 
@@ -56,29 +56,28 @@ function build_hash(data) {
 		};
 	}]);
 
+	/*
 	app.directive("myInclude", function() {
 		return {
-			restrict: 'CAE',
+			restrict: 'AE',
 			scope: {
 				src: '=',
 				myInclude: '='
 			},
-			transclude: true,
-			link: function(scope, iElement, iAttrs, controller) {
-
-				scope.loadFailed = true;
-				// Code not stable because $includeContentError does not exists
-				// in AngularJS 1.2
-				scope.$on("$includeContentError", function(event, args){
-					scope.loadFailed = true;
-				});
-				scope.$on("$includeContentLoaded", function(event, args){
-					scope.loadFailed = false;
-				});
-			},
-			template: "<div ng-include='myInclude || src'></div><div ng-show='loadFailed' ng-transclude/>"
+			controller: ['$scope', '$http', '$sce', function($scope, $http, $sce) {
+				console.log($scope);
+				$http.get($scope.src)
+					.success(function(data) {
+						$scope.include_result = $sce.trustAsHtml(data);
+					})
+					.error(function() {
+						$scope.include_result = $sce.trustAsHtml('<h1>Le cours demandé n\'a pas été touvé</h1>');
+					});
+			}],
+			template: '<div ng-bind-html="include_result"></div>'
 		};
 	});
+	*/
 
 	app.controller('MyAppController', ['$scope','$http', '$location', '$anchorScroll', '$timeout',
 	function($scope, $http, $location, $anchorScroll, $timeout) {
@@ -89,7 +88,6 @@ function build_hash(data) {
 
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = $location.path().split('/').slice(1);
-			console.log($scope.breadcrumb);
 		}
 
 		$scope.manage_nav_buttons = function() {
