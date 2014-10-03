@@ -1,6 +1,6 @@
 <style>
 .cover {
-	padding: 120px 0px ;
+	padding: 200px 0px ;
 	margin: 0px;
 
 	text-align: center;
@@ -25,7 +25,7 @@
 
 @media (max-width: 768px) {
 	.cover {
-		padding: 40px 0px ;
+		padding: 40px 0px;
 		margin: 0px;
 
 		text-align: center;
@@ -42,6 +42,43 @@
 	}
 }
 
+.product img {
+	height: 150px;
+}
+
+.cover-block {
+	padding-top: 30px;
+	margin-top: 70px;
+	margin-bottom: 70px;
+	border-top: 1px solid #CECECE;
+}
+
+.cover-block h1 {
+	margin: 60px;
+}
+
+.first-block {
+	border: none;
+	margin-top: 0px;
+}
+
+.product .btn {
+	margin-bottom: 30px;
+}
+
+#license img {
+	margin: 0px 40px;
+	max-width: 130px;
+}
+
+#license .images {
+	margin-bottom: 40px;
+}
+
+#contacts img {
+	margin-bottom: 50px;
+}
+
 </style>
 
 <div class="jumbotron cover">
@@ -52,6 +89,111 @@
 	<a class="btn btn-success" href="#/cours">Voir les cours</a>
 </div>
 
-<div id="licence">
-	<h1>Sous licence MIT</h1>
+<div id="products" class="container text-center cover-block first-block">
+	<h1>Ce site web a été réalisé grâce à ...</h1>
+	<div class="row">
+		<div class="col-md-4 product">
+			<a href="https://angularjs.org" target="_blank">
+				<img src="img/angularjs.png" alt="AngularJS" />
+			</a>
+			<h2>AngularJS</h2>
+			<p>
+				 AngularJS est un framework open-source écrit dans le langage javascript. Ce
+framework a été développé par Google et s’appuie sur le retour d’expérience des
+équipes qui ont développé les applications Google tel que Gmail, Maps et autres.
+			</p>
+			<a href="https://angularjs.org" class="btn btn-primary" target="_blank">En savoir plus</a>
+		</div>
+		<div class="col-md-4 product">
+			<a href="http://nodejs.org" target="_blank">
+				<img src="img/nodejs.png" alt="Node.js" />
+			</a>
+			<h2>Node.js</h2>
+			<p>
+				Node.js permet d'utiliser JavaScript côté
+serveur, en dehors du navigateur. Avant de pouvoir exécuter votre JavaScript sur
+le serveur, le code a besoin d'être interprété. C'est précisément ce que fait
+Node.js en utilisant le moteur V8 de Google.
+			</p>
+			<a href="http://nodejs.org" class="btn btn-primary" target="_blank">En savoir plus</a>
+		</div>
+		<div class="col-md-4 product">
+			<a href="http://getbootstrap.com" target="_blank">
+				<img src="img/bootstrap.jpeg" alt="Bootstrap" />
+			</a>
+			<h2>Bootstrap</h2>
+			<p>
+				Twitter Bootstrap est une collection d'outils utile à la création de sites
+et applications web. C'est un ensemble qui contient des codes HTML, CSS et Javascript pour des
+formulaires, boutons, outils de navigation et autres éléments interactifs.
+			</p>
+			<a href="http://getbootstrap.com" class="btn btn-primary" target="_blank">En savoir plus</a>
+		</div>
+	</div>
+	<p>Et aussi&nbsp;:
+		<a href="http://jquery.com" target="_blank">JQuery</a>,
+		<a href="https://code.google.com/p/google-code-prettify" target="_blank">Google Code Prettify</a>,
+		<a href="http://www.edgecast.com" target="_blank">Edge Cast</a></p>
 </div>
+
+<div id="license" class="container cover-block">
+	<h1 class="text-center">Ce site web est sous licence MIT</h1>
+	<a href="http://opensource.org/licenses/MIT" target="_blank">
+		<div class="images text-center">
+			<img width="20%" src="img/OSI-Approved-License.png" alt="OSI Approved License" />
+			<img width="20%" src="img/mit.png" alt="OSI Approved License" />
+		</div>
+	</a>
+
+	<p>The MIT License (MIT)</p>
+	<p>
+Copyright © JLG-Consulting ©2001-{{now | date: 'yyyy'}}
+	</p>
+	<p>
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+	</p>
+	<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+	</p>
+	<p>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+	</p>
+</div>
+
+<div id="contacts" class="container cover-block">
+	<h1 class="text-center">Ce site web a été conçu et réalisé par&nbsp;:</h1>
+	<div class="text-center">
+		<a href="http://jlg-consulting.com" target="_blank">
+			<img width="80%" src="img/jlg_consulting.png">
+		</a>
+		<div class="row">
+			<p class="col-md-6">
+				JLG Consulting<br>
+				Jean-Louis GUENEGO - Entreprise Individuelle<br>
+				2 allée du Commandant Charcot<br>
+				77200 TORCY<br>
+				FRANCE<br>
+				SIRET: 439 317 058 00022<br>
+				Tel: +33 1 60 06 44 16<br>
+				Mail: jlg@jlg-consulting.com<br>
+			</p>
+			<a target="_blank" href="https://maps.google.fr/maps?q=2+allee+du+commandant+charcot+77200+torcy&ie=UTF8&hq=&hnear=2+All%C3%A9e+du+Commandant+Charcot,+77200+Torcy,+Seine-et-Marne,+%C3%8Ele-de-France&t=m&z=14&ll=48.847984,2.6399&source=embed">
+				<img width="50%" src="img/plan.jpg" alt="Plan" />
+			<a/>
+		</div>
+	</div>
+</div>
+
+<div>&nbsp;</div>
