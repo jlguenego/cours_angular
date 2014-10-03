@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^cours_angular/cours/?.*$ cours_angular/index.html [L]
