@@ -29,7 +29,7 @@
 
     "prestart": "npm install",
     "start": "node server/server_connect.js",
-
+	"precompile": "npm install",
     "compile": "grunt",
 
     "pretest": "npm install",

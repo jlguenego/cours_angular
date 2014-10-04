@@ -81,10 +81,16 @@ function build_hash(data) {
 
 	app.controller('MyAppController', ['$scope','$http', '$location', '$anchorScroll', '$timeout',
 	function($scope, $http, $location, $anchorScroll, $timeout) {
+		$scope.map = {};
+		$scope.cours = {};
 		$scope.chapter_previous = undefined;
 		$scope.chapter_next = undefined;
 		$scope.breadcrumb = undefined;
 		$scope.location = $location;
+		$scope.now = new Date();
+		$scope.window = window;
+
+		scope = $scope;
 
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = $location.path().split('/').slice(1);
@@ -128,10 +134,6 @@ function build_hash(data) {
 					$location.path('/cours');
 				});
 		};
-
-		$scope.now = new Date();
-		scope = $scope;
-		$scope.window = window;
 
 		$scope.breadcrumb_href = function(index) {
 			return $scope.breadcrumb.slice(0, index + 1).join('/');
