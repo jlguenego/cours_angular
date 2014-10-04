@@ -38,16 +38,18 @@
 
 	app.controller('ChapterController', ['$scope', '$http', '$routeParams',
 		function($scope, $http, $routeParams) {
-			
+
 			$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.html';
-			
+
 			$scope.getData('data/' + $routeParams.lesson + '.json');
+
+			//$scope.scrollTo($scope.location.path(), $scope.location.hash());
 		}
 	]);
 
 	app.controller('LessonController', ['$scope', '$http', '$routeParams',
 		function($scope, $http, $routeParams) {
-						
+
 			$scope.getData('data/cours.json');
 		}
 	]);
