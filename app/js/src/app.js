@@ -183,10 +183,10 @@ function build_hash(data) {
 			})
 			.when('/:anchor', {
 				templateUrl: 'partials/cover.html',
-				controller: function($scope, $routeParams) {
+				controller: ['$scope', '$routeParams', function($scope, $routeParams) {
 					$scope.location.path('/');
-					$scope.scrollTo($routeParams.anchor);
-				}
+					$scope.scrollTo('/', $routeParams.anchor);
+				}]
 			})
 			.otherwise({
 				redirectTo: '/'
