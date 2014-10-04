@@ -30,6 +30,8 @@
     "prestart": "npm install",
     "start": "node server/server_connect.js",
 
+    "compile": "grunt",
+
     "pretest": "npm install",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
     "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
