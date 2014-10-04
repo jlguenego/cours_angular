@@ -16,7 +16,9 @@
 
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li ng-class="{active: location.path() == '/'}"><a href="#" ng-click="scrollTo('/')">Home</a></li>
+					<li ng-class="{active: location.path() == '/'}">
+						<a href="#" ng-click="scrollTo('/')">Accueil</a>
+					</li>
 					<li class="dropdown" ng-class="{active: location.path().startsWith('/cours')}">
 						<a class="dropdown-toogle" data-toggle="dropdown" href="javascrip:void(0)">
 							Cours <span class="caret"></span>
@@ -48,7 +50,7 @@
 
 					<li class="dropdown" ng-class="{active: location.path().startsWith('/help')}">
 						<a class="dropdown-toogle" data-toggle="dropdown" href="javascrip:void(0)">
-							Help <span class="caret"></span>
+							À propos <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="javascrip:void(0)" ng-click="scrollTo('/', 'products')">Produits</a></li>
