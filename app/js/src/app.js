@@ -107,18 +107,9 @@ if (typeof String.prototype.startsWith != 'function') {
 			fixXsMenu();
 		});
 
-		$scope.scrollTo = function(path, anchor) {
-			$location.path(path);
-
-			$timeout(function() {
-				if (anchor) {
-					$location.hash(anchor);
-					$anchorScroll();
-				} else {
-					$(window).scrollTop(0);
-				}
-			});
-		}
+		$scope.scrollTop = function() {
+			$(window).scrollTop(0);
+		};
 	}]);
 
 	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -141,8 +132,9 @@ if (typeof String.prototype.startsWith != 'function') {
 			.when('/:anchor', {
 				templateUrl: 'partials/cover.html',
 				controller: ['$scope', '$routeParams', function($scope, $routeParams) {
-					$scope.location.path('/');
-					$scope.scrollTo('/', $routeParams.anchor);
+					var hash = $scope.location.path().replace(/^\//g, '');
+					$scope.location.path('/').replace();
+					$scope.location.hash(hash).replace();
 				}]
 			})
 			.otherwise({
