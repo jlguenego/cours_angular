@@ -32,15 +32,14 @@ if (typeof String.prototype.startsWith != 'function') {
 */
 	var app = angular.module('angular_cours_app',
 		[ 'ngRoute', 'myLayout', 'myServices', 'myUtilities' ]);
-	var scope;
 
 	app.directive('onFinishRender', ['$timeout', function($timeout) {
 		return {
 			restrict: 'A',
-			link: function(scope, element, attr) {
-				if (scope.$last === true) {
+			link: function($scope, element, attr) {
+				if ($scope.$last === true) {
 					$timeout(function() {
-						scope.$emit(attr.onFinishRender);
+						$scope.$emit(attr.onFinishRender);
 					});
 				}
 			}
@@ -84,8 +83,6 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.now = new Date();
 		$scope.window = window;
 
-		scope = $scope;
-
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = $location.path().split('/').slice(1);
 		}
@@ -98,6 +95,7 @@ if (typeof String.prototype.startsWith != 'function') {
 		}
 
 		$scope.$on('$routeChangeStart', function(next, current) {
+			console.log('$routeChangeStart');
 			$scope.update_breadcrumb();
 		});
 
