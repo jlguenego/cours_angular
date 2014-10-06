@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('my_layout', []);
+	var app = angular.module('myLayout', []);
 
 	app.directive('myHeader', function() {
 		return {
@@ -35,12 +35,6 @@
 			templateUrl: 'partials/my_button_nav.html'
 		};
 	});
-
-	app.controller('LessonListController', ['$scope', '$http', '$routeParams',
-		function($scope, $http, $routeParams) {
-			$scope.getData('data/cours.json');
-		}
-	]);
 
 	app.controller('ChapterListController', ['$scope', '$http', '$routeParams',
 		function($scope, $http, $routeParams) {

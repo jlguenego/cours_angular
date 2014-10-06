@@ -30,7 +30,8 @@ if (typeof String.prototype.startsWith != 'function') {
 		};
 	});
 */
-	var app = angular.module('angular_cours_app', [ 'ngRoute', 'my_layout', 'myUtilities' ]);
+	var app = angular.module('angular_cours_app',
+		[ 'ngRoute', 'myLayout', 'myServices', 'myUtilities' ]);
 	var scope;
 
 	app.directive('onFinishRender', ['$timeout', function($timeout) {
@@ -69,11 +70,12 @@ if (typeof String.prototype.startsWith != 'function') {
 	});
 	*/
 
-	app.controller('MyAppController', ['$scope','$http', '$location', '$anchorScroll', '$timeout',
-	function($scope, $http, $location, $anchorScroll, $timeout) {
+	app.controller('MyAppController',
+		['$scope', '$http', '$location', '$anchorScroll', '$timeout', 'LessonList',
+	function($scope, $http, $location, $anchorScroll, $timeout, LessonList) {
 		$scope.title = '';
 		$scope.map = {};
-		$scope.cours = {};
+		$scope.cours = LessonList.query();
 		$scope.chapter_previous = undefined;
 		$scope.chapter_next = undefined;
 		$scope.breadcrumb = undefined;
@@ -148,14 +150,6 @@ if (typeof String.prototype.startsWith != 'function') {
 			fixXsMenu();
 		});
 
-		$http.get('data/cours.json')
-			.success(function(data) {
-				$scope.cours = data;
-			})
-			.error(function() {
-				alert('Cannot find cours...');
-			});
-
 		$scope.scrollTo = function(path, anchor) {
 			$location.path(path);
 
@@ -177,8 +171,7 @@ if (typeof String.prototype.startsWith != 'function') {
 				templateUrl: 'partials/cover.html'
 			})
 			.when('/cours', {
-				templateUrl: 'partials/lesson_list.html',
-				controller: 'LessonListController'
+				templateUrl: 'partials/lesson_list.html'
 			})
 			.when('/cours/:lesson', {
 				templateUrl: 'partials/chapter_list.html',
