@@ -36,6 +36,17 @@
 		};
 	});
 
+	app.directive('subChapter', function() {
+		return {
+			restrict: 'E',
+			link: function(scope, element, attr, ctrl) {
+				scope.anchor = attr.anchor;
+			},
+			transclude: true,
+			template: '<div id="{{anchor}}" class="anchor"></div><h2 ng-transclude/>'
+		};
+	});
+
 	app.controller('ChapterListController', ['$scope', '$http', '$routeParams', 'LessonService',
 		function($scope, $http, $routeParams, LessonService) {
 			$scope.lesson_desc = LessonService.get({ name: $routeParams.lesson }, function(lesson_desc) {

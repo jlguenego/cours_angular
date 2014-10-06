@@ -1,4 +1,9 @@
-
+<style>
+.anchor {
+	position: relative;
+	top: -88px;
+}
+</style>
 <div>
 	<a ng-href="{{'#' + location.path()}}#2_1">go to 2.1</a>
 </div>
@@ -26,7 +31,7 @@ Veritus facilisis omittantur eos ad. Case causae instructior ea per, eum admodum
 indoctum cu.
 </p>
 
-<h2 id="2_1">Chapitre 2.1</h2>
+<sub-chapter anchor="2_1">Chapitre 2.1 <input type="text" ng-model="coucou" />{{coucou}}</sub-chapter>
 <p>
 	Type <kbd>cd</kbd> or <kbd>Ctrl + j</kbd> or <kbd><kbd>Ctrl</kbd> + <kbd>j</kbd></kbd>
 	<code>code test</code>
