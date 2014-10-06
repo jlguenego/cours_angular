@@ -74,7 +74,7 @@ if (typeof String.prototype.startsWith != 'function') {
 		['$scope', '$http', '$location', '$anchorScroll', '$timeout', 'LessonService',
 	function($scope, $http, $location, $anchorScroll, $timeout, LessonService) {
 		$scope.title = '';
-		$scope.map = {};
+		$scope.lesson_desc = {};
 		$scope.lesson_list = LessonService.query();
 		$scope.chapter_previous = undefined;
 		$scope.chapter_next = undefined;
@@ -90,8 +90,7 @@ if (typeof String.prototype.startsWith != 'function') {
 			$scope.breadcrumb = $location.path().split('/').slice(1);
 		}
 
-		$scope.update_hash = function() {
-			var data = $scope.map;
+		$scope.update_hash = function(data) {
 			for (var i = 0; i < data.content.length; i++) {
 				$scope.hash[data.content[i].path] = data.content[i].title;
 			}
@@ -101,24 +100,6 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.$on('$routeChangeStart', function(next, current) {
 			$scope.update_breadcrumb();
 		});
-
-		$scope.getData = function(url, success, error) {
-			$scope.map = {};
-			$http.get(url)
-				.success(function(data) {
-					$scope.map = data;
-					$scope.update_hash();
-					if (success) {
-						success();
-					}
-				})
-				.error(function() {
-					$location.path('/cours');
-					if (error) {
-						error();
-					}
-				});
-		};
 
 		$scope.breadcrumb_href = function(index) {
 			return $scope.breadcrumb.slice(0, index + 1).join('/');

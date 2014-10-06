@@ -38,16 +38,16 @@
 
 	app.controller('ChapterListController', ['$scope', '$http', '$routeParams', 'LessonService',
 		function($scope, $http, $routeParams, LessonService) {
-			$scope.map = LessonService.get({ name: $routeParams.lesson });
+			$scope.lesson_desc = LessonService.get({ name: $routeParams.lesson }, function(lesson_desc) {
+				$scope.update_hash(lesson_desc);
+			});
 		}
 	]);
 
 	app.controller('ChapterController', ['$scope', '$http', '$routeParams', 'LessonService',
 		function($scope, $http, $routeParams, LessonService) {
-			$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.html';
-
-			$scope.map = LessonService.get({ name: $routeParams.lesson }, function(map) {
-				var content_path = $scope.map.content.map(function(x) {return x.path;});
+			$scope.update_nav_button = function(lesson_desc) {
+				var content_path = lesson_desc.content.map(function(x) {return x.path;});
 				var parent_breadcrumb = $scope.breadcrumb.slice(0);
 
 				var current = parent_breadcrumb.pop();
@@ -66,6 +66,13 @@
 					tmp.push(content_path[index + 1]);
 					$scope.chapter_next = '#/' + tmp.join('/');
 				}
+			};
+
+			$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.html';
+
+			$scope.lesson_desc = LessonService.get({ name: $routeParams.lesson }, function(lesson_desc) {
+				$scope.update_hash(lesson_desc);
+				$scope.update_nav_button(lesson_desc);
 			});
 		}
 	]);

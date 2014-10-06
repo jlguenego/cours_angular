@@ -23,13 +23,13 @@
 
 <div class="container-fluid chapter-list">
 	<div class="title">
-		<img ng-src="{{'img/' + map.img}}" class="lesson-logo" alt="{{lesson.title}}" />
-		<h1>{{map.title}}</h1>
+		<img ng-src="{{'img/' + lesson_desc.img}}" class="lesson-logo" alt="{{lesson.title}}" />
+		<h1>{{lesson_desc.title}}</h1>
 	</div>
 	<div class="text-center">
 		<ul>
-			<li class="lesson-title" ng-repeat="chapter in map.content">
-				<a href="{{'#/cours/' + map.path + '/' + chapter.path}}">
+			<li class="lesson-title" ng-repeat="chapter in lesson_desc.content">
+				<a href="{{'#/cours/' + lesson_desc.path + '/' + chapter.path}}">
 					<h2>{{chapter.title}}</h2>
 				</a>
 			</li>

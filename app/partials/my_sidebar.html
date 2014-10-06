@@ -1,8 +1,8 @@
 <div class="my-sidebar hidden-xs">
-	<h1>{{map.title}}</h1>
+	<h1>{{lesson_desc.title}}</h1>
 	<ul>
-		<li ng-repeat="chapter in map.content">
-			<a href="#{{'/' + cours.path + '/' + map.path + '/' + chapter.path}}" onClick="(function() {
+		<li ng-repeat="chapter in lesson_desc.content">
+			<a href="#{{'/' + lesson_list.path + '/' + lesson_desc.path + '/' + chapter.path}}" onClick="(function() {
 					$(window).scrollTop(0);
 				})()">
 				{{chapter.title}}

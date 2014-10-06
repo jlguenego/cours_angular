@@ -38,12 +38,12 @@
 					<li class="dropdown" ng-show="location.path().startsWith('/cours/')"
 						ng-class="{'visible-xs': location.path().startsWith('/cours/')}">
 						<a class="dropdown-toogle" data-toggle="dropdown" href="javascrip:void(0)">
-							{{map.title}} <span class="caret"></span>
+							{{lesson_desc.title}} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li ng-repeat="chapter in map.content" on-finish-render="fix-menu"
-								ng-class="{active: location.path().startsWith('/cours/' + map.path + '/' + chapter.path)}">
-								<a href="{{'#/cours/' + map.path + '/' + chapter.path}}">{{chapter.title}}</a>
+							<li ng-repeat="chapter in lesson_desc.content" on-finish-render="fix-menu"
+								ng-class="{active: location.path().startsWith('/cours/' + lesson_desc.path + '/' + chapter.path)}">
+								<a href="{{'#/cours/' + lesson_desc.path + '/' + chapter.path}}">{{chapter.title}}</a>
 							</li>
 						</ul>
 					</li>
