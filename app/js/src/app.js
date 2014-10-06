@@ -90,11 +90,11 @@ if (typeof String.prototype.startsWith != 'function') {
 			$scope.breadcrumb = $location.path().split('/').slice(1);
 		}
 
-		$scope.update_hash = function(data) {
-			for (var i = 0; i < data.content.length; i++) {
-				$scope.hash[data.content[i].path] = data.content[i].title;
+		$scope.update_hash = function(lesson_desc) {
+			for (var i = 0; i < lesson_desc.content.length; i++) {
+				$scope.hash[lesson_desc.content[i].path] = lesson_desc.content[i].title;
 			}
-			$scope.hash[data.path] = data.title;
+			$scope.hash[lesson_desc.path] = lesson_desc.title;
 		}
 
 		$scope.$on('$routeChangeStart', function(next, current) {
