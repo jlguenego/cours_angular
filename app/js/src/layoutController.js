@@ -36,14 +36,9 @@
 		};
 	});
 
-	app.controller('ChapterController', ['$scope', '$http', '$routeParams',
+	app.controller('LessonListController', ['$scope', '$http', '$routeParams',
 		function($scope, $http, $routeParams) {
-
-			$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.html';
-
-			$scope.getData('data/' + $routeParams.lesson + '.json');
-
-			//$scope.scrollTo($scope.location.path(), $scope.location.hash());
+			$scope.getData('data/cours.json');
 		}
 	]);
 
@@ -53,10 +48,13 @@
 		}
 	]);
 
-	app.controller('LessonController', ['$scope', '$http', '$routeParams',
+	app.controller('ChapterController', ['$scope', '$http', '$routeParams',
 		function($scope, $http, $routeParams) {
+			$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.html';
 
-			$scope.getData('data/cours.json');
+			$scope.getData('data/' + $routeParams.lesson + '.json');
+
+			//$scope.scrollTo($scope.location.path(), $scope.location.hash());
 		}
 	]);
 })();

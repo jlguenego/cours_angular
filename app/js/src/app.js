@@ -5,16 +5,6 @@ if (typeof String.prototype.startsWith != 'function') {
 	};
 }
 
-function build_hash(data) {
-	var result = {};
-	for (var i = 0; i < data.content.length; i++) {
-		result[data.content[i].path] = data.content[i].title;
-	}
-	result[data.path] = data.title;
-	result['cours'] = 'Cours';
-	return result;
-}
-
 (function() {
 	angular.module('myUtilities', [])
 /*	.directive("myInclude", function() {
@@ -81,11 +71,13 @@ function build_hash(data) {
 
 	app.controller('MyAppController', ['$scope','$http', '$location', '$anchorScroll', '$timeout',
 	function($scope, $http, $location, $anchorScroll, $timeout) {
+		$scope.title = '';
 		$scope.map = {};
 		$scope.cours = {};
 		$scope.chapter_previous = undefined;
 		$scope.chapter_next = undefined;
 		$scope.breadcrumb = undefined;
+		$scope.hash = { 'cours': 'Cours' };
 		$scope.location = $location;
 		$scope.now = new Date();
 		$scope.window = window;
@@ -94,6 +86,14 @@ function build_hash(data) {
 
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = $location.path().split('/').slice(1);
+		}
+
+		$scope.update_hash = function() {
+			var data = $scope.map;
+			for (var i = 0; i < data.content.length; i++) {
+				$scope.hash[data.content[i].path] = data.content[i].title;
+			}
+			$scope.hash[data.path] = data.title;
 		}
 
 		$scope.manage_nav_buttons = function() {
@@ -127,7 +127,7 @@ function build_hash(data) {
 			$http.get(url)
 				.success(function(data) {
 					$scope.map = data;
-					$scope.hash = build_hash(data);
+					$scope.update_hash();
 					$scope.manage_nav_buttons();
 				})
 				.error(function() {
@@ -173,7 +173,7 @@ function build_hash(data) {
 			})
 			.when('/cours', {
 				templateUrl: 'partials/lesson_list.html',
-				controller: 'LessonController'
+				controller: 'LessonListController'
 			})
 			.when('/cours/:lesson', {
 				templateUrl: 'partials/chapter_list.html',
