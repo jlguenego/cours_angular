@@ -122,16 +122,21 @@ if (typeof String.prototype.startsWith != 'function') {
 			$scope.update_breadcrumb();
 		});
 
-		$scope.getData = function(url) {
+		$scope.getData = function(url, success, error) {
 			$scope.map = {};
 			$http.get(url)
 				.success(function(data) {
 					$scope.map = data;
 					$scope.update_hash();
-					$scope.manage_nav_buttons();
+					if (success) {
+						success();
+					}
 				})
 				.error(function() {
 					$location.path('/cours');
+					if (error) {
+						error();
+					}
 				});
 		};
 

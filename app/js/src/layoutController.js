@@ -52,9 +52,9 @@
 		function($scope, $http, $routeParams) {
 			$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.html';
 
-			$scope.getData('data/' + $routeParams.lesson + '.json');
-
-			//$scope.scrollTo($scope.location.path(), $scope.location.hash());
+			$scope.getData('data/' + $routeParams.lesson + '.json', function() {
+				$scope.manage_nav_buttons();
+			});
 		}
 	]);
 })();
