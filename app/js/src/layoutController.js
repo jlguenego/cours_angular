@@ -68,14 +68,14 @@
 				if (index > 0) {
 					var tmp = parent_breadcrumb.slice(0);
 					tmp.push(content_path[index - 1]);
-					$scope.chapter_previous = '#/' + tmp.join('/');
+					$scope.chapter_previous = '/' + tmp.join('/');
 				}
 
 				$scope.chapter_next = undefined;
 				if (index < content_path.length - 1) {
 					var tmp = parent_breadcrumb.slice(0);
 					tmp.push(content_path[index + 1]);
-					$scope.chapter_next = '#/' + tmp.join('/');
+					$scope.chapter_next = '/' + tmp.join('/');
 				}
 			};
 

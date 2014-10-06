@@ -6,6 +6,7 @@ if (typeof String.prototype.startsWith != 'function') {
 }
 
 (function() {
+	var cours_angular_config = get_cours_angular_config();
 	angular.module('myUtilities', [])
 /*	.directive("myInclude", function() {
 		return {
@@ -70,7 +71,8 @@ if (typeof String.prototype.startsWith != 'function') {
 	*/
 
 	app.controller('MyAppController',
-		['$scope', '$http', '$location', '$anchorScroll', '$timeout', 'LessonService',
+		['$scope', '$http', '$location', '$anchorScroll', '$timeout',
+		'LessonService',
 	function($scope, $http, $location, $anchorScroll, $timeout, LessonService) {
 		$scope.title = '';
 		$scope.lesson_desc = {};
@@ -97,10 +99,11 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.$on('$routeChangeStart', function(next, current) {
 			console.log('$routeChangeStart');
 			$scope.update_breadcrumb();
+			console.log($scope.location);
 		});
 
 		$scope.breadcrumb_href = function(index) {
-			return $scope.breadcrumb.slice(0, index + 1).join('/');
+			return $scope.url('/' + $scope.breadcrumb.slice(0, index + 1).join('/'));
 		};
 
 		$scope.$on('fix-menu', function() {
@@ -110,10 +113,17 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.scrollTop = function() {
 			$(window).scrollTop(0);
 		};
+
+		$scope.url = function(url) {
+			return '#' + cours_angular_config.hashPrefix + url;
+		}
 	}]);
 
 	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-		$locationProvider.html5Mode(true);
+		$locationProvider
+			.html5Mode(cours_angular_config.html5Mode)
+			.hashPrefix(cours_angular_config.hashPrefix);
+
 		$routeProvider
 			.when('/', {
 				templateUrl: 'partials/cover.html'

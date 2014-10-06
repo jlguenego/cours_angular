@@ -1,21 +1,21 @@
 <div class="btn-toolbar hidden-xs">
 
-		<a href="{{chapter_previous}}" class="btn btn-primary" ng-class="{disabled: !chapter_previous}">
+		<a href="{{url(chapter_previous)}}" class="btn btn-primary" ng-class="{disabled: !chapter_previous}">
 			<span class="glyphicon glyphicon-step-backward"></span>
 			Précédent
 		</a>
 
-		<a href="#" class="btn btn-info" target="_blank">
+		<a ng-href="{{url()}}" class="btn btn-info" target="_blank">
 			<span class="glyphicon glyphicon-play"></span>
 			Démonstration
 		</a>
 
-		<a href="#" class="btn btn-info" target="_blank">
+		<a ng-href="{{url()}}" class="btn btn-info" target="_blank">
 			<span class="glyphicon glyphicon-search"></span>
 			Code Diff
 		</a>
 
-		<a href="{{chapter_next}}" class="btn btn-primary" ng-class="{disabled: !chapter_next}">
+		<a ng-href="{{url(chapter_next)}}" class="btn btn-primary" ng-class="{disabled: !chapter_next}">
 			Suivant
 			<span class="glyphicon glyphicon-step-forward"></span>
 		</a>
@@ -24,12 +24,12 @@
 
 <div class="btn-toolbar visible-xs">
 
-		<a href="{{chapter_previous}}" class="btn btn-primary" ng-class="{disabled: !chapter_previous}">
+		<a href="{{url(chapter_previous)}}" class="btn btn-primary" ng-class="{disabled: !chapter_previous}">
 			<span class="glyphicon glyphicon-step-backward"></span>
 			Précédent
 		</a>
 
-		<a href="{{chapter_next}}" class="btn btn-primary pull-right" ng-class="{disabled: !chapter_next}">
+		<a href="{{url(chapter_next)}}" class="btn btn-primary pull-right" ng-class="{disabled: !chapter_next}">
 			Suivant
 			<span class="glyphicon glyphicon-step-forward"></span>
 		</a>
@@ -38,12 +38,12 @@
 <div class="button-vert-spacer visible-xs"></div>
 <div class="btn-toolbar visible-xs text-center">
 
-		<a href="#" class="btn btn-info btn-xs" target="_blank">
+		<a ng-href="{{url()}}" class="btn btn-info btn-xs" target="_blank">
 			<span class="glyphicon glyphicon-play"></span>
 			Démo
 		</a>
 
-		<a href="#" class="btn btn-info btn-xs" target="_blank">
+		<a ng-href="{{url()}}" class="btn btn-info btn-xs" target="_blank">
 			<span class="glyphicon glyphicon-search"></span>
 			Code Diff
 		</a>

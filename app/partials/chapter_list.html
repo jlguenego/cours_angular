@@ -29,7 +29,7 @@
 	<div class="text-center">
 		<ul>
 			<li class="lesson-title" ng-repeat="chapter in lesson_desc.content">
-				<a href="{{'#/cours/' + lesson_desc.path + '/' + chapter.path}}">
+				<a ng-href="{{url('/cours/' + lesson_desc.path + '/' + chapter.path)}}">
 					<h2>{{chapter.title}}</h2>
 				</a>
 			</li>

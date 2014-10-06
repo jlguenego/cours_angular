@@ -2,9 +2,8 @@
 	<h1>{{lesson_desc.title}}</h1>
 	<ul>
 		<li ng-repeat="chapter in lesson_desc.content">
-			<a href="#{{'/' + lesson_list.path + '/' + lesson_desc.path + '/' + chapter.path}}" onClick="(function() {
-					$(window).scrollTop(0);
-				})()">
+			<a ng-href="{{url('/' + lesson_list.path + '/' + lesson_desc.path + '/' + chapter.path)}}"
+				ng-click="scrollTop()">
 				{{chapter.title}}
 			</a>
 		</li>

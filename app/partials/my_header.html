@@ -9,7 +9,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" ng-href="{{url('/')}}">
 					<img height="30" src="img/jlg_consulting_black.png" />
 				</a>
 			</div>
@@ -17,7 +17,7 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li ng-class="{active: location.path() == '/'}">
-						<a href="#">Accueil</a>
+						<a ng-href="{{url('/')}}">Accueil</a>
 					</li>
 					<li class="dropdown" ng-class="{active: location.path().startsWith('/cours')}">
 						<a class="dropdown-toogle" data-toggle="dropdown" href="javascrip:void(0)">
@@ -25,12 +25,12 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="#/cours">Liste des cours</a>
+								<a ng-href="{{url('/cours')}}">Liste des cours</a>
 							</li>
 							<li class="divider"></li>
 							<li ng-repeat="lesson in lesson_list.content" on-finish-render="fix-menu"
 								 ng-class="{active: location.path().startsWith('/cours/' + lesson.path)}">
-								<a href="{{'#/cours' + '/' + lesson.path}}">{{lesson.title}}</a>
+								<a ng-href="{{url('/cours/' + lesson.path)}}">{{lesson.title}}</a>
 							</li>
 						</ul>
 					</li>
@@ -43,7 +43,7 @@
 						<ul class="dropdown-menu">
 							<li ng-repeat="chapter in lesson_desc.content" on-finish-render="fix-menu"
 								ng-class="{active: location.path().startsWith('/cours/' + lesson_desc.path + '/' + chapter.path)}">
-								<a href="{{'#/cours/' + lesson_desc.path + '/' + chapter.path}}">{{chapter.title}}</a>
+								<a ng-href="{{url('/cours/' + lesson_desc.path + '/' + chapter.path)}}">{{chapter.title}}</a>
 							</li>
 						</ul>
 					</li>
@@ -53,9 +53,9 @@
 							À propos <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="#products">Produits</a></li>
-							<li><a href="#license">Licence</a></li>
-							<li><a href="#contacts">Contact</a></li>
+							<li><a ng-href="{{url('/#products')}}">Produits</a></li>
+							<li><a ng-href="{{url('/#license')}}">Licence</a></li>
+							<li><a ng-href="{{url('/#contacts')}}">Contact</a></li>
 						</ul>
 					</li>
 				</ul>
