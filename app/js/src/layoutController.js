@@ -36,18 +36,36 @@
 		};
 	});
 
-	app.controller('ChapterListController', ['$scope', '$http', '$routeParams',
-		function($scope, $http, $routeParams) {
-			$scope.getData('data/' + $routeParams.lesson + '.json');
+	app.controller('ChapterListController', ['$scope', '$http', '$routeParams', 'LessonService',
+		function($scope, $http, $routeParams, LessonService) {
+			$scope.map = LessonService.get({ name: $routeParams.lesson });
 		}
 	]);
 
-	app.controller('ChapterController', ['$scope', '$http', '$routeParams',
-		function($scope, $http, $routeParams) {
+	app.controller('ChapterController', ['$scope', '$http', '$routeParams', 'LessonService',
+		function($scope, $http, $routeParams, LessonService) {
 			$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.html';
 
-			$scope.getData('data/' + $routeParams.lesson + '.json', function() {
-				$scope.manage_nav_buttons();
+			$scope.map = LessonService.get({ name: $routeParams.lesson }, function(map) {
+				var content_path = $scope.map.content.map(function(x) {return x.path;});
+				var parent_breadcrumb = $scope.breadcrumb.slice(0);
+
+				var current = parent_breadcrumb.pop();
+				var index = content_path.indexOf(current);
+
+				$scope.chapter_previous = undefined;
+				if (index > 0) {
+					var tmp = parent_breadcrumb.slice(0);
+					tmp.push(content_path[index - 1]);
+					$scope.chapter_previous = '#/' + tmp.join('/');
+				}
+
+				$scope.chapter_next = undefined;
+				if (index < content_path.length - 1) {
+					var tmp = parent_breadcrumb.slice(0);
+					tmp.push(content_path[index + 1]);
+					$scope.chapter_next = '#/' + tmp.join('/');
+				}
 			});
 		}
 	]);

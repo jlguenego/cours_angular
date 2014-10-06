@@ -28,7 +28,7 @@
 								<a href="#/cours">Liste des cours</a>
 							</li>
 							<li class="divider"></li>
-							<li ng-repeat="lesson in cours.content" on-finish-render="fix-menu"
+							<li ng-repeat="lesson in lesson_list.content" on-finish-render="fix-menu"
 								 ng-class="{active: location.path().startsWith('/cours/' + lesson.path)}">
 								<a href="{{'#/cours' + '/' + lesson.path}}">{{lesson.title}}</a>
 							</li>

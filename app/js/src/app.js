@@ -71,11 +71,11 @@ if (typeof String.prototype.startsWith != 'function') {
 	*/
 
 	app.controller('MyAppController',
-		['$scope', '$http', '$location', '$anchorScroll', '$timeout', 'LessonList',
-	function($scope, $http, $location, $anchorScroll, $timeout, LessonList) {
+		['$scope', '$http', '$location', '$anchorScroll', '$timeout', 'LessonService',
+	function($scope, $http, $location, $anchorScroll, $timeout, LessonService) {
 		$scope.title = '';
 		$scope.map = {};
-		$scope.cours = LessonList.query();
+		$scope.lesson_list = LessonService.query();
 		$scope.chapter_previous = undefined;
 		$scope.chapter_next = undefined;
 		$scope.breadcrumb = undefined;
@@ -97,28 +97,6 @@ if (typeof String.prototype.startsWith != 'function') {
 			}
 			$scope.hash[data.path] = data.title;
 		}
-
-		$scope.manage_nav_buttons = function() {
-			var content_path = $scope.map.content.map(function(x) {return x.path;});
-			var parent_breadcrumb = $scope.breadcrumb.slice(0);
-
-			var current = parent_breadcrumb.pop();
-			var index = content_path.indexOf(current);
-
-			$scope.chapter_previous = undefined;
-			if (index > 0) {
-				var tmp = parent_breadcrumb.slice(0);
-				tmp.push(content_path[index - 1]);
-				$scope.chapter_previous = '#/' + tmp.join('/');
-			}
-
-			$scope.chapter_next = undefined;
-			if (index < content_path.length - 1) {
-				var tmp = parent_breadcrumb.slice(0);
-				tmp.push(content_path[index + 1]);
-				$scope.chapter_next = '#/' + tmp.join('/');
-			}
-		};
 
 		$scope.$on('$routeChangeStart', function(next, current) {
 			$scope.update_breadcrumb();

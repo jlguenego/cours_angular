@@ -29,7 +29,8 @@
 <div class="container-fluid">
 	<h1>Liste des cours</h1>
 	<div class="text-center">
-		<a href="{{'#/' + cours.path + '/' + lesson.path}}" ng-repeat="lesson in cours.content">
+		<a href="{{'#/' + lesson_list.path + '/' + lesson.path}}"
+			ng-repeat="lesson in lesson_list.content">
 			<div class="lesson-title">
 					<img ng-src="{{'img/' + lesson.img}}" class="lesson-logo" alt="{{lesson.title}}" />
 					<h2>{{lesson.title}}</h2>
