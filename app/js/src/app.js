@@ -177,7 +177,7 @@ function build_hash(data) {
 			})
 			.when('/cours/:lesson', {
 				templateUrl: 'partials/chapter_list.html',
-				controller: 'ChapterController'
+				controller: 'ChapterListController'
 			})
 			.when('/cours/:lesson/:chapter', {
 				templateUrl: 'partials/lesson_content.html',

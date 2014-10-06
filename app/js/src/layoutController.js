@@ -47,6 +47,12 @@
 		}
 	]);
 
+	app.controller('ChapterListController', ['$scope', '$http', '$routeParams',
+		function($scope, $http, $routeParams) {
+			$scope.getData('data/' + $routeParams.lesson + '.json');
+		}
+	]);
+
 	app.controller('LessonController', ['$scope', '$http', '$routeParams',
 		function($scope, $http, $routeParams) {
 
