@@ -1,0 +1,82 @@
+<div class="my-form-container">
+	<h3>Insérez votre commentaire</h3>
+	<div class="comment-preview">
+		<comment></comment>
+	</div>
+
+	<form class="form-horizontal" name="commentForm" role="form"
+		ng-submit="addCommentCtrl.addComment() || commentForm.$setPristine()"
+		novalidation>
+
+		<div class="form-group"
+			ng-class="{
+				'has-success': commentForm.stars.$valid,
+				'has-error': !commentForm.stars.$pristine && !commentForm.stars.$valid,
+				'has-feedback': !commentForm.stars.$pristine
+			}">
+			<label for="formRate" class="sr-only">Your rate</label>
+			<div class="col-sm-2 ">
+				<select id="formRate" class="form-control"
+					name="stars"
+					ng-model="comment.stars"
+					ng-options="stars for stars in [5, 4, 3, 2, 1]"
+					required>
+					<option value="" disabled>Your rate</option>
+				</select>
+				<span class="glyphicon glyphicon-ok form-control-feedback"
+					ng-hide="commentForm.stars.$pristine || !commentForm.stars.$valid"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"
+					ng-hide="commentForm.stars.$pristine || commentForm.stars.$valid"></span>
+			</div>
+		</div>
+
+
+		<div class="form-group"
+			ng-class="{
+				'has-success': commentForm.comment.$valid,
+				'has-error': !commentForm.comment.$pristine && !commentForm.comment.$valid,
+				'has-feedback': !commentForm.comment.$pristine
+			}">
+			<label for="formContent" class="sr-only">Your comment</label>
+			<div class="col-sm-12">
+				<textarea id="formContent" class="form-control" name="comment"
+					ng-model="comment.content"
+					rows="5" placeholder="Your comment"
+					required></textarea>
+				<span class="glyphicon glyphicon-ok form-control-feedback"
+					ng-hide="commentForm.comment.$pristine || !commentForm.comment.$valid"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"
+					ng-hide="commentForm.comment.$pristine || commentForm.comment.$valid"></span>
+			</div>
+		</div>
+
+		<div class="form-group"
+			ng-class="{
+				'has-success': commentForm.email.$valid,
+				'has-error': !commentForm.email.$pristine && !commentForm.email.$valid,
+				'has-feedback': !commentForm.email.$pristine
+			}">
+			<label for="formEmail" class="sr-only">Email</label>
+			<div class="col-sm-12">
+				<div class="input-group">
+					<label for="formEmail" class="control-label input-group-addon">@</label>
+					<input id="formEmail" type="email" class="form-control" name="email"
+						ng-model="comment.author"
+						placeholder="Your Email"
+						required/>
+				</div>
+				<span class="glyphicon glyphicon-ok form-control-feedback"
+					ng-hide="commentForm.email.$pristine || !commentForm.email.$valid"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback"
+					ng-hide="commentForm.email.$pristine || commentForm.email.$valid"></span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-success btn-lg"
+					ng-disabled="!commentForm.$valid">Post your comment</button>
+			</div>
+		</div>
+	</form>
+</div>

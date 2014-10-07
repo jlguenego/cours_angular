@@ -1,0 +1,14 @@
+<style>
+	.comments {
+		margin-top: 40px;
+	}
+</style>
+
+<div class="comments">
+	<comment ng-repeat="comment in comments"></comment>
+	<blockquote ng-hide="comments.length > 0">
+		<p>Soyez le premier à commenter ce cours.</p>
+	</blockquote>
+
+	<comment-form></comment-form>
+</div>

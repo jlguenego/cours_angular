@@ -1,0 +1,15 @@
+<div class="comment">
+	<b>{{comment.author}}</b> -
+	<div class="rate">
+		<span class="glyphicon glyphicon-star"
+			ng-repeat="i in commentCtrl.getRange(comment.stars) track by $index"></span>
+		<span class="glyphicon glyphicon-star-empty"
+			ng-repeat="i in commentCtrl.getRange(5 - comment.stars) track by $index"></span>
+	</div>
+
+	<blockquote>
+		<p class="content">
+			{{comment.content}}
+		</p>
+	</blockquote>
+</div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+		<style>
+.form-control-feedback {
+	right: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<h2>With optional icon - Default</h2>
+
+			<form class="" role="form">
+				<div class="form-group has-success has-feedback">
+					<label class="control-label sr-only">Input with success</label>
+					<select id="formRate" class="form-control" name="stars" required>
+						<option value="" disabled>Your rate</option>
+					</select>
+					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				</div>
+
+				<div class="form-group has-success has-feedback">
+					<label class="control-label sr-only">Input with success</label>
+					<input type="text" class="form-control"/>
+					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+
+		<script src="../../bower_components/jquery/jquery.js"></script>
+		<script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	</body>
+</html>

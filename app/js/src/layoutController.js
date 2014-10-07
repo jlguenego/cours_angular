@@ -47,6 +47,52 @@
 		};
 	});
 
+	app.directive('comments', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/comments.html',
+			controller: ['$scope', '$http', function($scope, $http) {
+				$scope.comments = [];
+				var chapterPath = $scope.breadcrumb.slice(1).join('/');
+
+				$http.get('data/comments/' + chapterPath + '.json')
+					.success(function(data) {
+						$scope.comments = data;
+					});
+			}]
+		};
+	});
+
+	app.directive('comment', function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/comment.html',
+			controller: function() {
+				this.getRange = function(nbr) {
+					nbr = nbr || 0;
+					return new Array(nbr);
+				};
+			},
+			controllerAs: 'commentCtrl'
+		};
+	});
+
+	app.directive('commentForm', function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/comment_form.html',
+			controller: ['$scope', function($scope) {
+				$scope.comment = {};
+
+				this.addComment = function() {
+					$scope.comments.push($scope.comment);
+					$scope.comment = {};
+				};
+			}],
+			controllerAs: 'addCommentCtrl'
+		};
+	});
+
 	app.controller('ChapterListController', ['$scope', '$http', '$routeParams', 'LessonService',
 		function($scope, $http, $routeParams, LessonService) {
 			$scope.lesson_desc = LessonService.get({ name: $routeParams.lesson }, function(lesson_desc) {

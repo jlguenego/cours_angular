@@ -1,0 +1,22 @@
+[
+	{
+		"stars": 3,
+		"author": "toto@toto.fr",
+		"content": "Bon cours"
+	},
+	{
+		"stars": 5,
+		"author": "toto@toto.fr",
+		"content": "Je comprend tout!!"
+	},
+	{
+		"stars": 1,
+		"author": "toto@toto.fr",
+		"content": "Bof..."
+	},
+	{
+		"stars": 4,
+		"author": "toto@toto.fr",
+		"content": "Génial ce cours. mais il y a un truc que je n'ai pas compris..."
+	}
+]
