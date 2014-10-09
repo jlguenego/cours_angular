@@ -1,86 +1,118 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
 
-		<style>
-.colorblind .has-success .form-control,
-.colorblind .has-success .help-block,
-.colorblind .has-success .control-label,
-.colorblind .has-success .radio,
-.colorblind .has-success .checkbox,
-.colorblind .has-success .radio-inline,
-.colorblind .has-success .checkbox-inline,
-.colorblind .has-success .form-control-feedback {
-	color: #21DF17;
-	border-color: #21DF17;
-}
+<head>
+  <link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+  <link rel="stylesheet" href="bootstrap-colorblind.css" />
+  <link rel="stylesheet" href="bootstrap-colorblind-bg.css" />
+</head>
 
-.colorblind .has-warning .form-control,
-.colorblind .has-warning .help-block,
-.colorblind .has-warning .control-label,
-.colorblind .has-warning .radio,
-.colorblind .has-warning .checkbox,
-.colorblind .has-warning .radio-inline,
-.colorblind .has-warning .checkbox-inline,
-.colorblind .has-warning .form-control-feedback {
-	color: #FFCC00;
-	border-color: #FFCC00;
-}
+<body>
+  <div class="container">
+    <h1>Test for colorblind</h1>
+    <p>
+      Test for issue <a href="https://github.com/twbs/bootstrap/issues/14744">https://github.com/twbs/bootstrap/issues/14744</a>.
+    </p>
+    <p>
+      <label class="control-label">
+        <input type="checkbox" id="colorblindCheckbox" checked="" />Enable colorblind
+      </label>
+      <span class="help-block">
+          Uncheck for retrieving the original bootstrap color scheme.
+        </span>
+    </p>
+    <form>
+      <div class="form-group has-feedback">
+        <label class="control-label" for="inputNormal1">Input without status</label>
+        <input type="text" class="form-control" id="inputNormal1"
+          value="Jean-Louis Guénégo" />
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+      <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputSuccess1">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess1"
+          value="Jean-Louis Guénégo"/>
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+      <div class="form-group has-warning has-feedback">
+        <label class="control-label" for="inputWarning1">Input with warning</label>
+        <input type="text" class="form-control" id="inputWarning1"
+          value="Jean-Louis Guénégo"/>
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      </div>
+      <div class="form-group has-error has-feedback">
+        <label class="control-label" for="inputError1">Input with error</label>
+        <input type="text" class="form-control" id="inputError1"
+          value="Jean-Louis Guénégo"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      </div>
+    </form>
 
-.colorblind .has-error .form-control,
-.colorblind .has-error .help-block,
-.colorblind .has-error .control-label,
-.colorblind .has-error .radio,
-.colorblind .has-error .checkbox,
-.colorblind .has-error .radio-inline,
-.colorblind .has-error .checkbox-inline,
-.colorblind .has-error .form-control-feedback {
-	color: #FF330F;
-	border-color: #FF330F;
-}
-		</style>
-	</head>
+    <p>
+      <b>Note</b>: The color has been specified with RGB format for browser compatibility.
+      Regarding the border color effect, for a given class (success, warning, error),
+      the HUE and the SATURATION are the same and only the LUMINOSITY is increased to give a perception of "being under the
+      spot".
+      <br/>The green color SATURATION is high but not the maximum to avoid the feeling of "couleur pétante" (flashy color).
+    </p>
 
-	<body>
-		<div class="container">
-			<form>
-				<div class="form-group has-success has-feedback">
-					<label class="control-label" for="inputSuccess1">Input with success</label>
-					<input type="text" class="form-control" id="inputSuccess1">
-					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				</div>
-				<div class="form-group has-warning has-feedback">
-					<label class="control-label" for="inputWarning1">Input with warning</label>
-					<input type="text" class="form-control" id="inputWarning1">
-					<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				</div>
-				<div class="form-group has-error has-feedback">
-					<label class="control-label" for="inputError1">Input with error</label>
-					<input type="text" class="form-control" id="inputError1">
-					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				</div>
-			</form>
+  </div>
 
-			<input type="checkbox" id="colorblindCheckbox" checked/> Enable colorblind
-		</div>
 
-		<script src="../../bower_components/jquery/jquery.js"></script>
-		<script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <div class="container">
+    <h1>Test for colorblind with background</h1>
+    <p>
+      Test for issue <a href="https://github.com/twbs/bootstrap/issues/14744">https://github.com/twbs/bootstrap/issues/14744</a>.
+    </p>
+    <p>
+      <label class="control-label">
+        <input type="checkbox" id="colorblindCheckboxBg" checked="" />Enable colorblind
+      </label>
+      <span class="help-block">
+          Uncheck for retrieving the original bootstrap color scheme.
+        </span>
+    </p>
+    <form>
+      <div class="form-group has-feedback">
+        <label class="control-label" for="inputNormal2">Input without status</label>
+        <input type="text" class="form-control" id="inputNormal2"
+          value="Jean-Louis Guénégo"/>
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+      <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputSuccess2">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess2"
+          value="Jean-Louis Guénégo"/>
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+      <div class="form-group has-warning has-feedback">
+        <label class="control-label" for="inputWarning2">Input with warning</label>
+        <input type="text" class="form-control" id="inputWarning2"
+          value="Jean-Louis Guénégo"/>
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      </div>
+      <div class="form-group has-error has-feedback">
+        <label class="control-label" for="inputError2">Input with error</label>
+        <input type="text" class="form-control" id="inputError2"
+          value="Jean-Louis Guénégo" />
+        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      </div>
+    </form>
 
-		<script>
-$(document).ready(function() {
-	function toggleColorblind() {
-		if ($('#colorblindCheckbox:checked').length > 0) {
-			$('div.container').addClass('colorblind');
-		} else {
-			$('div.container').removeClass('colorblind');
-		}
-	}
+    <p>
+      <b>Note</b>: This solution W3C WCAG AAA compliant according the color contrast ratio with
+      <a href="http://www.snook.ca/technical/colour_contrast/colour.html">
+        http://www.snook.ca/technical/colour_contrast/colour.html
+      </a>.<br/>
+      However, the indication of the status is perceived by the pastel background color
+      (same hue with high luminosity and low saturation).
+    </p>
 
-	$('#colorblindCheckbox').change(toggleColorblind);
-	toggleColorblind();
-});
-		</script>
-	</body>
+  </div>
+
+  <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script data-require="bootstrap@*" data-semver="3.2.0" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

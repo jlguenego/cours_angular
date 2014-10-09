@@ -1,0 +1,7 @@
+https://developers.google.com/webmasters/ajax-crawling/
+https://developers.google.com/webmasters/ajax-crawling/docs/specification?hl=fr-FR
+
+http://www.sitemaps.org/protocol.html
+
+http://builtvisible.com/javascript-framework-seo/
+http://builtvisible.com/check-your-xml-sitemap-errors/

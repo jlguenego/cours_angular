@@ -1,0 +1,67 @@
+/* Styles go here */
+
+.colorblind-bg .has-success .form-control,
+.colorblind-bg .has-success .help-block,
+.colorblind-bg .has-success .control-label,
+.colorblind-bg .has-success .radio,
+.colorblind-bg .has-success .checkbox,
+.colorblind-bg .has-success .radio-inline,
+.colorblind-bg .has-success .checkbox-inline,
+.colorblind-bg .has-success .form-control-feedback {
+	color: #0E5F09;
+	border-color: #0E5F09;
+}
+
+.colorblind-bg  .has-success .form-control:focus {
+	border-color: #17a712;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #32e92c;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #32e92c;
+}
+
+.colorblind-bg .has-success .form-control {
+	background-color: #EFF8EE;
+}
+
+.colorblind-bg .has-warning .form-control,
+.colorblind-bg .has-warning .help-block,
+.colorblind-bg .has-warning .control-label,
+.colorblind-bg .has-warning .radio,
+.colorblind-bg .has-warning .checkbox,
+.colorblind-bg .has-warning .radio-inline,
+.colorblind-bg .has-warning .checkbox-inline,
+.colorblind-bg .has-warning .form-control-feedback {
+	color: #665200;
+	border-color: #665200;
+}
+
+.colorblind-bg  .has-warning .form-control:focus {
+	border-color: #FFD737;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #FFE066;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #FFE066;
+}
+
+.colorblind-bg .has-warning .form-control {
+	background-color: #FFFBE6;
+}
+
+.colorblind-bg .has-error .form-control,
+.colorblind-bg .has-error .help-block,
+.colorblind-bg .has-error .control-label,
+.colorblind-bg .has-error .radio,
+.colorblind-bg .has-error .checkbox,
+.colorblind-bg .has-error .radio-inline,
+.colorblind-bg .has-error .checkbox-inline,
+.colorblind-bg .has-error .form-control-feedback {
+	color: #A11800;
+	border-color: #A11800;
+}
+
+.colorblind-bg  .has-error .form-control:focus {
+	border-color: #FF5537;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #FF8A75;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #FF8A75;
+}
+
+.colorblind-bg .has-error .form-control {
+	background-color: #FFEFEC;
+}

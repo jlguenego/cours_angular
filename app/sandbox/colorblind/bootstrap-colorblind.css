@@ -1,0 +1,55 @@
+/* Styles go here */
+
+.colorblind .has-success .form-control,
+.colorblind .has-success .help-block,
+.colorblind .has-success .control-label,
+.colorblind .has-success .radio,
+.colorblind .has-success .checkbox,
+.colorblind .has-success .radio-inline,
+.colorblind .has-success .checkbox-inline,
+.colorblind .has-success .form-control-feedback {
+	color: #1AAD12;
+	border-color: #1AAD12;
+}
+
+.colorblind  .has-success .form-control:focus {
+  border-color: #17a712;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #32e92c;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #32e92c;
+}
+
+.colorblind .has-warning .form-control,
+.colorblind .has-warning .help-block,
+.colorblind .has-warning .control-label,
+.colorblind .has-warning .radio,
+.colorblind .has-warning .checkbox,
+.colorblind .has-warning .radio-inline,
+.colorblind .has-warning .checkbox-inline,
+.colorblind .has-warning .form-control-feedback {
+	color: #EABB00;
+	border-color: #EABB00;
+}
+
+.colorblind  .has-warning .form-control:focus {
+  border-color: #FFD737;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #FFE066;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #FFE066;
+}
+
+.colorblind .has-error .form-control,
+.colorblind .has-error .help-block,
+.colorblind .has-error .control-label,
+.colorblind .has-error .radio,
+.colorblind .has-error .checkbox,
+.colorblind .has-error .radio-inline,
+.colorblind .has-error .checkbox-inline,
+.colorblind .has-error .form-control-feedback {
+	color: #FF2600;
+	border-color: #FF2600;
+}
+
+.colorblind  .has-error .form-control:focus {
+  border-color: #FF5537;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #FF8A75;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #FF8A75;
+}
