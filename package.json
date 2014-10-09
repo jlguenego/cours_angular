@@ -19,6 +19,7 @@
     "karma-ie-launcher": "^0.1.5",
     "karma-jasmine": "^0.1.5",
     "mime": "~1.2.x",
+    "phantomjs": "^1.9.10",
     "protractor": "~1.0.0",
     "serve-index": "",
     "serve-static": "",
