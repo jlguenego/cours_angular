@@ -40,10 +40,10 @@
 
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li ng-class="{active: location.path() == '/'}" class="active">
+					<li ng-class="{active: location.path() == '/'}">
 						<a ng-href="#!/" href="#!/">Accueil</a>
 					</li>
-					<li class="dropdown" ng-class="{active: location.path().startsWith('/cours')}">
+					<li class="dropdown active" ng-class="{active: location.path().startsWith('/cours')}">
 						<a class="dropdown-toogle" data-toggle="dropdown" href="javascrip:void(0)">
 							Cours <span class="caret"></span>
 						</a>
@@ -54,13 +54,13 @@
 							<li class="divider"></li>
 							<!-- ngRepeat: lesson in lesson_list.content --><li ng-repeat="lesson in lesson_list.content" on-finish-render="fix-menu" ng-class="{active: location.path().startsWith('/cours/' + lesson.path)}" class="ng-scope">
 								<a ng-href="#!/cours/javascript" class="ng-binding" href="#!/cours/javascript">JavaScript</a>
-							</li><!-- end ngRepeat: lesson in lesson_list.content --><li ng-repeat="lesson in lesson_list.content" on-finish-render="fix-menu" ng-class="{active: location.path().startsWith('/cours/' + lesson.path)}" class="ng-scope">
+							</li><!-- end ngRepeat: lesson in lesson_list.content --><li ng-repeat="lesson in lesson_list.content" on-finish-render="fix-menu" ng-class="{active: location.path().startsWith('/cours/' + lesson.path)}" class="ng-scope active">
 								<a ng-href="#!/cours/angularjs" class="ng-binding" href="#!/cours/angularjs">AngularJS</a>
 							</li><!-- end ngRepeat: lesson in lesson_list.content -->
 						</ul>
 					</li>
 
-					<li class="dropdown ng-hide" ng-show="location.path().startsWith('/cours/')" ng-class="{'visible-xs': location.path().startsWith('/cours/')}">
+					<li class="dropdown visible-xs" ng-show="location.path().startsWith('/cours/')" ng-class="{'visible-xs': location.path().startsWith('/cours/')}">
 						<a class="dropdown-toogle ng-binding" data-toggle="dropdown" href="javascrip:void(0)">
 							 <span class="caret"></span>
 						</a>
@@ -87,11 +87,13 @@
 		</div>
 	</div>
 
-	<div class="header_breadcrumb ng-hide" ng-hide="location.path() == '/'">
+	<div class="header_breadcrumb" ng-hide="location.path() == '/'">
 		<ol class="breadcrumb">
 			<li></li>
 			<!-- ngRepeat: name in breadcrumb --><li ng-repeat="name in breadcrumb" class="ng-scope">
-				<a href="#!/" class="ng-binding"></a>
+				<a href="#!/cours" class="ng-binding">Cours</a>
+			</li><!-- end ngRepeat: name in breadcrumb --><li ng-repeat="name in breadcrumb" class="ng-scope">
+				<a href="#!/cours/angularjs" class="ng-binding">AngularJS</a>
 			</li><!-- end ngRepeat: name in breadcrumb -->
 		</ol>
 	</div>
@@ -102,189 +104,55 @@
 </script></my-header>
 
 		<!-- ngView:  --><div ng-view="" autoscroll="" class="ng-scope"><style class="ng-scope">
-.cover {
-	padding: 200px 0px ;
+
+.chapter-list .lesson-logo {
+	height: 50px;
+}
+
+.chapter-list .title {
+	display: block;
+	margin: 20px 0px;
+}
+
+.chapter-list h1 {
+	display: inline-block;
+	vertical-align: middle;
 	margin: 0px;
-
-	text-align: center;
 }
 
-.cover h1 {
-	margin: 30px;
+.chapter-list ul {
+	display: inline-block;
+	text-align: left;
 }
-
-.cover p {
-	width: 70%;
-	margin: 30px auto;
-	font-size: 2em;
-}
-
-.cover a {
-	font-size: 1.5em;
-	line-height: 2em;
-	padding-right: 30px;
-	padding-left: 30px;
-}
-
-@media (max-width: 768px) {
-	.cover {
-		padding: 40px 0px;
-		margin: 0px;
-
-		text-align: center;
-	}
-
-	.cover h1 {
-		margin-bottom: 10px;
-	}
-
-	.cover p {
-		width: 90%;
-		font-size: 1.2em;
-		margin-top: 10px;
-	}
-}
-
-.product img {
-	height: 150px;
-}
-
-.cover-block {
-	padding-top: 30px;
-	margin-top: 70px;
-	margin-bottom: 70px;
-	border-top: 1px solid #CECECE;
-}
-
-.cover-block h1 {
-	margin: 60px;
-}
-
-.first-block {
-	border: none;
-	margin-top: 0px;
-}
-
-.product .btn {
-	margin-bottom: 30px;
-}
-
-#license img {
-	margin: 0px 40px;
-	max-width: 130px;
-}
-
-#license .images {
-	margin-bottom: 40px;
-}
-
-#contacts img {
-	margin-bottom: 50px;
-}
-
 </style>
 
-<div class="jumbotron cover ng-scope">
-	<h1>Des supers cours ...</h1>
-	<p>
-		... pour les stagiaires d'Orsys qui suivent le cours sur AngularJS.
-	</p>
-	<a class="btn btn-success" ng-href="#!/cours" href="#!/cours">Voir les cours</a>
-</div>
-
-<div id="products" class="container text-center cover-block first-block ng-scope">
-	<h1>Ce site web a été réalisé grâce à ...</h1>
-	<div class="row">
-		<div class="col-md-4 product">
-			<a href="https://angularjs.org" target="_blank">
-				<img src="img/angularjs.png" alt="AngularJS">
-			</a>
-			<h2>AngularJS</h2>
-			<p>
-				 AngularJS est un framework open-source écrit dans le langage javascript. Ce
-framework a été développé par Google et s’appuie sur le retour d’expérience des
-équipes qui ont développé les applications Google tel que Gmail, Maps et autres.
-			</p>
-			<a href="https://angularjs.org" class="btn btn-primary" target="_blank">En savoir plus</a>
-		</div>
-		<div class="col-md-4 product">
-			<a href="http://nodejs.org" target="_blank">
-				<img src="img/nodejs.png" alt="Node.js">
-			</a>
-			<h2>Node.js</h2>
-			<p>
-				Node.js permet d'utiliser JavaScript côté
-serveur, en dehors du navigateur. Avant de pouvoir exécuter votre JavaScript sur
-le serveur, le code a besoin d'être interprété. C'est précisément ce que fait
-Node.js en utilisant le moteur V8 de Google.
-			</p>
-			<a href="http://nodejs.org" class="btn btn-primary" target="_blank">En savoir plus</a>
-		</div>
-		<div class="col-md-4 product">
-			<a href="http://getbootstrap.com" target="_blank">
-				<img src="img/bootstrap.jpeg" alt="Bootstrap">
-			</a>
-			<h2>Bootstrap</h2>
-			<p>
-				Twitter Bootstrap est une collection d'outils utile à la création de sites
-et applications web. C'est un ensemble qui contient des codes HTML, CSS et Javascript pour des
-formulaires, boutons, outils de navigation et autres éléments interactifs.
-			</p>
-			<a href="http://getbootstrap.com" class="btn btn-primary" target="_blank">En savoir plus</a>
-		</div>
+<div class="container-fluid chapter-list ng-scope">
+	<div class="title">
+		<img ng-src="img/angularjs.png" class="lesson-logo" alt="" src="img/angularjs.png">
+		<h1 class="ng-binding">AngularJS</h1>
 	</div>
-	<p>Et aussi&nbsp;:
-		<a href="http://jquery.com" target="_blank">JQuery</a>,
-		<a href="https://code.google.com/p/google-code-prettify" target="_blank">Google Code Prettify</a>,
-		<a href="http://www.edgecast.com" target="_blank">Edge Cast</a></p>
-</div>
-
-<div id="license" class="container text-center cover-block ng-scope">
-	<h1>Le code de ce site web est sous licence MIT</h1>
-	<a href="http://opensource.org/licenses/MIT" target="_blank">
-		<div class="images">
-			<img width="20%" src="img/OSI-Approved-License.png" alt="OSI Approved License">
-			<img width="20%" src="img/mit.png" alt="OSI Approved License">
-		</div>
-	</a>
-	<h1>Et le contenu de ce site web est sous licence Creative Commons</h1>
-
-	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-		<img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png">
-	</a><br>
-	Ce(tte) œuvre est mise à disposition selon les termes de la
-	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-		Licence Creative Commons Attribution 4.0 International
-	</a>.
-
-
-</div>
-
-<div id="contacts" class="container cover-block ng-scope">
-	<h1 class="text-center">Ce site web a été conçu et réalisé par&nbsp;:</h1>
 	<div class="text-center">
-		<a href="http://jlg-consulting.com" target="_blank">
-			<img width="80%" src="img/jlg_consulting.png">
-		</a>
-		<div class="row">
-			<p class="col-md-6">
-				JLG Consulting<br>
-				Jean-Louis GUENEGO - Entreprise Individuelle<br>
-				2 allée du Commandant Charcot<br>
-				77200 TORCY<br>
-				FRANCE<br>
-				SIRET: 439 317 058 00022<br>
-				Tel: +33 1 60 06 44 16<br>
-				Mail: jlg@jlg-consulting.com<br>
-			</p>
-			<a target="_blank" href="https://maps.google.fr/maps?q=2+allee+du+commandant+charcot+77200+torcy&amp;ie=UTF8&amp;hq=&amp;hnear=2+All%C3%A9e+du+Commandant+Charcot,+77200+Torcy,+Seine-et-Marne,+%C3%8Ele-de-France&amp;t=m&amp;z=14&amp;ll=48.847984,2.6399&amp;source=embed">
-				<img width="50%" src="img/plan.jpg" alt="Plan">
-			</a><a></a>
-		</div>
+		<ul>
+			<!-- ngRepeat: chapter in lesson_desc.content --><li class="lesson-title ng-scope" ng-repeat="chapter in lesson_desc.content">
+				<a ng-href="#!/cours/angularjs/chapter0" href="#!/cours/angularjs/chapter0">
+					<h2 class="ng-binding">Introduction</h2>
+				</a>
+			</li><!-- end ngRepeat: chapter in lesson_desc.content --><li class="lesson-title ng-scope" ng-repeat="chapter in lesson_desc.content">
+				<a ng-href="#!/cours/angularjs/chapter1" href="#!/cours/angularjs/chapter1">
+					<h2 class="ng-binding">Chapter 1</h2>
+				</a>
+			</li><!-- end ngRepeat: chapter in lesson_desc.content --><li class="lesson-title ng-scope" ng-repeat="chapter in lesson_desc.content">
+				<a ng-href="#!/cours/angularjs/chapter2" href="#!/cours/angularjs/chapter2">
+					<h2 class="ng-binding">Chapter 2</h2>
+				</a>
+			</li><!-- end ngRepeat: chapter in lesson_desc.content --><li class="lesson-title ng-scope" ng-repeat="chapter in lesson_desc.content">
+				<a ng-href="#!/cours/angularjs/chapter12" href="#!/cours/angularjs/chapter12">
+					<h2 class="ng-binding">Chapter 12</h2>
+				</a>
+			</li><!-- end ngRepeat: chapter in lesson_desc.content -->
+		</ul>
 	</div>
-</div>
-
-<div class="ng-scope">&nbsp;</div></div>
+</div></div>
 
 		<my-footer><footer>
 	<div class="container">

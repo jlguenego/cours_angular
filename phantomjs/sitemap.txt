@@ -1,0 +1,10 @@
+http://localhost/cours_angular/app/
+http://localhost/cours_angular/app/cours
+http://localhost/cours_angular/app/cours/javascript
+http://localhost/cours_angular/app/cours/javascript/chapter0
+http://localhost/cours_angular/app/cours/javascript/chapter1
+http://localhost/cours_angular/app/cours/javascript/chapter2
+http://localhost/cours_angular/app/cours/angularjs
+http://localhost/cours_angular/app/cours/angularjs/chapter0
+http://localhost/cours_angular/app/cours/angularjs/chapter1
+http://localhost/cours_angular/app/cours/angularjs/chapter2

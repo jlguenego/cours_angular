@@ -95,7 +95,7 @@
 			</li><!-- end ngRepeat: name in breadcrumb --><li ng-repeat="name in breadcrumb" class="ng-scope">
 				<a href="#!/cours/javascript" class="ng-binding">JavaScript</a>
 			</li><!-- end ngRepeat: name in breadcrumb --><li ng-repeat="name in breadcrumb" class="ng-scope">
-				<a href="#!/cours/javascript/chapter0" class="ng-binding">Introduction</a>
+				<a href="#!/cours/javascript/chapter2" class="ng-binding">Chapter 2</a>
 			</li><!-- end ngRepeat: name in breadcrumb -->
 		</ol>
 	</div>
@@ -132,7 +132,7 @@
 
 	<my-button-nav><div class="btn-toolbar hidden-xs">
 
-		<a href="#!undefined" class="btn btn-primary disabled" ng-class="{disabled: !chapter_previous}">
+		<a href="#!/cours/javascript/chapter1" class="btn btn-primary" ng-class="{disabled: !chapter_previous}">
 			<span class="glyphicon glyphicon-step-backward"></span>
 			Précédent
 		</a>
@@ -147,7 +147,7 @@
 			Code Diff
 		</a>
 
-		<a ng-href="#!/cours/javascript/chapter1" class="btn btn-primary" ng-class="{disabled: !chapter_next}" href="#!/cours/javascript/chapter1">
+		<a ng-href="#!/cours/javascript/chapter12" class="btn btn-primary" ng-class="{disabled: !chapter_next}" href="#!/cours/javascript/chapter12">
 			Suivant
 			<span class="glyphicon glyphicon-step-forward"></span>
 		</a>
@@ -156,12 +156,12 @@
 
 <div class="btn-toolbar visible-xs">
 
-		<a href="#!undefined" class="btn btn-primary disabled" ng-class="{disabled: !chapter_previous}">
+		<a href="#!/cours/javascript/chapter1" class="btn btn-primary" ng-class="{disabled: !chapter_previous}">
 			<span class="glyphicon glyphicon-step-backward"></span>
 			Précédent
 		</a>
 
-		<a href="#!/cours/javascript/chapter1" class="btn btn-primary pull-right" ng-class="{disabled: !chapter_next}">
+		<a href="#!/cours/javascript/chapter12" class="btn btn-primary pull-right" ng-class="{disabled: !chapter_next}">
 			Suivant
 			<span class="glyphicon glyphicon-step-forward"></span>
 		</a>
@@ -184,7 +184,7 @@
 
 	<div class="my-content-body">
 
-		<!-- ngInclude: undefined --><ng-include src="chapterPath" autoscroll="" class="ng-scope"><h1 class="ng-scope">Javascript - Intro</h1>
+		<!-- ngInclude: undefined --><ng-include src="chapterPath" autoscroll="" class="ng-scope"><h1 class="ng-scope">Javascript - Chapitre 2</h1>
 <p class="ng-scope">
 	Lorem ipsum dolor sit amet, in pertinacia expetendis per, his eu vocent
 saperet atomorum, eu eripuit fabulas pericula ius. Sea ut minim numquam
@@ -207,7 +207,7 @@ Veritus facilisis omittantur eos ad. Case causae instructior ea per, eum admodum
 indoctum cu.
 </p>
 
-<h2 class="ng-scope">Code</h2>
+<h2 class="ng-scope">Chapitre 2.1</h2>
 <p class="ng-scope">
 	Type <kbd>cd</kbd> or <kbd>Ctrl + j</kbd> or <kbd><kbd>Ctrl</kbd> + <kbd>j</kbd></kbd>
 	<code>code test</code>
@@ -216,11 +216,57 @@ indoctum cu.
 <pre class="prettyprint lang-javascript ng-scope">function truc() {
 var plouf = 'coucou';
 }
-</pre></ng-include></div>
+</pre>
+
+<h2 class="ng-scope">Chapitre 2.2</h2>
+<p class="ng-scope">
+	Lorem ipsum dolor sit amet, in pertinacia expetendis per, his eu vocent
+saperet atomorum, eu eripuit fabulas pericula ius. Sea ut minim numquam
+molestie, tantas erroribus eam cu, no eos autem sapientem urbanitas. Eu duo elit
+gubergren. Docendi commune qui te. Te nec magna legere scripserit, dolore
+aliquid nec cu. Nibh scribentur vim ea, ne mea agam expetenda, per eu mutat
+praesent.
+</p>
+<p class="ng-scope">
+	Vix quidam latine id, ut sint nihil recusabo vix. Eos an volumus
+qualisque. Vis semper intellegebat ex, mei eu noster fabulas vulputate. Graece
+impetus virtute ex quo, ei periculis assentior sententiae sea, ei sed eros
+euismod atomorum. Nulla recusabo incorrupte duo in. Mea ad mundi postea. Zril
+sanctus suscipit in vim, cibo velit quodsi in usu.
+</p>
+<p class="ng-scope">
+	Ex facilis blandit mea, veri posse tractatos pri te, id homero
+rationibus eos. Ea quem elit labitur duo, ius deterruisset delicatissimi ut.
+Veritus facilisis omittantur eos ad. Case causae instructior ea per, eum admodum
+indoctum cu.
+</p>
+
+<h2 class="ng-scope">Chapitre 2.3</h2>
+<p class="ng-scope">
+	Lorem ipsum dolor sit amet, in pertinacia expetendis per, his eu vocent
+saperet atomorum, eu eripuit fabulas pericula ius. Sea ut minim numquam
+molestie, tantas erroribus eam cu, no eos autem sapientem urbanitas. Eu duo elit
+gubergren. Docendi commune qui te. Te nec magna legere scripserit, dolore
+aliquid nec cu. Nibh scribentur vim ea, ne mea agam expetenda, per eu mutat
+praesent.
+</p>
+<p class="ng-scope">
+	Vix quidam latine id, ut sint nihil recusabo vix. Eos an volumus
+qualisque. Vis semper intellegebat ex, mei eu noster fabulas vulputate. Graece
+impetus virtute ex quo, ei periculis assentior sententiae sea, ei sed eros
+euismod atomorum. Nulla recusabo incorrupte duo in. Mea ad mundi postea. Zril
+sanctus suscipit in vim, cibo velit quodsi in usu.
+</p>
+<p class="ng-scope">
+	Ex facilis blandit mea, veri posse tractatos pri te, id homero
+rationibus eos. Ea quem elit labitur duo, ius deterruisset delicatissimi ut.
+Veritus facilisis omittantur eos ad. Case causae instructior ea per, eum admodum
+indoctum cu.
+</p></ng-include></div>
 
 	<my-button-nav><div class="btn-toolbar hidden-xs">
 
-		<a href="#!undefined" class="btn btn-primary disabled" ng-class="{disabled: !chapter_previous}">
+		<a href="#!/cours/javascript/chapter1" class="btn btn-primary" ng-class="{disabled: !chapter_previous}">
 			<span class="glyphicon glyphicon-step-backward"></span>
 			Précédent
 		</a>
@@ -235,7 +281,7 @@ var plouf = 'coucou';
 			Code Diff
 		</a>
 
-		<a ng-href="#!/cours/javascript/chapter1" class="btn btn-primary" ng-class="{disabled: !chapter_next}" href="#!/cours/javascript/chapter1">
+		<a ng-href="#!/cours/javascript/chapter12" class="btn btn-primary" ng-class="{disabled: !chapter_next}" href="#!/cours/javascript/chapter12">
 			Suivant
 			<span class="glyphicon glyphicon-step-forward"></span>
 		</a>
@@ -244,12 +290,12 @@ var plouf = 'coucou';
 
 <div class="btn-toolbar visible-xs">
 
-		<a href="#!undefined" class="btn btn-primary disabled" ng-class="{disabled: !chapter_previous}">
+		<a href="#!/cours/javascript/chapter1" class="btn btn-primary" ng-class="{disabled: !chapter_previous}">
 			<span class="glyphicon glyphicon-step-backward"></span>
 			Précédent
 		</a>
 
-		<a href="#!/cours/javascript/chapter1" class="btn btn-primary pull-right" ng-class="{disabled: !chapter_next}">
+		<a href="#!/cours/javascript/chapter12" class="btn btn-primary pull-right" ng-class="{disabled: !chapter_next}">
 			Suivant
 			<span class="glyphicon glyphicon-step-forward"></span>
 		</a>
