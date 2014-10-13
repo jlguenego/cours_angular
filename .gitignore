@@ -9,3 +9,5 @@ bower_components/
 *.min.js
 *.min.map
 *.log
+/app/seo_snapshots
+/phantomjs/sitemap*
