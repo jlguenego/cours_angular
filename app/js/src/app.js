@@ -141,10 +141,10 @@ if (typeof String.prototype.startsWith != 'function') {
 			})
 			.when('/:anchor', {
 				templateUrl: 'partials/cover.html',
-				controller: ['$scope', '$routeParams', function($scope, $routeParams) {
-					var hash = $scope.location.path().replace(/^\//g, '');
-					$scope.location.path('/').replace();
-					$scope.location.hash(hash).replace();
+				controller: ['$location', '$routeParams', function($location, $routeParams) {
+					var hash = $location.path().replace(/^\//g, '');
+					$location.path('/').replace();
+					$location.hash(hash).replace();
 				}]
 			})
 			.otherwise({
