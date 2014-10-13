@@ -11,3 +11,4 @@ bower_components/
 *.log
 /app/seo_snapshots
 /phantomjs/sitemap*
+app/sitemap.xml
