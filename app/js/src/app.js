@@ -139,14 +139,6 @@ if (typeof String.prototype.startsWith != 'function') {
 				templateUrl: 'partials/lesson_content.html',
 				controller: 'ChapterController'
 			})
-			.when('/:anchor', {
-				templateUrl: 'partials/cover.html',
-				controller: ['$location', '$routeParams', function($location, $routeParams) {
-					var hash = $location.path().replace(/^\//g, '');
-					$location.path('/').replace();
-					$location.hash(hash).replace();
-				}]
-			})
 			.otherwise({
 				redirectTo: '/'
 			});
