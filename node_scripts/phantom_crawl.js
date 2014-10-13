@@ -1,15 +1,14 @@
+#!/usr/bin/env phantomjs
+// Generate all the snapshots foreach url inside the sitemap.txt
+
 var webpage = require('webpage');
 var fs = require('fs');
+var system = require('system');
 
-var fsBase = 'C:/wamp/www/cours_angular/app/seo_snapshots';
-var urlPrefix = 'http://localhost/cours_angular/app/';
-var urlListFile = 'sitemap.txt';
-var urlList;
-var counter = 0;
-
+var urlListFile = phantom.libraryPath + '/../app/seo_snapshots/sitemap.txt';
 
 function main() {
-	urlList = fs.read(urlListFile).split('\n');
+	var urlList = fs.read(urlListFile).split('\n');
 	createSnapshot(urlList);
 }
 
@@ -33,8 +32,8 @@ function createSnapshot(urlList) {
 }
 
 function getFilename(url) {
-	var name = fsBase;
-	var suffix = url.replace(new RegExp("^" + urlPrefix), '');
+	var name = system.env.seoSnapshotDir;
+	var suffix = url.replace(new RegExp("^" + system.env.baseUrl), '');
 
 	if (suffix == '') {
 		suffix = 'index.html';

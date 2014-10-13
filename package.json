@@ -23,7 +23,8 @@
     "protractor": "~1.0.0",
     "serve-index": "",
     "serve-static": "",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "sitemap": "^0.7.4"
   },
   "scripts": {
     "postinstall": "bower install",
@@ -37,6 +38,9 @@
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor test/protractor-conf.js"
+    "protractor": "protractor test/protractor-conf.js",
+
+    "seo": "node node_scripts/seo.js",
+    "clean_seo": "node node_modules/shelljs/bin/shjs node_scripts/clean_seo.js"
   }
 }

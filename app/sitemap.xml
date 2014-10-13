@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url> <loc>http://localhost/cours_angular/app/cours</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/javascript</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/javascript/chapter0</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/javascript/chapter1</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/javascript/chapter2</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/javascript/chapter12</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/angularjs</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/angularjs/chapter0</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/angularjs/chapter1</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/angularjs/chapter2</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/cours/angularjs/chapter12</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://localhost/cours_angular/app/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+</urlset>
