@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angular_cours_app" ng-controller="MyAppController">
+	<head>
+		<meta charset="utf-8">
+
+	</head>
+
+	<body>
+		<h1>Here is 2 images</h1>
+		<div id="img1">
+			<p>loading...</p>
+			<img src="../../img/angularjs.png" width=30/>
+		</div>
+		<div id="img2">
+			<p>loading...</p>
+			<img src="../../img/angularjs2.png" width=30/>
+		</div>
+
+		<script src="../../bower_components/jquery/jquery.js"></script>
+		<script>
+function promise(div) {
+	return new Promise(function(resolve, reject) {
+		var img = div.querySelector('img');
+		console.log(img);
+		img.addEventListener('load', function() { resolve(div); });
+		img.addEventListener('error', function() { reject(div); });
+		if (img.complete) {
+			if (img.naturalWidth) {
+				resolve(div);
+			} else {
+				reject(div);
+			}
+		}
+	});
+};
+
+function do_loading(div) {
+	$(div).addClass('loading');
+
+	var f = function() {
+		console.log([div]);
+		if (!$(div).hasClass('loading')) {
+			return;
+		}
+		var p = div.querySelector('p');
+		p.innerHTML += '.';
+		setTimeout(f, 200);
+	};
+	f();
+}
+
+
+
+$(document).ready(function() {
+	$('div').each(function() {
+		do_loading(this);
+		promise(this).then(img_loaded, img_error);
+	});
+});
+
+function img_loaded(div) {
+	console.log('loaded');
+	$(div).removeClass('loading');
+
+	var p = div.querySelector('p');
+	p.remove();
+}
+
+function img_error(div) {
+	console.log('error');
+	$(div).removeClass('loading');
+
+	div.querySelector('img').remove();
+
+	var p = div.querySelector('p');
+	p.innerHTML = '<b>Error</b>';
+}
+		</script>
+	</body>
+</html>

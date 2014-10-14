@@ -97,9 +97,9 @@ if (typeof String.prototype.startsWith != 'function') {
 		}
 
 		$scope.$on('$routeChangeStart', function(next, current) {
-			console.log('$routeChangeStart');
+			//console.log('$routeChangeStart');
 			$scope.update_breadcrumb();
-			console.log($scope.location);
+			//console.log($scope.location);
 		});
 
 		$scope.breadcrumb_href = function(index) {

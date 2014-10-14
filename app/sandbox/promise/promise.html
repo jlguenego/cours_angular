@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angular_cours_app" ng-controller="MyAppController">
+	<head>
+		<meta charset="utf-8">
+
+	</head>
+
+	<body>
+		<h1>Here is an image</h1>
+		<div>
+			<p>loading...</p>
+			<img src="../../img/angularjs2.png" />
+		</div>
+
+		<script src="../../bower_components/jquery/jquery.js"></script>
+		<script>
+var loading = true;
+
+function do_loading() {
+	if (!loading) {
+		return;
+	}
+
+	var p = document.querySelector('p');
+	p.innerHTML += '.';
+	setTimeout(do_loading, 200)
+}
+
+$(document).ready(do_loading);
+var img = document.querySelector('img');
+
+function img_loaded() {
+	console.log('loaded');
+	loading = false;
+	var p = document.querySelector('p');
+	p.remove();
+}
+
+function img_error() {
+	img.remove();
+	loading = false;
+	console.log('error');
+	var p = document.querySelector('p');
+	console.log([p]);
+	p.innerHTML = '<b>Error</b>';
+}
+
+var promise = new Promise(function(resolve, reject) {
+	console.log(img);
+	img.addEventListener('load', resolve);
+	img.addEventListener('error', reject);
+	if (img.complete) {
+		if (img.naturalWidth) {
+			resolve();
+		} else {
+			reject();
+		}
+	}
+});
+
+promise.then(img_loaded, img_error);
+		</script>
+	</body>
+</html>

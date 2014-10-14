@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angular_cours_app" ng-controller="MyAppController">
+	<head>
+		<meta charset="utf-8">
+
+	</head>
+
+	<body>
+		<h1>Here is an image</h1>
+		<div>
+			<p>loading...</p>
+			<img src="../../img/angularjs2.png" />
+		</div>
+
+		<script src="../../bower_components/jquery/jquery.js"></script>
+		<script>
+var loading = true;
+var inError = false;
+
+function do_loading() {
+	if (!loading) {
+		return;
+	}
+
+	var p = document.querySelector('p');
+	p.innerHTML += '.';
+	setTimeout(do_loading, 200)
+}
+
+$(document).ready(do_loading);
+var img = document.querySelector('img');
+
+function img_loaded() {
+	console.log('loaded');
+	loading = false;
+	var p = document.querySelector('p');
+	p.remove();
+}
+
+function img_error() {
+	img.remove();
+	loading = false;
+	console.log('error');
+	var p = document.querySelector('p');
+	console.log([p]);
+	p.innerHTML = '<b>Error</b>';
+	inError = true;
+}
+
+setTimeout(function() {
+	console.log(img);
+	if (img.complete) {
+		console.log('complete');
+		if (img.naturalWidth == 0) {
+			img_error();
+			return;
+		}
+		img_loaded();
+	} else {
+		img.addEventListener('load', img_loaded);
+	}
+	img.addEventListener('error', img_error);
+}, 1000);
+
+		</script>
+	</body>
+</html>

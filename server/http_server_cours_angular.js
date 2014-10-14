@@ -13,17 +13,19 @@ var serve = serveStatic(rootDir, {'index': ['index.html', 'index.htm']});
 var index = serveIndex(rootDir, {'icons': true})
 
 // Create server
-var server = http.createServer(function(req, res){
+var server = http.createServer(function(req, res) {
 	var done = finalhandler(req, res);
 
 	urlRewrite(req);
 
-	serve(req, res, function onNext(err) {
-		if (err) {
-			return done(err);
-		}
-		index(req, res, done);
-	});
+ 	//setInterval(function() {
+		serve(req, res, function onNext(err) {
+			if (err) {
+				return done(err);
+			}
+			index(req, res, done);
+		});
+	//}, 2000);
 });
 
 function urlRewrite(req) {
