@@ -9,26 +9,26 @@
 		<h1>Here is 2 images</h1>
 		<div id="img1">
 			<p>loading...</p>
-			<img src="../../img/angularjs.png" width=30/>
+			<img style="display: none;" src="../../img/angularjs.png" width=30/>
 		</div>
 		<div id="img2">
 			<p>loading...</p>
-			<img src="../../img/angularjs2.png" width=30/>
+			<img style="display: none;" src="../../img/angularjs2.png" width=30/>
 		</div>
 
 		<script src="../../bower_components/jquery/jquery.js"></script>
 		<script>
-function promise(div) {
+function handleImage(div) {
 	return new Promise(function(resolve, reject) {
 		var img = div.querySelector('img');
 		console.log(img);
-		img.addEventListener('load', function() { resolve(div); });
-		img.addEventListener('error', function() { reject(div); });
+		img.addEventListener('load', function() { resolve(); });
+		img.addEventListener('error', function() { reject(Error('Not Found')); });
 		if (img.complete) {
 			if (img.naturalWidth) {
-				resolve(div);
+				resolve();
 			} else {
-				reject(div);
+				reject(Error('Not Found'));
 			}
 		}
 	});
@@ -54,26 +54,32 @@ function do_loading(div) {
 $(document).ready(function() {
 	$('div').each(function() {
 		do_loading(this);
-		promise(this).then(img_loaded, img_error);
+		handleImage(this).then(img_loaded(this), img_error(this));
 	});
 });
 
 function img_loaded(div) {
-	console.log('loaded');
-	$(div).removeClass('loading');
+	return function() {
+		console.log('loaded');
+		$(div).removeClass('loading');
 
-	var p = div.querySelector('p');
-	p.remove();
+		$(div).find('img').show();
+
+		var p = div.querySelector('p');
+		p.remove();
+	};
 }
 
 function img_error(div) {
-	console.log('error');
-	$(div).removeClass('loading');
+	return function(error) {
+		console.error('Failed!', error);
+		$(div).removeClass('loading');
 
-	div.querySelector('img').remove();
+		div.querySelector('img').remove();
 
-	var p = div.querySelector('p');
-	p.innerHTML = '<b>Error</b>';
+		var p = div.querySelector('p');
+		p.innerHTML = '<b>Error</b>';
+	};
 }
 		</script>
 	</body>
