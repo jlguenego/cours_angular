@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+body {
+	margin: 0px;
+}
+
+.box {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+
+	background-color: blue;
+}
+		</style>
+	</head>
+
+	<body>
+		<div class="box"></div>
+
+		<script src="../../bower_components/jquery/jquery.js"></script>
+		<script>
+console.log = function() {};
+function myMove(element, angle, distance, duration, next) {
+	next = next || function() {};
+
+	var rad = (-angle * 2 * Math.PI) / 360;
+	console.log('element', element);
+	console.log('rad', rad);
+	var x = element.offset().left;
+	var y = element.offset().top;
+	console.log('x', x);
+	console.log('y', y);
+	console.log('Math.cos(rad)', Math.cos(rad));
+	console.log('Math.sin(rad)', Math.sin(rad));
+
+	console.log('new x', distance * Math.cos(rad));
+	console.log('new y', distance * Math.sin(rad));
+
+	element.animate({
+		left: x + (distance * Math.cos(rad)),
+		top: y + (distance * Math.sin(rad))
+	}, duration, next);
+}
+
+function myMoveLeft(distance, next) {
+	var x = $('.box').offset().left;
+	distance = Math.min(x, distance);
+	myMove($('.box'), 180, distance, 10, next);
+}
+
+function myMoveRight(distance, next) {
+	var x = $('.box').offset().left;
+	distance = Math.min(600 - x, distance);
+	myMove($('.box'), 0, distance, 10, next);
+}
+
+function Yannis(executor) {
+	this.promise = new Promise(executor);
+	this.then = function(a, b) {
+		return this.promise.then(a, b);
+	};
+}
+
+$(document).ready(function() {
+	var move = function() {
+		var y = new Yannis(function(fulfill, reject) {
+			var distance = Math.floor((Math.random() * 151) + 50); // between 50 and 200
+			var direction = Math.floor((Math.random() * 10) - 5);
+
+			var x = $('.box').offset().left;
+			if (x < 100) {
+				myMoveRight(distance, fulfill);
+			} else if (x > 500) {
+				myMoveLeft(distance, fulfill);
+			} else if (direction > 0) {
+				myMoveRight(distance, fulfill);
+			} else {
+				myMoveLeft(distance, fulfill);
+			}
+		});
+		return y;
+	};
+
+	function moveRec() {
+		move().then(moveRec);
+	}
+
+
+
+	moveRec();
+});
+		</script>
+	</body>
+</html>

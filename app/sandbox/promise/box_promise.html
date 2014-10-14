@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+body {
+	margin: 0px;
+}
+
+.box {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+
+	background-color: blue;
+}
+		</style>
+	</head>
+
+	<body>
+		<div class="box"></div>
+
+		<script src="../../bower_components/jquery/jquery.js"></script>
+		<script>
+function myMove(element, angle, distance, duration, next) {
+	next = next || function() {};
+
+	var rad = (-angle * 2 * Math.PI) / 360;
+	console.log('element', element);
+	console.log('rad', rad);
+	var x = element.offset().left;
+	var y = element.offset().top;
+	console.log('x', x);
+	console.log('y', y);
+	console.log('Math.cos(rad)', Math.cos(rad));
+	console.log('Math.sin(rad)', Math.sin(rad));
+
+	console.log('new x', distance * Math.cos(rad));
+	console.log('new y', distance * Math.sin(rad));
+
+	element.animate({
+		left: x + (distance * Math.cos(rad)),
+		top: y + (distance * Math.sin(rad))
+	}, duration, next);
+}
+
+
+$(document).ready(function() {
+	var move = function(angle, distance, duration) {
+		return new Promise(function(fulfill, reject) {
+			myMove($('.box'), angle, distance, duration, fulfill);
+		});
+	};
+
+	move(0, 600, 3000)
+		.then(function() {
+			return move(-90, 100, 3000);
+		})
+		.then(function() {
+			return move(180, 100, 3000);
+		})
+		.then(function() {
+			console.log('End');
+		});
+});
+		</script>
+	</body>
+</html>
