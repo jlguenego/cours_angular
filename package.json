@@ -28,23 +28,17 @@
   },
   "scripts": {
     "postinstall": "bower install",
-
     "prestart": "npm install",
     "start": "node server/http_server_cours_angular.js",
-
     "precompile": "npm install",
     "compile": "grunt",
-
     "pretest": "npm install",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
     "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
-
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
-
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor test/protractor-conf.js",
-
     "seo": "node node_scripts/seo.js",
     "clean_seo": "node node_modules/shelljs/bin/shjs node_scripts/clean_seo.js"
   }
