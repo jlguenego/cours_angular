@@ -1,3 +1,14 @@
 {
-	"titi": "toto"
+	"You have [[nbr]] message(s) and [[err]] error(s)": {
+		"1": {
+			"0": "You have 1 message and no error",
+			"1": "You have 1 message and 1 error",
+			"default": "You have 1 message and [[err]] error(s)"
+		},
+		"default": {
+			"0": "You have [[nbr]] message and no error",
+			"1": "You have [[nbr]] message and 1 error",
+			"default": "You have [[nbr]] message and [[err]] error(s)"
+		}
+	}
 }

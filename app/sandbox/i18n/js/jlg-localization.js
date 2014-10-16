@@ -30,16 +30,42 @@
 			console.log('arguments.length=', arguments.length);
 
 			var result = text;
+			var args = arguments;
 			var translation = jlgI18NService.translation;
 			if (translation.hasOwnProperty(text)) {
 				result = translation[text];
 			}
 
-			for (var i = 1; i < arguments.length; i++) {
-				text = text.replace(/\[\[.*?\]\]/, arguments[i]);
+			var pluralization = function(object, index, text) {
+				if (typeof object == 'object') {
+					console.log('is object');
+					if (object.hasOwnProperty(args[index])) {
+						object = object[args[index]];
+						return pluralization(object, index + 1, text);
+					}
+					return pluralization(object['default'], index + 1, text);
+				} else {
+					return object;
+				}
 			}
 
-			return text;
+			console.log('about pluraliza');
+			result = pluralization(result, 1, text);
+			console.log('after pluraliza');
+			console.log('result=', result);
+			var m = result.match(/\[\[.*?\]\]/g);
+			var matchNbr = 0;
+			if (m) {
+				matchNbr = m.length;
+			}
+			console.log('match=', m);
+			var start = arguments.length - matchNbr;
+
+			for (var i = start; i < arguments.length; i++) {
+				result = result.replace(/\[\[.*?\]\]/, arguments[i]);
+			}
+			console.log('result=', result);
+			return result;
 		}
 	}]);
 })();
