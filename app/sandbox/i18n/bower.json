@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "angular": "1.2.x",
-    "angular-i18n": ""
+    "angular-i18n": "",
+    "angular-resource": "~1.2.x"
   }
 }
