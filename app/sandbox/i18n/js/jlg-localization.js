@@ -26,10 +26,19 @@
 
 	app.filter('i18n', ['jlgI18NService', function(jlgI18NService) {
 		return function(text) {
+			console.log('arguments=', arguments);
+			console.log('arguments.length=', arguments.length);
+
+			var result = text;
 			var translation = jlgI18NService.translation;
 			if (translation.hasOwnProperty(text)) {
-				return translation[text];
+				result = translation[text];
 			}
+
+			for (var i = 1; i < arguments.length; i++) {
+				text = text.replace(/\[\[.*?\]\]/, arguments[i]);
+			}
+
 			return text;
 		}
 	}]);
