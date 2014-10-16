@@ -1,0 +1,15 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "name": "localization_example",
+  "description": "",
+  "license": "",
+  "devDependencies": {
+  },
+  "scripts": {
+    "postinstall": "bower install",
+
+    "prei18n": "npm install",
+    "i18n": "node scripts/create_locale_files.js"
+  }
+}

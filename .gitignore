@@ -5,9 +5,10 @@ tmp
 .idea
 .DS_Store
 angular-phonecat-snapshots
-bower_components/
+bower_components
 *.min.js
 *.min.map
 *.log
 /app/seo_snapshots
 app/sitemap.xml
+Edit.*

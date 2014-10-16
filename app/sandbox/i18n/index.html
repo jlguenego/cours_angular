@@ -1,0 +1,25 @@
+<html>
+	<head>
+	</head>
+
+	<body ng-app="myApp" ng-controller="MyController">
+		<h1>I18N</h1>
+		<p>Locale: {{locale}}</p>
+		<div>
+			<label ng-repeat="lang in ['en-us', 'fr-fr']">
+				<input name="locale" type="radio"
+					ng-click="changeLocal(lang)"
+					ng-checked="{{locale == lang}}"/>
+					{{lang}}
+			</label>
+		</div>
+		<p>
+			{{'Hello' | i18n}}, {{'You have 8 messages' | i18n}}<br/>
+			{{date | date:'fullDate'}}
+		</p>
+
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="localization.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
