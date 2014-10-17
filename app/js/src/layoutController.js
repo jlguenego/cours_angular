@@ -1,6 +1,24 @@
 (function() {
 	var app = angular.module('myLayout', ['ngResource']);
 
+	app.directive('escapeHtml', function() {
+		return {
+			restrict: 'A',
+			link: function(scope, element, attr, ctrl) {
+				console.log('innerHTML=', element[0].innerHTML);
+				element[0].innerHTML = element[0].innerHTML
+						.replace(/</g, "&lt;")
+						.replace(/-html/g, "html")
+						.replace(/-\/html/g, "/html")
+						.replace(/-head/g, "head")
+						.replace(/-\/head/g, "/head")
+						.replace(/-body/g, "body")
+						.replace(/-\/body/g, "/body");
+				console.log(element[0].innerHTML);
+			}
+		};
+	});
+
 	app.directive('myHeader', function() {
 		return {
 			restrict: 'E',
