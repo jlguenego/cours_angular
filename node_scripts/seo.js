@@ -7,7 +7,7 @@
 require('shelljs/global');
 var path = require('path');
 
-var config = require('../seo.json');
+var config = require('../config_seo.json');
 process.env.baseUrl = config.baseUrl;
 process.env.seoSnapshotDir = config.seoSnapshotDir;
 process.env.cacheTime = config.cacheTime;

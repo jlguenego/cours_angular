@@ -14,5 +14,5 @@ rm('-rf', rootdir + '/app/seo_snapshots');
 echo('Removing sitemap.xml...');
 rm('-f', rootdir + '/app/sitemap.xml');
 
-echo('Removing sitemap.txt...');
-rm('-f', rootdir + '/phantomjs/sitemap.txt');
+echo('Removing sitemap.json...');
+rm('-f', rootdir + '/app/sitemap.json');

@@ -1,0 +1,15 @@
+<script type="text/ng-template"  id="tree_item_renderer.html">
+	<a ng-href="{{url(data.url || data)}}">{{label}}</a>
+	<ul>
+		<li ng-repeat="(label, data) in data.children" ng-include="'tree_item_renderer.html'"></li>
+	</ul>
+</script>
+
+<div class="container-fluid">
+	<h1>Plan du site</h1>
+	<ul>
+		<li ng-repeat="(label, data) in sitemap"
+			ng-include="'tree_item_renderer.html'">
+		</li>
+	</ul>
+</div>

@@ -128,6 +128,10 @@ if (typeof String.prototype.startsWith != 'function') {
 			.when('/', {
 				templateUrl: 'partials/cover.html'
 			})
+			.when('/sitemap', {
+				templateUrl: 'partials/sitemap.html',
+				controller: 'SitemapController'
+			})
 			.when('/cours', {
 				templateUrl: 'partials/lesson_list.html'
 			})

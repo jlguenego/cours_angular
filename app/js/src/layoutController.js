@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('myLayout', []);
+	var app = angular.module('myLayout', ['ngResource']);
 
 	app.directive('myHeader', function() {
 		return {
@@ -92,6 +92,13 @@
 			controllerAs: 'addCommentCtrl'
 		};
 	});
+
+	app.controller('SitemapController', ['$scope', '$resource',
+		function($scope, $resource) {
+			$scope.sitemap = $resource('sitemap.json').get();
+			console.log('$scope.sitemap=', $scope.sitemap);
+		}
+	]);
 
 	app.controller('ChapterListController', ['$scope', '$http', '$routeParams', 'LessonService',
 		function($scope, $http, $routeParams, LessonService) {

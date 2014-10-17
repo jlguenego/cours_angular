@@ -1,5 +1,5 @@
 {
-	"baseUrl": "http://localhost/cours_angular/app/",
+	"baseUrl": "http://localhost:8000/app/",
 	"seoSnapshotDir": "C:/wamp/www/cours_angular/app/seo_snapshots",
 	"cacheTime": 600000
 }
