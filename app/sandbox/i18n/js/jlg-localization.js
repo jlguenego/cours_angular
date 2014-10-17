@@ -27,43 +27,65 @@
 	app.filter('i18n', ['jlgI18NService', function(jlgI18NService) {
 		return function(text) {
 			console.log('arguments=', arguments);
+			console.log('typeof arguments=', typeof arguments);
 			console.log('arguments.length=', arguments.length);
 
+			var args = Array.prototype.slice.call(arguments, 1);
+			console.log('args', args);
+
+
 			var result = text;
-			var args = arguments;
 			var translation = jlgI18NService.translation;
 			if (translation.hasOwnProperty(text)) {
 				result = translation[text];
 			}
 
-			var pluralization = function(object, index, text) {
-				if (typeof object == 'object') {
-					console.log('is object');
-					if (object.hasOwnProperty(args[index])) {
-						object = object[args[index]];
-						return pluralization(object, index + 1, text);
+			var getKeys = function() {
+				var res = [];
+				for (var i = 0; i < Math.pow(2, args.length); i++) {
+					var a = [];
+					for (var j = 0; j < args.length; j++) {
+						var isNotProvided = i&Math.pow(2, j);
+						console.log('(' + i + ', ' + j + ')=' + isNotProvided);
+						if (isNotProvided) {
+							a.push('@');
+						} else {
+							a.push(args[j]);
+						}
 					}
-					return pluralization(object['default'], index + 1, text);
-				} else {
-					return object;
+					res.push(a.join('_'));
+				}
+				return res;
+			}
+
+			var selectedKey = Array.apply(null, Array(args.length))
+								.map(function() { return '@' })
+								.join('_');
+			if (typeof result == 'object') {
+				// Pluralization
+				var keys = getKeys();
+				console.log('keys=', keys);
+				var found = false;
+				for (var i = 0; i < keys.length; i++) {
+					if (result.hasOwnProperty(keys[i])) {
+						selectedKey = keys[i];
+						result = result[selectedKey];
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					result = text;
 				}
 			}
 
-			console.log('about pluraliza');
-			result = pluralization(result, 1, text);
-			console.log('after pluraliza');
-			console.log('result=', result);
-			var m = result.match(/\[\[.*?\]\]/g);
-			var matchNbr = 0;
-			if (m) {
-				matchNbr = m.length;
+			var a = selectedKey.split('_');
+			for (var i = 0; i < args.length; i++) {
+				if (a[i] == '@') {
+					result = result.replace(/\[\[.*?\]\]/, args[i]);
+				}
 			}
-			console.log('match=', m);
-			var start = arguments.length - matchNbr;
 
-			for (var i = start; i < arguments.length; i++) {
-				result = result.replace(/\[\[.*?\]\]/, arguments[i]);
-			}
 			console.log('result=', result);
 			return result;
 		}
