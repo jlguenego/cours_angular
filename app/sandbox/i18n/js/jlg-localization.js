@@ -26,16 +26,10 @@
 
 	app.filter('i18n', ['jlgI18NService', function(jlgI18NService) {
 		return function(text) {
-			console.log('arguments=', arguments);
-			console.log('typeof arguments=', typeof arguments);
-			console.log('arguments.length=', arguments.length);
-
-			var args = Array.prototype.slice.call(arguments, 1);
-			console.log('args', args);
-
-
 			var result = text;
+			var args = Array.prototype.slice.call(arguments, 1);
 			var translation = jlgI18NService.translation;
+
 			if (translation.hasOwnProperty(text)) {
 				result = translation[text];
 			}
@@ -46,7 +40,6 @@
 					var a = [];
 					for (var j = 0; j < args.length; j++) {
 						var isNotProvided = i&Math.pow(2, j);
-						console.log('(' + i + ', ' + j + ')=' + isNotProvided);
 						if (isNotProvided) {
 							a.push('@');
 						} else {
@@ -61,10 +54,10 @@
 			var selectedKey = Array.apply(null, Array(args.length))
 								.map(function() { return '@' })
 								.join('_');
+
+			// Pluralization
 			if (typeof result == 'object') {
-				// Pluralization
 				var keys = getKeys();
-				console.log('keys=', keys);
 				var found = false;
 				for (var i = 0; i < keys.length; i++) {
 					if (result.hasOwnProperty(keys[i])) {
@@ -79,6 +72,7 @@
 				}
 			}
 
+			// Interpolation
 			var a = selectedKey.split('_');
 			for (var i = 0; i < args.length; i++) {
 				if (a[i] == '@') {
@@ -86,7 +80,6 @@
 				}
 			}
 
-			console.log('result=', result);
 			return result;
 		}
 	}]);
