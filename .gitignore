@@ -12,3 +12,4 @@ bower_components
 /app/seo_snapshots
 app/sitemap.xml
 Edit.*
+app/sitemap.json
