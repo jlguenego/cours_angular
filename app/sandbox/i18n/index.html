@@ -6,7 +6,7 @@
 		<h1>I18N</h1>
 		<p>Locale: {{ctrl.locale.id}}</p>
 		<div>
-			<label ng-repeat="locale in ['en-us', 'fr-fr']">
+			<label ng-repeat="locale in ['en-us', 'fr-fr', 'fr-xx', 'de', 'zp']">
 				<input name="locale_id" type="radio"
 					ng-click="ctrl.changeLocale(locale)"
 					ng-checked="{{ctrl.locale.id == locale}}"/>
