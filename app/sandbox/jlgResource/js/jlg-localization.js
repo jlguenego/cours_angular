@@ -1,40 +1,31 @@
 (function() {
-	var app = angular.module('jlgLocalization', [ 'ngLocale', 'ngResource' ]);
+	var app = angular.module('jlgLocalization', [ 'ngLocale', 'jlgResource' ]);
 
-	app.service('jlgI18NService', ['$locale', '$resource', '$rootScope',
-		function JLGI18NService($locale, $resource, $rootScope) {
+	app.service('jlgI18NService', ['$locale', 'jlgResourceService', '$rootScope',
+		function JLGI18NService($locale, jlgResourceService, $rootScope) {
 			var self = this;
 
 			$locale.id = navigator.language.toLowerCase();
 
-			var i18nRes = $resource('i18n/:locale.json');
-			console.log('i18nRes=', i18nRes);
-			var localeRes = $resource('i18n/locale/locale_:locale.json');
+			console.log('jlgResourceService=', jlgResourceService());
+			var i18nRes = jlgResourceService('i18n/:locale.json');
+			var localeRes = jlgResourceService('i18n/locale/locale_:locale.json');
 
 			this.refresh = function() {
-				this.translation = i18nRes.get({locale: $locale.id}, function(){}, function() {
-					var safeLocaleId = $locale.id.replace(/^(.*?)-.*$/, '$1');
-					self.translation = i18nRes.get({locale: safeLocaleId}, function(){}, function() {
-						var lastLocalId = 'en-us';
-						self.translation = i18nRes.get({locale: lastLocalId});
-					});
-				});
+				var safeLocaleId = $locale.id.replace(/^(.*?)-.*$/, '$1');
 
-				var onLocalSuccess = function(newLocale) {
-					for (var property in newLocale) {
-						if ($locale.hasOwnProperty(property) && property != 'id') {
-							$locale[property] = newLocale[property];
+				this.translation = i18nRes.get(
+					[{locale: $locale.id}, {locale: safeLocaleId}, {locale: 'en-us'}]
+				);
+
+				localeRes.get(
+					[{locale: $locale.id}, {locale: safeLocaleId}, {locale: 'en-us'}],
+					function(newLocale) {
+						for (var property in newLocale) {
+							if ($locale.hasOwnProperty(property) && property != 'id') {
+								$locale[property] = newLocale[property];
+							}
 						}
-					}
-				};
-
-				localeRes.get({locale: $locale.id}, onLocalSuccess,
-					function() {
-						var safeLocaleId = $locale.id.replace(/^(.*?)-.*$/, '$1');
-						localeRes.get({locale: safeLocaleId}, onLocalSuccess, function() {
-							var lastLocaleId = 'en-us';
-							localeRes.get({locale: lastLocaleId}, onLocalSuccess);
-						});
 					}
 				);
 			};
