@@ -18,6 +18,7 @@
     "karma-firefox-launcher": "^0.1.3",
     "karma-ie-launcher": "^0.1.5",
     "karma-jasmine": "^0.1.5",
+    "marked": "^0.3.2",
     "mime": "~1.2.x",
     "phantomjs": "^1.9.10",
     "protractor": "~1.0.0",
@@ -28,24 +29,20 @@
   },
   "scripts": {
     "postinstall": "bower install",
-
     "prestart": "npm install",
     "start": "node server/http_server_cours_angular.js",
-
     "precompile": "npm install",
     "compile": "grunt",
-
     "pretest": "npm install",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
     "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
-
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
-
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor test/protractor-conf.js",
-
     "seo": "node node_scripts/seo.js",
-    "clean_seo": "node node_modules/shelljs/bin/shjs node_scripts/clean_seo.js"
-  }
+    "clean_seo": "node node_modules/shelljs/bin/shjs node_scripts/clean_seo.js",
+    "compile_chapters": "node node_scripts/compile_chapters.js"
+  },
+  "dependencies": {}
 }

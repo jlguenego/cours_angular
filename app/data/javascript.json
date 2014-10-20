@@ -4,20 +4,32 @@
 	"img": "js.png",
 	"content": [
 		{
-			"title": "Introduction",
-			"path": "chapter0"
+			"title": "Hello World",
+			"path": "00_hello_world"
 		},
 		{
-			"title": "Chapter 1",
-			"path": "chapter1"
+			"title": "Les variables",
+			"path": "01_variables"
 		},
 		{
-			"title": "Chapter 2",
-			"path": "chapter2"
+			"title": "Structures de contrôle",
+			"path": "02_control_statement"
 		},
 		{
-			"title": "Chapter 12",
-			"path": "chapter12"
+			"title": "Les expressions",
+			"path": "03_expressions"
+		},
+		{
+			"title": "Les fonctions",
+			"path": "04_functions"
+		},
+		{
+			"title": "Mots clef",
+			"path": "05_keywords"
+		},
+		{
+			"title": "API",
+			"path": "06_api"
 		}
 	]
 }
