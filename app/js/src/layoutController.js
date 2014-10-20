@@ -13,7 +13,9 @@
 						.replace(/-head/g, "head")
 						.replace(/-\/head/g, "/head")
 						.replace(/-body/g, "body")
-						.replace(/-\/body/g, "/body");
+						.replace(/-\/body/g, "/body")
+						.replace(/-script/g, "script")
+						.replace(/-\/script/g, "/script");
 				console.log(element[0].innerHTML);
 			}
 		};

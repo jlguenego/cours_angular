@@ -84,6 +84,7 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.location = $location;
 		$scope.now = new Date();
 		$scope.window = window;
+		$scope.config = cours_angular_config;
 
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = $location.path().split('/').slice(1);
