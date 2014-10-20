@@ -6,7 +6,9 @@ Mettez ce code dans votre fichier html et ouvrez le avec votre navigateur.
 
 **N'oublier pas d'ouvrir la console**
 
+
 ###Code
+
 ```html
 <html>
   <head>
@@ -20,7 +22,9 @@ Mettez ce code dans votre fichier html et ouvrez le avec votre navigateur.
 </html>
 ```
 
+
 ###Résultat</h3>
+
 ```
 Hello world
 ```

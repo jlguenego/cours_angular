@@ -5,15 +5,18 @@
 	"content": [
 		{
 			"title": "Hello World",
-			"path": "00_hello_world"
+			"path": "00_hello_world",
+			"type": "md"
 		},
 		{
 			"title": "Les variables",
-			"path": "01_variables"
+			"path": "01_variables",
+			"type": "html"
 		},
 		{
 			"title": "Structures de contrôle",
-			"path": "02_control_statement"
+			"path": "02_control_statement",
+			"type": "html"
 		},
 		{
 			"title": "Les expressions",
