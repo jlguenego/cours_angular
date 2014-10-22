@@ -2,9 +2,10 @@ Hello World
 ===========
 
 Le code suivant est un simple Hello World.
-Mettez ce code dans votre fichier html et ouvrez le avec votre navigateur.
 
-**N'oublier pas d'ouvrir la console**
+Créer un fichier html avec le code suivant et l'ouvrir avec un navigateur web.
+
+**Ne pas oublier d'ouvrir la console** (appuyer sur ```F12``` sur Chrome et Firefox)
 
 
 ###Code
@@ -29,4 +30,5 @@ Mettez ce code dans votre fichier html et ouvrez le avec votre navigateur.
 Hello world
 ```
 
-Vous venez d'utiliser la fonction de log de JavaScript.
+##Note
+Le code JavaScript se place entre les tags ```<script>``` ou dans un fichier ```.js```.

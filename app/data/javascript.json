@@ -10,29 +10,31 @@
 		},
 		{
 			"title": "Les variables",
-			"path": "01_variables",
-			"type": "html"
-		},
-		{
-			"title": "Structures de contrôle",
-			"path": "02_control_statement",
-			"type": "html"
+			"path": "01_variables"
 		},
 		{
 			"title": "Les expressions",
-			"path": "03_expressions"
+			"path": "02_expressions"
+		},
+		{
+			"title": "Structures de contrôle",
+			"path": "03_control_statement"
 		},
 		{
 			"title": "Les fonctions",
 			"path": "04_functions"
 		},
 		{
+			"title": "Les Objets",
+			"path": "05_objects"
+		},
+		{
 			"title": "Mots clef",
-			"path": "05_keywords"
+			"path": "06_keywords"
 		},
 		{
 			"title": "API",
-			"path": "06_api"
+			"path": "07_api"
 		}
 	]
 }

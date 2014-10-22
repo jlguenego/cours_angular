@@ -15,6 +15,7 @@
     "jquery": "1.10.2",
     "bootstrap": "~3.2.x",
     "google-code-prettify": "~1.0.1",
-    "showdown": "~0.3.1"
+    "showdown": "~0.3.1",
+    "angular-markdown-include": "~0.0.3"
   }
 }

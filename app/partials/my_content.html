@@ -3,7 +3,8 @@
 	<my-button-nav></my-button-nav>
 
 	<div class="my-content-body">
-		<md-include src="chapterPath" autoscroll></md-include>
+		<md-include src="chapterPath" autoscroll parser="markdownParser"
+			script="bower_components/google-code-prettify/bin/run_prettify.min.js?"></md-include>
 		<!--<my-include src="chapterPath"></my-include>-->
 
 	</div>
@@ -14,6 +15,19 @@
 
 </div>
 <script>
+	var markdownConverter = new Showdown.converter();
+	function markdownParser(str) {
+		var html = markdownConverter.makeHtml(str)
+		var div = $('<div/>').html(html);
+		div.find('pre').each(function(i, block) {
+			var lang = $(this).find('code').attr('class');
+			if (!lang) {
+				return;
+			}
+			$(this).addClass('prettyprint lang-' + lang);
+		});
+		return div.html();
+	}
 	$(document).ready(function() {
 		window.prettyPrint && prettyPrint();
 	});

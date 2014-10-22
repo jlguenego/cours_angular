@@ -32,7 +32,7 @@ if (typeof String.prototype.startsWith != 'function') {
 	});
 */
 	var app = angular.module('angular_cours_app',
-		[ 'ngRoute', 'myLayout', 'myServices', 'myUtilities' ]);
+		[ 'ngRoute', 'myLayout', 'myServices', 'myUtilities', 'angularMarkdownInclude']);
 
 	app.directive('onFinishRender', ['$timeout', function($timeout) {
 		return {
