@@ -1,7 +1,9 @@
 Les expressions
 ===============
 
-##Les opérateurs arithmétiques
+Les opérateurs arithmétiques
+----------------------------
+
 - Addition ```+```: additionne deux nombres, ou concatène deux Strings.
 - Soustraction ```-```
 - Multiplication ```*```
@@ -18,7 +20,8 @@ console.log(13 % 10); // affiche 3
 console.log(13.1 % 10); // Attention: affiche 3.0999999999999996 (le problème d'arrondi arrive plus souvent qu'on ne le pense)
 ```
 
-##Les opérateurs logiques
+Les opérateurs logiques
+-----------------------
 
 Une opérande est considérée comme fausse si elle est ```undefined```, ```null```, ```''```, ```0```, ```false```.
 Une opérande est considérée comme vraie dans les autres cas.
@@ -57,7 +60,8 @@ console.log(!''); // affiche true
 console.log(!true); // affiche false
 ```
 
-##Les opérateurs de comparaison
+Les opérateurs de comparaison
+-----------------------------
 
 - Égal: ```==``` ou ```===```
 	- ```==```: Renvoie ```true``` si les deux valeurs sont égales (mais pas forcément du même type).
@@ -106,7 +110,8 @@ console.log(2 >= 3);     // affiche false
 console.log(2 > 3);      // affiche false
 ```
 
-##Les opérateurs bit à bit
+Les opérateurs bit à bit
+------------------------
 
 Les nombres sont considérés comme des nombres entiers 32 bits signés.
 
@@ -173,7 +178,9 @@ console.log((-1 >>> 1).toString(2).length); // affiche 32 - 1 = 31
 // permet de confirmer les nombres sont des entiers stockés sur 32 bits.
 ```
 
-##Les opérateurs d'assignation
+Les opérateurs d'assignation
+----------------------------
+
 - Assignation simple: ```=```
 
 ```javascript

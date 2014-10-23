@@ -1,8 +1,10 @@
 Les Variables
 =============
 
+goto [Visibilité d'une variable (Scope)](#visibilitdunevariablescope)
 
-##Déclaration
+Déclaration
+-----------
 
 - Une variable se déclare avec le mot-clef ```var```.
 - Le nom d'une variable est **uniquement** composé de caractère alphanumérique
@@ -10,7 +12,7 @@ Les Variables
 - Le nom d'une variable **doit** commencer par un caractère alphabétique (a-z, A-Z et _).
 - Les noms de variable sont sensibles à la casse. (toto ≠ Toto)
 
-####Code
+####Exemple
 ```javascript
 var ma_variable;  // Valide
 var ma_variable2; // Valide
@@ -22,7 +24,11 @@ var 42;           // Non valide
 
 
 
-##Visibilité d'une variable
+Visibilité d'une variable (Scope)
+---------------------------------
+
+En JavaScript, les variables ont un **scope** : c'est l'ensemble des règles qui déterminent
+où et comment une variable peut être accédée dans le code.
 
 Une variable ```A``` est visible partout après sa déclaration, y compris dans les fonctions
 définies après la déclaration de ```A```.
@@ -35,7 +41,7 @@ elle n'est visible que dans cette fonction ```F``` ainsi que dans les fonctions 
 Il est possible qu'une fonction déclare à nouveaux la variable ```A```.
 Dans ce cas là nouvelle variable définie masque la précédente.
 
-####Code
+####Exemple
 ```javascript
 var A = 2; // Variable globale
 
@@ -64,7 +70,8 @@ console.log(A); // affiche 2
 
 
 
-##Les types primitifs
+Les types primitifs
+-------------------
 
 Ce sont les types de base pour les variables.
 
@@ -138,13 +145,14 @@ console.log(typeof ma_variable); // affiche "object"
 
 
 
-##Les objets
+Les objets
+----------
 
 Ce sont des structures composées d'association clef-valeur.
 
 Ils s'initialisent entre ```{ }```.
 
-####Code
+####Exemple
 ```javascript
 var mon_objet = {
 	nbr: 42,
@@ -167,14 +175,15 @@ undefined
 object
 ```
 
-##Les tableaux
+Les tableaux
+------------
 
 Ce sont des objets spéciaux dont les clef sont 0, 1, ..., n (n étant la taille du tableau - 1).
 On peut obtenir leur taille grâce à la proptiété ```length```.
 
 Ils s'initialisent entre ```[ ]```.
 
-####Code
+####Exemple
 ```javascript
 var mon_tableau = [ 42, 'Hello' ];
 
@@ -197,7 +206,8 @@ object
 ```
 
 
-##Mots-clef
+Mots-clef
+---------
 
 - **null**: Il permet d'initialiser une variable objet à *vide*. ```var ma_variable = null```
 - **undefined**: Désigne une variable non initialisée.

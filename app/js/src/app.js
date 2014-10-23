@@ -7,32 +7,13 @@ if (typeof String.prototype.startsWith != 'function') {
 
 (function() {
 	var cours_angular_config = get_cours_angular_config();
-	angular.module('myUtilities', [])
-/*	.directive("myInclude", function() {
-		return {
-			restrict: 'CAE',
-			scope: {
-				src: '=',
-				myInclude: '='
-			},
-			transclude: true,
-			link: function(scope, iElement, iAttrs, controller) {
-				scope.loadFailed = true;
-				// Code not stable because $includeContentError does not exists
-				// in AngularJS 1.2
-				scope.$on("$includeContentError", function(event, args){
-					scope.loadFailed = true;
-				});
-				scope.$on("$includeContentLoaded", function(event, args){
-					scope.loadFailed = false;
-				});
-			},
-			template: "<div ng-include='myInclude || src'></div><div ng-show='loadFailed' ng-transclude/>"
-		};
-	});
-*/
+
 	var app = angular.module('angular_cours_app',
-		[ 'ngRoute', 'myLayout', 'myServices', 'myUtilities', 'angularMarkdownInclude']);
+		[ 'ngRoute', 'myLayout', 'myServices', 'angularMarkdownInclude']);
+
+	app.run(['$anchorScroll', function($anchorScroll) {
+		$anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
+	}]);
 
 	app.directive('onFinishRender', ['$timeout', function($timeout) {
 		return {
@@ -46,29 +27,6 @@ if (typeof String.prototype.startsWith != 'function') {
 			}
 		};
 	}]);
-
-	/*
-	app.directive("myInclude", function() {
-		return {
-			restrict: 'AE',
-			scope: {
-				src: '=',
-				myInclude: '='
-			},
-			controller: ['$scope', '$http', '$sce', function($scope, $http, $sce) {
-				console.log($scope);
-				$http.get($scope.src)
-					.success(function(data) {
-						$scope.include_result = $sce.trustAsHtml(data);
-					})
-					.error(function() {
-						$scope.include_result = $sce.trustAsHtml('<h1>Le cours demandé n\'a pas été touvé</h1>');
-					});
-			}],
-			template: '<div ng-bind-html="include_result"></div>'
-		};
-	});
-	*/
 
 	app.controller('MyAppController',
 		['$scope', '$http', '$location', '$anchorScroll', '$timeout',
@@ -85,6 +43,17 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.now = new Date();
 		$scope.window = window;
 		$scope.config = cours_angular_config;
+
+		$scope.goToAnchor = function(anchor) {
+			if (anchor) {
+				$location.hash(anchor);
+			} else {
+				anchor = $location.hash();
+			}
+
+			var height = $('.header_breadcrumb').height() + $('header .navbar').height();
+			window.scrollTo(0, $('#' + anchor).offset().top - height);
+		};
 
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = $location.path().split('/').slice(1);

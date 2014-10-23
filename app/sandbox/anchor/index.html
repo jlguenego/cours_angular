@@ -1,0 +1,34 @@
+<html>
+	<head>
+	</head>
+
+	<body ng-app="myApp" ng-controller="MyController as ctrl">
+		<!-- Links to scroll to various sections -->
+		<a href="javascript:void(0)" ng-click="scrollTo(1)">1</a>
+		<a href="javascript:void(0)" ng-click="scrollTo(2)">2</a>
+		<a href="javascript:void(0)" ng-click="scrollTo(3)">3</a>
+		<a href="javascript:void(0)" ng-click="scrollTo(4)">4</a>
+
+		<!-- various sections we will scroll to. Please excuse the inline styles -->
+		<div id="test-1" style="height: 400px;">1</div>
+		<div id="test-2" style="height: 400px;">2</div>
+		<div id="test-3" style="height: 400px;">3</div>
+		<div id="test-4" style="height: 400px;">4</div>
+		<div id="test-5" style="height: 400px;">5</div>
+
+
+		<script src="../../bower_components/angular/angular.min.js"></script>
+		<script>
+var app = angular.module('myApp', []);
+
+app.controller('MyController', function($scope, $location, $anchorScroll) {
+	$scope.scrollTo = function(div) {
+		console.log('scrollTo');
+		console.log('div=', div);
+		$location.hash('test-'+div);
+		$anchorScroll();
+	}
+});
+		</script>
+	</body>
+</html>

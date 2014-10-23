@@ -3,7 +3,7 @@
 	<my-button-nav></my-button-nav>
 
 	<div class="my-content-body">
-		<md-include src="chapterPath" autoscroll parser="markdownParser"
+		<md-include src="chapterPath" autoscroll="goToAnchor()" parser="markdownParser"
 			script="bower_components/google-code-prettify/bin/run_prettify.min.js?"></md-include>
 		<!--<my-include src="chapterPath"></my-include>-->
 
@@ -17,7 +17,9 @@
 <script>
 	var markdownConverter = new Showdown.converter();
 	function markdownParser(str) {
-		var html = markdownConverter.makeHtml(str)
+		var html = markdownConverter.makeHtml(str);
+		html = manageUrl(html);
+
 		var div = $('<div/>').html(html);
 		div.find('pre').each(function(i, block) {
 			var lang = $(this).find('code').attr('class');
@@ -28,6 +30,13 @@
 		});
 		return div.html();
 	}
+
+	function manageUrl(str) {
+		var result = str.replace(/href="#(.*?)"/g, 'href="javascript:void(0)" ng-click="goToAnchor(\'$1\')"');
+		//var result = str.replace(/href="#(.*?)"/g, 'href="{{url(location.path() + \'#$1\')}}"');
+		return result;
+	}
+
 	$(document).ready(function() {
 		window.prettyPrint && prettyPrint();
 	});
