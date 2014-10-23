@@ -126,7 +126,7 @@
 				var current = parent_breadcrumb.pop();
 				var index = content_path.indexOf(current);
 
-				$scope.chapter = lesson_desc.content[index];
+				$scope.currentChapter = lesson_desc.content[index];
 
 				$scope.chapter_previous = undefined;
 				if (index > 0) {
@@ -147,7 +147,7 @@
 				$scope.update_hash(lesson_desc);
 				$scope.update_nav_button(lesson_desc);
 
-				var type = $scope.chapter.type || 'md';
+				var type = $scope.currentChapter.type || 'md';
 				$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.' + type;
 			});
 		}

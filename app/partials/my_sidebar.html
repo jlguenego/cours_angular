@@ -8,7 +8,8 @@
 		<li ng-repeat="chapter in lesson_desc.content">
 			<a ng-href="{{url('/' + lesson_list.path + '/' + lesson_desc.path + '/' + chapter.path)}}"
 				ng-click="scrollTop()">
-				{{chapter.title}}
+				<b ng-show="currentChapter.path == chapter.path">{{chapter.title}}</b>
+				<span ng-show="currentChapter.path != chapter.path">{{chapter.title}}</span>
 			</a>
 		</li>
 	</ul>

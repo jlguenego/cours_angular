@@ -47,6 +47,10 @@ if (typeof String.prototype.startsWith != 'function') {
 				anchor = $location.hash();
 			}
 
+			if (!anchor) {
+				return;
+			}
+
 			var height = $('.header_breadcrumb').height() + $('header .navbar').height();
 			window.scrollTo(0, $('#' + anchor).offset().top - height);
 		};
