@@ -11,10 +11,6 @@ if (typeof String.prototype.startsWith != 'function') {
 	var app = angular.module('angular_cours_app',
 		[ 'ngRoute', 'myLayout', 'myServices', 'angularMarkdownInclude']);
 
-	app.run(['$anchorScroll', function($anchorScroll) {
-		$anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
-	}]);
-
 	app.directive('onFinishRender', ['$timeout', function($timeout) {
 		return {
 			restrict: 'A',
