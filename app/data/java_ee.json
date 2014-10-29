@@ -1,0 +1,15 @@
+{
+	"title": "Java EE",
+	"path": "java_ee",
+	"img": "java_ee.png",
+	"content": [
+		{
+			"title": "Prérequis",
+			"path": "00_prerequisites"
+		},
+		{
+			"title": "Hello World",
+			"path": "01_hello_world"
+		}
+	]
+}

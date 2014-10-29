@@ -22,17 +22,24 @@
 </style>
 
 <div class="container-fluid chapter-list">
-	<div class="title">
-		<img ng-src="{{'img/' + lesson_desc.img}}" class="lesson-logo" alt="{{lesson.title}}" />
-		<h1>{{lesson_desc.title}}</h1>
+	<div ng-hide="pageNotFound">
+		<div class="title">
+			<img ng-src="{{'img/' + lesson_desc.img}}" class="lesson-logo" alt="{{lesson.title}}" />
+			<h1>{{lesson_desc.title}}</h1>
+		</div>
+		<div class="text-center">
+			<ul>
+				<li class="lesson-title" ng-repeat="chapter in lesson_desc.content">
+					<a ng-href="{{url('/cours/' + lesson_desc.path + '/' + chapter.path)}}">
+						<h2>{{chapter.title}}</h2>
+					</a>
+				</li>
+			</ul>
+		</div>
 	</div>
-	<div class="text-center">
-		<ul>
-			<li class="lesson-title" ng-repeat="chapter in lesson_desc.content">
-				<a ng-href="{{url('/cours/' + lesson_desc.path + '/' + chapter.path)}}">
-					<h2>{{chapter.title}}</h2>
-				</a>
-			</li>
-		</ul>
+	<div ng-show="pageNotFound">
+		<div class="title">
+			<h1>La page demandée n'existe pas</h1>
+		</div>
 	</div>
 </div>

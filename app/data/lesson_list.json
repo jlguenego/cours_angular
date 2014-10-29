@@ -13,6 +13,12 @@
 			"path": "angularjs",
 			"file": "angularjs.json",
 			"img": "angularjs.png"
+		},
+		{
+			"title": "Java EE",
+			"path": "java_ee",
+			"file": "java_ee.json",
+			"img": "java_ee.png"
 		}
 	]
 }
