@@ -69,6 +69,12 @@ body .container-fluid {
 	}
 }
 
+.my-content .jboss {
+	display: block;
+	padding: 10px;
+	background-color: #FFECEC;
+}
+
 /* IMAGES */
 .lesson-logo {
 	height: 150px;

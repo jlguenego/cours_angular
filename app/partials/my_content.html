@@ -15,7 +15,24 @@
 
 </div>
 <script>
-	var markdownConverter = new Showdown.converter();
+	var markdownConverter = new Showdown.converter({
+		extensions: [
+			function(converter) {
+				return [
+					{
+						type: 'html',
+						regex: '<jboss>',
+						replace: '<div class="jboss"><b>Pour JBoss WildFly :</b>'
+					},
+					{
+						type: 'html',
+						regex: '</jboss>',
+						replace: '</div>'
+					}
+				];
+			}
+		]
+	});
 	function markdownParser(str) {
 		var html = markdownConverter.makeHtml(str);
 		html = manageUrl(html);

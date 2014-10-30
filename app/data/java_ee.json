@@ -4,12 +4,52 @@
 	"img": "java_ee.png",
 	"content": [
 		{
-			"title": "Prérequis",
-			"path": "00_prerequisites"
+			"title": "Introduction",
+			"path": "00_introduction"
 		},
 		{
-			"title": "Hello World",
-			"path": "01_hello_world"
+			"title": "EJB > Hello World",
+			"path": "01_ejb_hello_world"
+		},
+		{
+			"title": "EJB > Session > Stateless",
+			"path": "03_ejb_session_stateless"
+		},
+		{
+			"title": "EJB > Session > Stateful",
+			"path": "04_ejb_session_stateful"
+		},
+		{
+			"title": "EJB > Session > Standalone",
+			"path": "05_ejb_session_standalone"
+		},
+		{
+			"title": "EJB > Entity (JPA)",
+			"path": "06_ejb_entity"
+		},
+		{
+			"title": "EJB > Message driven",
+			"path": "07_ejb_message_driven"
+		},
+		{
+			"title": "Web App. > Servlet",
+			"path": "08_webapp_servlet"
+		},
+		{
+			"title": "Web App. > JSP",
+			"path": "09_webapp_jsp"
+		},
+		{
+			"title": "Web App. > JSF",
+			"path": "10_webapp_jsf"
+		},
+		{
+			"title": "Web App. + EJB",
+			"path": "11_webapp_ejb"
+		},
+		{
+			"title": "Web Service",
+			"path": "12_webservice"
 		}
 	]
 }
