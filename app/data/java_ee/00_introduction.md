@@ -20,8 +20,8 @@ Télécharger et extraire/installer les produits suivants:
 - **Glassfish**: GlassFish est en fait contenu dans *Java Platform, Enterprise Edition 7 SDK Update 1*.
 
 
-Préparer GlassFish
-------------------
+Préparer GlassFish pour Eclipse
+-------------------------------
 3. À la fin de l'installation, redémarrer Eclipse.
 4. Aller dans *File > New > Other...*, et sélectionner 'Server'.
 5. Sélectionner **GlassFish 4**.
@@ -34,10 +34,8 @@ Préparer GlassFish
 9. Cliquer sur 'Next', puis 'Finish'.
 
 
-Préparer WildFly
-----------------
-WildFly est le nouveau nom de **JBoss**.
-
+Préparer JBoss WildFly pour Eclipse
+-----------------------------------
 1. Dans Eclipse, aller dans *Help > Eclipse Marketplace...*
 2. Rechercher et télécharger **JBoss Tools for Luna**.
 4. À la fin de l'installation, redémarrer Eclipse.
@@ -57,4 +55,4 @@ WildFly est le nouveau nom de **JBoss**.
 Note
 ----
 Ce tutorial est réalisé avec GlassFish.
-Lorsque des particularités à JBoss WildFly se présenteront, elles seront indiquées.
+Lorsque des particularités à JBoss WildFly se présentent, elles sont indiquées.

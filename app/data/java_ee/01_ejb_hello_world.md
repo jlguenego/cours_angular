@@ -6,7 +6,7 @@ Ce tutorial présente un EJB 'Hello World' dont l'architecture est comme suit:
 ![architecture 'Hello World'](data/java_ee/image/hello_world.png)
 
 Un serveur d'application compatible Java EE (appelé auparavant J2EE) est muni
-de deux containeurs:
+de deux *containers* :
 
 - un **Web container**: il contient des **web applications**,
 qui sont des ensembles de Servlets, JSP et JSF (Facelets).
@@ -26,12 +26,12 @@ sans propriété garantie particulière.
 
 ###Création du projet EJB
 Sous Eclipse, créer un nouveau projet EJB via *File > New > Other... > EJB Project*.
-Nommer le projet 'EJBHelloWorld'.
+Nommer le projet `EJBHelloWorld`.
 
-Sélectionner la target runtime **GlassFish4**
+Sélectionner la target runtime **GlassFish4**.
 
 <jboss>
-Sélectionner la target runtime **WildFly 8.x Runtime**
+Sélectionner la target runtime **WildFly 8.x Runtime**.
 </jboss>
 
 Cliquer sur 'Finish' et passer en perspective 'Java EE'.
@@ -101,7 +101,7 @@ L'application cliente 'Hello World' est un simple projet Java.
 
 ###Création du projet
 Sous Eclipse, créer un nouveau projet Java via *File > New > Other... > Java Project*.
-Nommer le projet 'EJBHelloWorldClient'.
+Nommer le projet `EJBHelloWorldClient`.
 Cliquer sur 'Finish' et passer en perspective 'Java'.
 
 ###Configuration du projet
@@ -122,6 +122,7 @@ Sélectionner le projet, puis *Clic droit > New > Class*.
 Nommer cette classe **EJBHelloWorldClient**. Voici son contenu:
 
 ```javaimport javax.naming.Context;
+import javax.naming.Context;
 import javax.naming.InitialContext;
 
 import com.jlg.tutorial.ejb.interfaces.HelloWorldBeanRemote;
@@ -147,6 +148,11 @@ public class EJBHelloWorldClient {
 }
 
 ```
+<jboss>
+
+Veiller à bien mettre à jour le nom de l'EJB dans le code ci-dessus.
+`ejb:/EJBHelloWorld//HelloWorldBean!com.jlg.tutorial.ejb.interfaces.HelloWorldBeanRemote`
+</jboss>
 
 Le client crée un nouveaux contexte, avec des paramètres par défaut,
 et l'utilise pour se connecter au serveur et obtenir le répertoire **JNDI**.
@@ -158,7 +164,7 @@ Depuis EJB 3.1, il existe une [convention de nommage](http://docs.oracle.com/cd/
 <jboss>
 
 Sélectionner le dossier **src** et *Clic droit > New... > File*.
-Nommer le fichier 'jboss-ejb-client.properties' et y mettre:
+Nommer le fichier `jboss-ejb-client.properties` et y mettre:
 ```ini
 remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
 remote.connections=default
@@ -168,7 +174,7 @@ remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMO
 ```
 
 Sélectionner le dossier **src** et *Clic droit > New... > File*.
-Nommer le fichier 'jndi.properties' et y mettre:
+Nommer le fichier `jndi.properties` et y mettre:
 ```ini
 java.naming.factory.url.pkgs=org.jboss.ejb.client.naming
 java.naming.factory.initial=org.jboss.naming.remote.client.InitialContextFactory
@@ -190,7 +196,7 @@ Hello World!
 ```
 
 ####Sans Eclipse
-- Sélectionner le projet et *Clic droit > Export...*
+- Depuis Eclipse, sélectionner le projet `EJBHelloWorldClient` et *Clic droit > Export...*
 - Sélectionner 'Runnable JAR file', puis cliquer sur 'Next'
 - Sélectionner **EJBHelloWorldClient - EJBHelloWorldClient**
 - Choisir une destination, en nommant le fichier **EJBHelloWorldClient.jar**,
