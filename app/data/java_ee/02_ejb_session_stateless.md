@@ -14,7 +14,8 @@ EJB
 Cet EJB est sensiblement le même que celui du
 [Hello World]({{url('/cours/java_ee/01_ejb_hello_world#ejb')}}).
 Refaire simplement cette partie du tutoriel, sans le déploiement,
-et en remplaçant les `HelloWorld` par des `SessionStateless`.
+et en remplaçant `HelloWorld` par `SessionStateless`,
+dans le noms de fichiers, classes et projets.
 
 Une partie du code à été modifié pour mettre en éxerge certaine particularités
 du **Stateless** Session EJB:
@@ -31,13 +32,12 @@ import com.jlg.tutorial.ejb.interfaces.StatelessSessionBeanRemote;
 public class StatelessSessionBean implements StatelessSessionBeanRemote {
 	private static int counter = 0;
 	private int id;
+	private int a = 0;
 
 	public StatelessSessionBean() {
 		counter++;
 		id = counter;
 	}
-
-	private int a = 0;
 
 	@Override
 	public String getMessage() {
@@ -84,9 +84,6 @@ import javax.naming.InitialContext;
 import com.jlg.tutorial.ejb.interfaces.StatelessSessionBeanRemote;
 
 public class EJBSessionStatelessClient {
-	public static BufferedReader reader = new BufferedReader(
-			new InputStreamReader(System.in));
-
 	public static void main(String[] args) {
 		try {
 			int delay = 7000;

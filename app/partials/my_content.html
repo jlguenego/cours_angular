@@ -28,6 +28,11 @@
 						type: 'html',
 						regex: '</jboss>',
 						replace: '</div>'
+					},
+					{
+						type: 'lang',
+						regex: '<warning[/]>',
+						replace: '<span class="md-warning"></span>'
 					}
 				];
 			}

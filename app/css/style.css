@@ -75,6 +75,17 @@ body .container-fluid {
 	background-color: #FFECEC;
 }
 
+.my-content .md-warning {
+	position: relative;
+	top: 7px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background-image: url(../img/warning.png);
+	background-size: 30px;
+
+}
+
 /* IMAGES */
 .lesson-logo {
 	height: 150px;
