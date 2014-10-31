@@ -15,7 +15,7 @@ Cet EJB est sensiblement le même que celui du
 [Hello World]({{url('/cours/java_ee/01_ejb_hello_world#ejb')}}).
 Refaire simplement cette partie du tutoriel, sans le déploiement,
 et en remplaçant `HelloWorld` par `SessionStateless`,
-dans le noms de fichiers, classes et projets.
+dans les noms de fichiers, classes et projets.
 
 Une partie du code à été modifié pour mettre en éxerge certaine particularités
 du **Stateless** Session EJB:
@@ -67,7 +67,8 @@ Application cliente
 Il s'agit sensiblement de la même application cliente que celle du
 [Hello World]({{url('/cours/java_ee/01_ejb_hello_world#applicationcliente')}}).
 Refaire simplement cette partie du tutoriel, sans l'exécution du client,
-et en remplaçant les `HelloWorld` par des `SessionStateless`.
+et en remplaçant `HelloWorld` par `SessionStateless`,
+dans les noms de fichiers, classes et projets.
 
 Une partie du code à été modifié afin de supporter une entrée utilisateur:
 ####EJBHelloWorldClient.java
