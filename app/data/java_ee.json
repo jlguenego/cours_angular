@@ -48,8 +48,12 @@
 			"path": "10_webapp_ejb"
 		},
 		{
-			"title": "Web Service",
-			"path": "11_webservice"
+			"title": "Web Service > JAX-WS",
+			"path": "11_webservice_jax_ws"
+		},
+		{
+			"title": "Web Service > JAX-RS",
+			"path": "12_webservice_jax_rs"
 		}
 	]
 }

@@ -1,17 +1,17 @@
 EJB > Session > Stateful
 ========================
 
-Un **Stateful** Session EJB est propre à chaque client et son état est garantie
-pour toute la durée de vie de la session, y comprit entre les appels successifs
+Un **Stateful** Session EJB est propre à chaque client et son état est garanti
+pour toute la durée de vie de la session, y compris entre les appels successifs
 de méthodes.
 
 Création du projet
 ------------------
 
 Recréer les deux projets du
-[chapitre précédent]({{url('/cours/java_ee/02_ejb_session_stateless')}}),
-en remplaçant `Stateless` par `Stateful`, dans les noms de fichiers, classes et
-projets, puis modifier les fichiers comme suit:
+[Hello World]({{url('/cours/java_ee/01_ejb_hello_world')}}),
+en remplaçant `HelloWorld` par `SessionStateful`, dans les noms de fichiers,
+classes et projets, puis modifier les fichiers comme suit:
 
 ####StatefulSessionBean.java
 ```java
@@ -174,6 +174,9 @@ tid[2]: a=5, counter=2, id=2
 Finished
 ```
 </jboss>
+
+Commentaires
+------------
 
 Chaque thread possède sa propre instance de l'EJB. L'état de l'instance de l'EJB
 est maintenu entre chaque appel de la méthode `getMessage()`.

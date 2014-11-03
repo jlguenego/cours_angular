@@ -9,9 +9,9 @@ Création du projet
 ------------------
 
 Recréer les deux projets du
-[chapitre précédent]({{url('/cours/java_ee/03_ejb_session_stateful')}}),
-en remplaçant `Stateful` par `Singleton`, dans les noms de fichiers, classes et
-projets, puis modifier les fichiers comme suit:
+[Hello World]({{url('/cours/java_ee/01_ejb_hello_world')}}),
+en remplaçant `HelloWorld` par `SessionSingleton`, dans les noms de fichiers,
+classes et projets, puis modifier les fichiers comme suit:
 
 ####SingletonSessionBean.java
 ```java
