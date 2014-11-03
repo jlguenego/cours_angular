@@ -5,8 +5,8 @@ Un **Singleton** Session EJB est partagé entre tous les clients. C'est-à-dire
 qu'il n'existe qu'une seule instance de cet EJB par serveur et qu'en plus elle
 est synchronisée entre les différents serveurs d'un cluster.
 
-Création du projet
-------------------
+Création des projets
+--------------------
 
 Recréer les deux projets du
 [Hello World]({{url('/cours/java_ee/01_ejb_hello_world')}}),

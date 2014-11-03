@@ -5,8 +5,8 @@ Un **Stateful** Session EJB est propre à chaque client et son état est garanti
 pour toute la durée de vie de la session, y compris entre les appels successifs
 de méthodes.
 
-Création du projet
-------------------
+Création des projets
+--------------------
 
 Recréer les deux projets du
 [Hello World]({{url('/cours/java_ee/01_ejb_hello_world')}}),
