@@ -42,7 +42,7 @@ public class MyApplication extends Application {
 
 ```
 
-###Création d'une classe d'entitée
+###Création d'une classe d'entité
 
 - Sélectionner le projet, puis *Clic droit > New > Class*
 - Remplir le fomulaire comme suit :
@@ -275,7 +275,7 @@ Partie cliente du Web Service
 
 ###Création du projet
 
-- Sous Eclipse, créer un nouveau projet Web Dynamic via
+- Sous Eclipse, créer un nouveau projet via
   *File > New > Project...* et sélectionner **Java Project**.
 - Nommer le projet **CalculatorRSClient**.
 - Cliquer sur 'Next', puis dans l'onglet 'Libraries', cliquer sur
@@ -384,7 +384,7 @@ public class CalculatorRSClient {
 
 ```
 
-###Copie de la classe d'entitée
+###Copie de la classe d'entité
 
 - Sélectionner le projet précédent, **CalculatorRS**, et ouvrir les sources,
   **src**.
