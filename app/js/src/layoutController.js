@@ -69,6 +69,13 @@
 		};
 	});
 
+	app.directive('disqusComments', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/disqus_comments.html'
+		};
+	});
+
 	app.directive('comment', function(){
 		return {
 			restrict: 'E',
