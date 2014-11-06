@@ -22,11 +22,21 @@
 					{
 						type: 'html',
 						regex: '<jboss>',
-						replace: '<div class="jboss"><b>Pour JBoss WildFly :</b>'
+						replace: '<div class="jboss"><b>Pour JBoss WildFly.</b> '
 					},
 					{
 						type: 'html',
 						regex: '</jboss>',
+						replace: '</div>'
+					},
+					{
+						type: 'html',
+						regex: '<glassfish>',
+						replace: '<div class="glassfish"><b>Pour GlassFish seulement.</b> '
+					},
+					{
+						type: 'html',
+						regex: '</glassfish>',
 						replace: '</div>'
 					},
 					{

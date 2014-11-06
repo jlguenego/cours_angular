@@ -75,6 +75,12 @@ body .container-fluid {
 	background-color: #FFECEC;
 }
 
+.my-content .glassfish {
+	display: block;
+	padding: 10px;
+	background-color: #D2E9FF;
+}
+
 .my-content .md-warning {
 	position: relative;
 	top: 7px;

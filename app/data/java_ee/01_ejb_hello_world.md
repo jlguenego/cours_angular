@@ -84,7 +84,7 @@ public class HelloWorldBean implements HelloWorldBeanRemote {
 
 ```
 
-###Déploiement EJB
+###Déploiement de l'EJB
 Dans la View Eclipse 'Servers':
 
 - démarrer le serveur: sélectionner le serveur et *Clic droit > Start*.
