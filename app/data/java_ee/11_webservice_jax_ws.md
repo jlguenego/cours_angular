@@ -6,7 +6,7 @@ via le protocole HTTP.
 Cette fonctionalité est accessible depuis n'importe quel client,
 utilisant son propre langage (JavaScript, C#, Java, etc.).
 
-**JAX-WS**: Java API for XML - Web Service
+**JAX-WS**: Java API for XML - Web Services
 
 Partie serveur du Web Service
 -----------------------------
