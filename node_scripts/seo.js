@@ -8,13 +8,17 @@ require('shelljs/global');
 var path = require('path');
 
 var config = require('../config_seo.json');
-process.env.baseUrl = config.baseUrl;
+process.env.baseUrlExtraction = config.baseUrlExtraction;
+process.env.baseUrlDestination = config.baseUrlDestination;
 process.env.seoSnapshotDir = config.seoSnapshotDir;
 process.env.cacheTime = config.cacheTime;
 
 
-if (!process.env.baseUrl) {
-	throw 'No base url defined';
+if (!process.env.baseUrlExtraction) {
+	throw 'No base url for extraction defined';
+}
+if (!process.env.baseUrlDestination) {
+	throw 'No base url for destination defined';
 }
 if (!process.env.seoSnapshotDir) {
 	throw 'No snapshots dir defined';

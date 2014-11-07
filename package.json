@@ -42,7 +42,7 @@
     "protractor": "protractor test/protractor-conf.js",
     "seo": "node node_scripts/seo.js",
     "clean_seo": "node node_modules/shelljs/bin/shjs node_scripts/clean_seo.js",
-    "compile_chapters": "node node_scripts/compile_chapters.js"
+    "set_base": "node node_scripts/set_base.js"
   },
   "dependencies": {}
 }

@@ -38,6 +38,8 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.config = cours_angular_config;
 		$rootScope.title = $scope.config.siteName;
 
+		console.log($location.path());
+
 		var hasToScroll = false;
 
 		$scope.$on('$viewContentLoaded', function() {

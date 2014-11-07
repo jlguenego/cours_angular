@@ -1,5 +1,15 @@
 {
-	"baseUrl": "http://localhost:8000/app/",
+	"baseUrlExtraction": "http://localhost:8000/app/",
+	"baseUrlDestination": "http://jlg-consulting.com/orsys/FAN/cours_angular/",
 	"seoSnapshotDir": "C:/wamp/www/cours_angular/app/seo_snapshots",
-	"cacheTime": 600000
+	"cacheTime": 600000,
+	"profile": "prod",
+	"profiles": {
+		"prod": {
+			"base": "/orsys/FAN/cours_angular/"
+		},
+		"dev": {
+			"base": "/app/"
+		}
+	}
 }

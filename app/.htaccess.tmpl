@@ -1,0 +1,39 @@
+RewriteEngine on
+
+# on prod, change:
+#	'/cours_angular/app/' to '/orsys/FAN/cours_angular/'
+
+# SEO RULES
+
+RewriteCond %{QUERY_STRING} ^_escaped_fragment_=
+RewriteCond %{REQUEST_URI}  ^__BASE__$
+RewriteRule !^seo_snapshots/.*$ seo_snapshots/index.html [NC,L]
+
+RewriteCond %{QUERY_STRING} ^_escaped_fragment_=
+RewriteCond %{REQUEST_URI}  ^__BASE__?(.*)/$
+RewriteRule !^seo_snapshots/.*$ seo_snapshots/%1.html [NC,L]
+
+RewriteCond %{QUERY_STRING} ^_escaped_fragment_=
+RewriteCond %{REQUEST_URI}  ^__BASE__?(.*)$
+RewriteRule !^seo_snapshots/.*$ seo_snapshots/%1.html [NC,L]
+
+
+RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet)
+RewriteCond %{REQUEST_URI}  ^__BASE__$
+RewriteCond %{REQUEST_URI}  !/img/
+RewriteRule !^seo_snapshots/.*$ seo_snapshots/index.html [NC,L]
+
+RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet)
+RewriteCond %{REQUEST_URI}  ^__BASE__?(.*)/$
+RewriteCond %{REQUEST_URI}  !/img/
+RewriteRule !^seo_snapshots/.*$ seo_snapshots/%1.html [NC,L]
+
+RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet)
+RewriteCond %{REQUEST_URI}  ^__BASE__?(.*)$
+RewriteCond %{REQUEST_URI}  !/img/
+RewriteRule !^seo_snapshots/.*$ seo_snapshots/%1.html [NC,L]
+
+# END SEO RULES
+
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(cours|sitemap)/?.*$ index.html [L]

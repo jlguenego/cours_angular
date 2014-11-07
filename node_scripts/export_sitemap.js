@@ -16,11 +16,12 @@ function main() {
 	urlList.shift();
 
 	var sitemap = sm.createSitemap ({
-		hostname: process.env.baseUrl,
+		hostname: process.env.baseUrlDestination,
 		cacheTime: process.env.cacheTime
 	});
 
 	urlList.forEach(function(url) {
+		url = url.replace(process.env.baseUrlExtraction, process.env.baseUrlDestination);
 		sitemap.add({url: url});
 	});
 

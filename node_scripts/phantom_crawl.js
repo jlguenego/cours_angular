@@ -33,7 +33,7 @@ function createSnapshot(urlList) {
 
 function getFilename(url) {
 	var name = system.env.seoSnapshotDir;
-	var suffix = url.replace(new RegExp("^" + system.env.baseUrl), '');
+	var suffix = url.replace(new RegExp("^" + system.env.baseUrlExtraction), '');
 
 	if (suffix == '') {
 		suffix = 'index.html';

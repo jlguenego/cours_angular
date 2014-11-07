@@ -39,10 +39,10 @@ function main() {
 
 function writeUrl(path) {
 	var slash = '/';
-	if (process.env.baseUrl.endsWith('/') || path == '') {
+	if (process.env.baseUrlExtraction.endsWith('/') || path == '') {
 		slash = '';
 	}
-	var url = process.env.baseUrl + slash + path;
+	var url = process.env.baseUrlExtraction + slash + path;
 	console.log('Writing: ' + url);
 	fs.appendFileSync(seoFile, url + '\n');
 }

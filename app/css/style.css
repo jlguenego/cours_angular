@@ -44,6 +44,7 @@ body .container-fluid {
 	top: 88px;
 	bottom: 0px;
 	width: 200px;
+	padding-bottom: 15px;
 
 	overflow: auto;
 

@@ -118,7 +118,7 @@
 			$scope.lesson_desc = LessonService.get({ name: $routeParams.lesson }, function(lesson_desc) {
 				$scope.update_hash(lesson_desc);
 
-				$rootScope.title = $scope.config.siteName + ' - ' + $scope.lesson_desc.title;
+				$rootScope.title = cours_angular_config.siteName + ' - ' + $scope.lesson_desc.title;
 			}, function(error) {
 				$scope.pageNotFound = true;
 			});
@@ -163,8 +163,8 @@
 				var type = $scope.currentChapter.type || 'md';
 				$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.' + type;
 
-				$rootScope.title = $scope.config.siteName + ' - '
-					+ $scope.lesson_desc.title + ': '
+				$rootScope.title = cours_angular_config.siteName + ' - '
+					+ $scope.lesson_desc.title + ' : '
 					+ $scope.currentChapter.title;
 			});
 
