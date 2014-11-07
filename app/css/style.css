@@ -6,17 +6,25 @@ html {
 
 /* HEADER */
 .header_breadcrumb {
-	position: fixed;
 	width: 100%;
-	padding-top: 51px;
 
 	border-bottom: 1px solid #DDDDDD;
+}
+
+.header_breadcrumb.fixed {
+	position: fixed;
+	padding-top: 51px;
 }
 
 @media (max-width: 768px) {
 	.header_breadcrumb .breadcrumb {
 		line-height: 30px;
 	}
+}
+
+.my-header.navbar, .my-header.header_breadcrumb {
+	border-radius: 0px;
+	margin: 0px;
 }
 
 .header_breadcrumb .breadcrumb {

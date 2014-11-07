@@ -40,6 +40,23 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.window = window;
 		$scope.config = cours_angular_config;
 
+		var hasToScroll = false;
+
+		$scope.$on('$viewContentLoaded', function() {
+			if (hasToScroll) {
+				$scope.goToAnchor($location.hash());
+				hasToScroll = false;
+			}
+		});
+
+		$scope.goTo = function(url, anchor) {
+			$location.path(url);
+			if (anchor) {
+				$location.hash(anchor);
+				hasToScroll = true;
+			}
+		};
+
 		$scope.goToAnchor = function(anchor) {
 			if (anchor) {
 				$location.hash(anchor);

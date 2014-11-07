@@ -1,5 +1,8 @@
-<header class="navbar-fixed-top">
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<header ng-class="{'navbar-fixed-top': config.fixedHeader}">
+
+	<div class="navbar navbar-inverse my-header" role="navigation"
+		ng-class="{'navbar-fixed-top': config.fixedHeader}">
+
 		<div class="container">
 
 			<div class="navbar-header">
@@ -55,9 +58,9 @@
 							À propos <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="javascript:void(0)" ng-click="goToAnchor('products')">Produits</a></li>
-							<li><a href="javascript:void(0)" ng-click="goToAnchor('license')">Licence</a></li>
-							<li><a href="javascript:void(0)" ng-click="goToAnchor('contacts')">Contact</a></li>
+							<li><a href="javascript:void(0)" ng-click="goTo('/', 'products')">Produits</a></li>
+							<li><a href="javascript:void(0)" ng-click="goTo('/', 'license')">Licence</a></li>
+							<li><a href="javascript:void(0)" ng-click="goTo('/', 'contacts')">Contact</a></li>
 							<li><a ng-href="{{url('/sitemap')}}">Plan du site</a></li>
 						</ul>
 					</li>
@@ -71,7 +74,8 @@
 		</div>
 	</div>
 
-	<div class="header_breadcrumb" ng-hide="location.path() == '/'">
+	<div class="header_breadcrumb my-header" ng-class="{fixed: config.fixedHeader}"
+		ng-show="config.showBreadcrumbs && location.path() != '/'">
 		<ol class="breadcrumb">
 			<li></li>
 			<li ng-repeat="name in breadcrumb">

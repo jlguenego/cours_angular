@@ -30,7 +30,7 @@ function fixHeaderHeight() {
 (function() {
 	$(window).resize(function() {
 		setSidebarHeight();
-		fixHeaderHeight();
+		//fixHeaderHeight();
 	});
 	$(window).scroll(setSidebarHeight);
 })();
