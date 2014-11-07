@@ -25,10 +25,9 @@ if (typeof String.prototype.startsWith != 'function') {
 	}]);
 
 	app.controller('MyAppController',
-		['$scope', '$http', '$location', '$anchorScroll', '$timeout',
+		['$scope', '$rootScope', '$http', '$location', '$anchorScroll', '$timeout',
 		'LessonService',
-	function($scope, $http, $location, $anchorScroll, $timeout, LessonService) {
-		$scope.title = '';
+	function($scope, $rootScope, $http, $location, $anchorScroll, $timeout, LessonService) {
 		$scope.lesson_desc = {};
 		$scope.lesson_list = LessonService.query();
 		$scope.chapter_previous = undefined;
@@ -39,6 +38,7 @@ if (typeof String.prototype.startsWith != 'function') {
 		$scope.now = new Date();
 		$scope.window = window;
 		$scope.config = cours_angular_config;
+		$rootScope.title = $scope.config.siteName;
 
 		var hasToScroll = false;
 

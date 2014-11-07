@@ -7,6 +7,8 @@ function get_cours_angular_config() {
 		showDisqusComment: true,
 		showBreadcrumbs: true,
 
-		fixedHeader: true
+		fixedHeader: true,
+
+		siteName: 'JLG Consulting'
 	};
 };

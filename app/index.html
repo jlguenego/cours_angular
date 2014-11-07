@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="angular_cours_app" ng-controller="MyAppController">
+<html lang="en" ng-app="angular_cours_app" ng-controller="MyAppController" ng-cloak>
 	<head>
 		<!-- For Yannis-PC WAMP -->
 		<!-- <base href="/cours_angular/app/" /> -->
@@ -16,7 +16,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>JLG Consulting{{title}}</title>
+		<title ng-bind="title">JLG Consulting</title>
 
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
