@@ -22,6 +22,10 @@ function fixXsMenu() {
 }
 
 function fixHeaderHeight() {
+	if (!cours_angular_config.fixedHeader) {
+		return;
+	}
+
 	var height = $('.header_breadcrumb').height() + cours_angular_config.css.headerNavbarHeight;
 
 	console.log($('.container-fluid'));
