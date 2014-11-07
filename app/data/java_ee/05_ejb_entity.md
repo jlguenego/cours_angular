@@ -1,4 +1,4 @@
-EJB > Entity (JPA)
+EJB Entity (JPA)
 ==================
 
 

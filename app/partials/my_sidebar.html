@@ -1,15 +1,31 @@
+<style>
+.my-sidebar {
+	background-color: #f5f5f5;
+}
+.my-sidebar .nav-sidebar > .active > a,
+.my-sidebar .nav-sidebar > .active > a:hover,
+.my-sidebar .nav-sidebar > .active > a:focus {
+	font-weight: 800;
+}
+.my-sidebar .nav-sidebar > li > av {
+	padding-right: 20px;
+	padding-left: 20px;
+}
+</style>
+
 <div class="my-sidebar hidden-xs">
 	<h1>
 		<a ng-href="{{url('/' + lesson_list.path + '/' + lesson_desc.path)}}" ng-click="scrollTop()">
 			{{lesson_desc.title}}
 		</a>
 	</h1>
-	<ul>
-		<li ng-repeat="chapter in lesson_desc.content">
+	<ul class="nav nav-sidebar">
+		<li ng-repeat="chapter in lesson_desc.content"
+			ng-class="{active: currentChapter.path == chapter.path}">
+
 			<a ng-href="{{url('/' + lesson_list.path + '/' + lesson_desc.path + '/' + chapter.path)}}"
 				ng-click="scrollTop()">
-				<b ng-show="currentChapter.path == chapter.path">{{chapter.title}}</b>
-				<span ng-show="currentChapter.path != chapter.path">{{chapter.title}}</span>
+				{{chapter.title}}
 			</a>
 		</li>
 	</ul>

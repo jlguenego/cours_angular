@@ -8,39 +8,39 @@
 			"path": "00_introduction"
 		},
 		{
-			"title": "EJB > Hello World",
+			"title": "EJB Hello World",
 			"path": "01_ejb_hello_world"
 		},
 		{
-			"title": "EJB > Session > Stateless",
+			"title": "EJB Session Stateless",
 			"path": "02_ejb_session_stateless"
 		},
 		{
-			"title": "EJB > Session > Stateful",
+			"title": "EJB Session Stateful",
 			"path": "03_ejb_session_stateful"
 		},
 		{
-			"title": "EJB > Session > Singleton",
+			"title": "EJB Session Singleton",
 			"path": "04_ejb_session_singleton"
 		},
 		{
-			"title": "EJB > Entity (JPA)",
+			"title": "EJB Entity (JPA)",
 			"path": "05_ejb_entity"
 		},
 		{
-			"title": "EJB > Message Driven",
+			"title": "EJB Message Driven",
 			"path": "06_ejb_message_driven"
 		},
 		{
-			"title": "Web App. > Servlet",
+			"title": "Web App. Servlet",
 			"path": "07_webapp_servlet"
 		},
 		{
-			"title": "Web App. > JSP",
+			"title": "Web App. JSP",
 			"path": "08_webapp_jsp"
 		},
 		{
-			"title": "Web App. > JSF",
+			"title": "Web App. JSF",
 			"path": "09_webapp_jsf"
 		},
 		{
@@ -48,11 +48,11 @@
 			"path": "10_webapp_ejb"
 		},
 		{
-			"title": "Web Service > JAX-WS",
+			"title": "Web Service JAX-WS",
 			"path": "11_webservice_jax_ws"
 		},
 		{
-			"title": "Web Service > JAX-RS",
+			"title": "Web Service JAX-RS",
 			"path": "12_webservice_jax_rs"
 		}
 	]

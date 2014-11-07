@@ -1,4 +1,4 @@
-EJB > Message Driven
+EJB Message Driven
 ====================
 
 EJB

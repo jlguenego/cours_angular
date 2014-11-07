@@ -34,6 +34,7 @@ html {
 /* MAIN CONTAINER */
 body .container-fluid {
 	position: relative;
+	padding-left: 0px;
 }
 
 /* SIDEBAR */
@@ -52,12 +53,14 @@ body .container-fluid {
 
 .my-sidebar h1 {
 	font-size: 1.5em;
+	padding-left: 8px;
 }
 
 /* CONTENT */
 .my-content {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	padding-left: 15px;
 }
 
 .my-content h2 {

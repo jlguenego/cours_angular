@@ -1,4 +1,4 @@
-EJB > Session > Singleton
+EJB Session Singleton
 =========================
 
 Un **Singleton** Session EJB est partagé entre tous les clients. C'est-à-dire

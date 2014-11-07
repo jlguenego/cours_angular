@@ -1,4 +1,4 @@
-EJB > Hello World
+EJB Hello World
 =================
 
 Ce tutorial présente un EJB 'Hello World' dont l'architecture est comme suit:

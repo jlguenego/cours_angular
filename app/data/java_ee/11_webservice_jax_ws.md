@@ -1,4 +1,4 @@
-Web Service > JAX-WS
+Web Service JAX-WS
 ====================
 
 Un **Web Service** est une fonctionalité exposée, en général,

@@ -1,4 +1,4 @@
-Web Service > JAX-RS
+Web Service JAX-RS
 ====================
 
 **JAX-RS**: Java API for XML - RESTful Services

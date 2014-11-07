@@ -1,4 +1,4 @@
-EJB > Session > Stateful
+EJB Session Stateful
 ========================
 
 Un **Stateful** Session EJB est propre à chaque client et son état est garanti

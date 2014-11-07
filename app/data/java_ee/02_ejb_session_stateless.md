@@ -1,4 +1,4 @@
-EJB > Session > Stateless
+EJB Session Stateless
 =========================
 
 Un **Session EJB** est un EJB propre à une session.
