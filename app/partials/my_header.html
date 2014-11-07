@@ -44,6 +44,12 @@
 							{{current_lesson.title}} <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
+							<li>
+								<a ng-href="{{url('/cours/' + current_lesson.path)}}">
+									Liste des chapitres
+								</a>
+							</li>
+							<li class="divider"></li>
 							<li ng-repeat="chapter in current_lesson.content" on-finish-render="fix-menu"
 								ng-class="{active: location.path().startsWith('/cours/' + current_lesson.path + '/' + chapter.path)}">
 								<a ng-href="{{url('/cours/' + current_lesson.path + '/' + chapter.path)}}">
