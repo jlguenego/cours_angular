@@ -6,8 +6,6 @@ if (typeof String.prototype.startsWith != 'function') {
 }
 
 (function() {
-	var cours_angular_config = get_cours_angular_config();
-
 	var app = angular.module('angular_cours_app',
 		[ 'ngRoute', 'myLayout', 'myServices', 'angularMarkdownInclude']);
 
@@ -47,6 +45,7 @@ if (typeof String.prototype.startsWith != 'function') {
 				$scope.goToAnchor($location.hash());
 				hasToScroll = false;
 			}
+			fixHeaderHeight();
 		});
 
 		$scope.goTo = function(url, anchor) {

@@ -1,14 +1,18 @@
-function get_cours_angular_config() {
-	return {
-		hashPrefix: '!',
-		html5Mode: true,
+var cours_angular_config = {
+	hashPrefix: '!',
+	html5Mode: true,
 
-		showComment: false,
-		showDisqusComment: true,
-		showBreadcrumbs: true,
+	showComment: false,
+	showDisqusComment: true,
 
-		fixedHeader: true,
+	// When set to false, hide breadcrumb for mobile
+	showBreadcrumbs: false,
 
-		siteName: 'JLG Consulting'
-	};
+	fixedHeader: true,
+
+	siteName: 'JLG Consulting',
+
+	css: {
+		headerNavbarHeight: 51
+	}
 };

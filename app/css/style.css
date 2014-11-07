@@ -13,7 +13,7 @@ html {
 
 .header_breadcrumb.fixed {
 	position: fixed;
-	padding-top: 51px;
+	padding-top: 51px; /* config.css.headerNavbarHeight */
 }
 
 @media (max-width: 768px) {
@@ -34,7 +34,6 @@ html {
 /* MAIN CONTAINER */
 body .container-fluid {
 	position: relative;
-	padding-top: 88px;
 }
 
 /* SIDEBAR */
@@ -98,6 +97,10 @@ body .container-fluid {
 	background-image: url(../img/warning.png);
 	background-size: 30px;
 
+}
+
+.my-content img {
+	max-width: 100%;
 }
 
 /* IMAGES */

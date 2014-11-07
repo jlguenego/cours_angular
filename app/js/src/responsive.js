@@ -22,15 +22,17 @@ function fixXsMenu() {
 }
 
 function fixHeaderHeight() {
-	var height = $('.header_breadcrumb').css('height');
+	var height = $('.header_breadcrumb').height() + cours_angular_config.css.headerNavbarHeight;
 
-	$('.container-fluid').css('padding-top', height);
+	console.log($('.container-fluid'));
+
+	$('.container-fluid').css('padding-top', height + 'px');
 }
 
 (function() {
 	$(window).resize(function() {
 		setSidebarHeight();
-		//fixHeaderHeight();
+		fixHeaderHeight();
 	});
 	$(window).scroll(setSidebarHeight);
 })();
