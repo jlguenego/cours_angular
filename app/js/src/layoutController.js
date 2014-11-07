@@ -113,18 +113,22 @@
 		}
 	]);
 
-	app.controller('ChapterListController', ['$scope', '$http', '$routeParams', 'LessonService',
-		function($scope, $http, $routeParams, LessonService) {
+	app.controller('ChapterListController', ['$scope', '$rootScope', '$http', '$routeParams', 'LessonService',
+		function($scope, $rootScope, $http, $routeParams, LessonService) {
 			$scope.lesson_desc = LessonService.get({ name: $routeParams.lesson }, function(lesson_desc) {
 				$scope.update_hash(lesson_desc);
 			}, function(error) {
 				$scope.pageNotFound = true;
 			});
+
+			$rootScope.current_lesson = $scope.lesson_desc;
+
+			console.log($rootScope.lesson);
 		}
 	]);
 
-	app.controller('ChapterController', ['$scope', '$http', '$routeParams', 'LessonService',
-		function($scope, $http, $routeParams, LessonService) {
+	app.controller('ChapterController', ['$scope', '$rootScope', '$http', '$routeParams', 'LessonService',
+		function($scope, $rootScope, $http, $routeParams, LessonService) {
 			$scope.chapter = {};
 			$scope.chapterPath = '';
 
@@ -159,6 +163,8 @@
 				var type = $scope.currentChapter.type || 'md';
 				$scope.chapterPath = 'data/' + $routeParams.lesson + '/' + $routeParams.chapter + '.' + type;
 			});
+
+			$rootScope.current_lesson = $scope.lesson_desc;
 		}
 	]);
 })();
