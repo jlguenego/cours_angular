@@ -13,4 +13,4 @@ bower_components
 app/sitemap.xml
 Edit.*
 app/sitemap.json
-./app/.htaccess
+app/.htaccess

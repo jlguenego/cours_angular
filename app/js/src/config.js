@@ -3,7 +3,7 @@ var cours_angular_config = {
 	html5Mode: true,
 
 	showComment: false,
-	showDisqusComment: false,
+	showDisqusComment: true,
 
 	// When set to false, hide breadcrumb for mobile
 	showBreadcrumbs: false,
