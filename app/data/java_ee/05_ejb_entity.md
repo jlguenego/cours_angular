@@ -366,6 +366,10 @@ remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMO
 
 ###Test du client
 
+Sélectionner **EJBEntityClient.java** et
+*Clic droit > Run As > Java Application*.
+
+La console affiche:
 ```
 nov. 06, 2014 12:12:59 PM com.sun.enterprise.v3.server.CommonClassLoaderServiceImpl findDerbyClient
 INFO: Cannot find javadb client jar file, derby jdbc driver will not be available by default.
