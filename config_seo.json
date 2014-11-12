@@ -3,7 +3,7 @@
 	"baseUrlDestination": "http://jlg-consulting.com/orsys/FAN/cours_angular/",
 	"seoSnapshotDir": "C:/wamp/www/cours_angular/app/seo_snapshots",
 	"cacheTime": 600000,
-	"profile": "prod",
+	"profile": "dev",
 	"profiles": {
 		"prod": {
 			"base": "/orsys/FAN/cours_angular/"
