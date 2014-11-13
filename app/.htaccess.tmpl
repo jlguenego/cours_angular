@@ -36,4 +36,5 @@ RewriteRule !^seo_snapshots/.*$ seo_snapshots/%1.html [NC,L]
 # END SEO RULES
 
 RewriteCond %{QUERY_STRING} ^$
+RewriteCond %{REQUEST_URI} !\.json$
 RewriteRule ^(cours|sitemap)/?.*$ index.html [L]
