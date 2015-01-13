@@ -41,7 +41,7 @@ undefined
 ---------
 
 C'est la '*valeur*' attribué aux variables qui n'ont pas été initialisées.
-C'est aussi une valeur vide (différent de [null](#null)).
+C'est aussi une valeur vide (différente de [null](#null)).
 Utiliser une variable non définie jette une erreur, mais pas pour une variable
 initialisée à `undefined`.
 
@@ -69,22 +69,31 @@ console.log(maVariableNull); // affiche 'null'
 NaN
 ---
 
-C'est une valeur d'erreur renvoyé lorsqu'une opération arithmétique est
-effectuée sur une variable qui a une valeur autre qu'un nombre.
+Signifie : "Not-A-Number".
+
+C'est une valeur renvoyée par une opération arithmétique qui ne peut renvoyer un
+nombre. JavaScript essaye de renvoyer un nombre avec le plus d'effort possible.
 
 ```javascript
 var x = 'Hello';
 var y = 42;
 
-console.log(x - y); // affiche 'NaN'
+console.log(x - y); // affiche NaN
+console.log(Math.sqrt(-1)); // affiche NaN
+console.log('1' + 0); // affiche '10'
+console.log('1' - 3); // affiche -2
+console.log('2' - '3'); // affiche -1
+
+console.log(NaN == NaN); // affiche false
+console.log(NaN === NaN); // affiche false
+console.log(isNaN(NaN)); // affiche true
 ```
 
 
 return
 ------
 
-Permet de renvoyer à l'issue d'une fonction le résultat du code se situant juste
-apprès.
+Permet de renvoyer à l'issue d'une fonction le résultat d'une l'expression.
 
 ```javascript
 function x() {
@@ -108,11 +117,12 @@ function y() {
 typeof
 ------
 
-Renvoie le type du résultat du code se situant juste apprès sous forme de chaîne
-de caractères.
+Renvoie le type d'une expression sous forme de chaîne de caractères.
 
 Il existe les types suivant :
+
 - string
+- boolean
 - number
 - function
 - object
@@ -120,11 +130,13 @@ Il existe les types suivant :
 
 ```javascript
 console.log(typeof 'Hello'); // affiche 'string'
+console.log(typeof true); // affiche 'boolean'
 console.log(typeof 42); // affiche 'number'
 console.log(typeof NaN); // affiche 'number'
 console.log(typeof null); // affiche 'object'
 console.log(typeof {x: 42}); // affiche 'object'
 console.log(typeof [42, 12]); // affiche 'object'
+console.log(typeof /regexp/); // affiche 'object'
 console.log(typeof undefined); // affiche 'undefined'
 
 function x() {
@@ -138,8 +150,7 @@ console.log(typeof x); // affiche 'function'
 instanceof
 ----------
 
-C'est un opérateur logique. Il compare le type d'objet du code se situant juste
-avant avec le type situé après
+C'est un opérateur logique. Il compare une expression avec un type d'objets.
 
 ```javascript
 var str = new String('Hello');
@@ -162,31 +173,39 @@ Permet d'instancier un type d'objet.
 
 ```javascript
 var str = new String('Hello');
+
+var Person = function(name) {
+	this.name = name;
+}
+
+var p = new Person('John');
+console.log(p); // affiche 'Person {name: "John"}'
 ```
 
 
 delete
 ------
 
-Permet de détruire un attribut d'un objet, mais pas une variable.
+Permet de détruire un attribut d'un objet, mais pas un objet.
 
 ```javascript
 var obj = {x: 42, y: 'Hello'};
-console.log(obj); // affiche 'Object {x: 42, y: "Hello"} '
+console.log(obj); // affiche 'Object {x: 42, y: "Hello"}'
+
 delete obj.y;
-console.log(obj); // affiche 'Object {x: 42} '
-delete obj;
-console.log(obj); // affiche 'Object {x: 42} '
+console.log(obj); // affiche 'Object {x: 42}'
+
+delete obj; // N'a rien fait
+console.log(obj); // affiche 'Object {x: 42}'
 ```
 
 
-try
----
+try...catch...finally
+---------------------
 
-Permet d'ouvrir un bloc de code à risque, qui peut jetter des erreurs.
-Ces erreurs seront alors attrapées et envoyé au [catch](#catch).
-
-Il doit **toujours** être utilisé avec [catch](#catch) ou [finally](#finally).
+Permet d'encadrer un bloc de code à risque, qui peut jeter des erreurs.
+Ces erreurs seront alors attrapées et envoyées au `catch`.
+Dans tous les cas, le block `finally` sera exécuté.
 
 ```javascript
 try {
@@ -194,42 +213,27 @@ try {
 } catch (err) {
 	console.log(err); // affiche 'ReferenceError {stack: (...), message: "myUndefinedFuntion is not defined"}'
 }
-```
 
-catch
------
-
-Permet de gérer les erreurs attrapées dans un [try](#try).
-
-```javascript
-try {
-	myUndefinedFuntion();
-} catch (err) {
-	console.log(err); // affiche 'ReferenceError {stack: (...), message: "myUndefinedFuntion is not defined"}'
-}
-```
-
-
-finally
--------
-
-Permet de déclarer un block de code à **toujours** effectuer après un
-[try](#try), même en cas d'erreur.
-
-```javascript
 try {
 	myUndefinedFuntion();
 } finally {
 	// Passe toujours par ce block de code
 }
 
+try {
+	myUndefinedFuntion();
+} catch (err) {
+	console.log(err); // affiche 'ReferenceError {stack: (...), message: "myUndefinedFuntion is not defined"}'
+} finally {
+	// Passe toujours par ce block de code
+}
 ```
 
 
 throw
 -----
 
-Permet de jetter une erreur. Elle peut être de n'importe quel type.
+Permet de jeter une erreur. Elle peut être de n'importe quel type.
 
 ```javascript
 throw 42; // jette le nombre '42'
@@ -262,6 +266,101 @@ if (condition) {
 	// Code à effectuer si vrai
 } else {
 	// Code à effectuer si faux
+}
+```
+
+'use strict';
+-------------
+
+Permet d'activer le mode strict. Le mode strict permet d'écrire du code
+JavaScript sécurisé.
+
+Par exemple :
+
+- il est interdit d'utiliser une variable qui n'a pas été définie au préalable ;
+- deleter une variable, une fonction ou un argument n'est pas permis ;
+- définir une propriété plus d'une fois n'est pas permis ;
+
+Il se déclare:
+
+- au début d'un fichier : dans ce cas tout le fichier est en mode strict.
+- au début d'une fonction : dans ce cas seule la fonction est en mode strict.
+
+```javascript
+"use strict";
+
+x = 42; // cause une erreur
+delete x; // cause une erreur
+var obj = { p1: 42, p1: 'hello' }; // cause une erreur
+```
+
+```javascript
+function () {
+	"use strict";
+
+	x = 42; // cause une erreur
+}
+```
+
+for
+---
+
+Permet d'effectuer une boucle.
+Permet aussi d'itérer les propriétés d'un objet.
+
+```javascript
+for (var i = 0; i < 10; i++) {
+	// passera 10 fois dans cette boucle
+}
+
+var obj = {p1: 42, p2: 'hello'};
+for (prop in obj) {
+	// passera dans cette boucle autant de fois qu'il y a de propriété dans 'obj'
+	// ici prop vaudra successivement : 'p1' puis 'p2'
+}
+```
+
+
+while
+-----
+
+Permet d'effectuer une boucle.
+
+```javascript
+while (true) {
+	// passera indéfiniment dans cette boucle
+}
+```
+
+
+break
+-----
+
+Permet de sortir d'un niveau de boucle.
+
+```javascript
+while (true) {
+	break; // ordonne de quitter la boucle
+}
+
+while (true) { // première boucle
+	while (true) { // seconde boucle
+		break; // sort de la seconde boucle
+	}
+}
+
+```
+
+
+continue
+--------
+
+Permet de redémarer la boucle sans la terminer.
+
+```javascript
+while (true) {
+	continue;
+	console.log('Hello'); // n'affiche JAMAIS 'Hello'
 }
 ```
 
