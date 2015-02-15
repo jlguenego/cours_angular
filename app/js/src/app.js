@@ -1,11 +1,16 @@
-if (typeof String.prototype.startsWith != 'function') {
-	// see below for better implementation!
-	String.prototype.startsWith = function(str) {
-		return this.indexOf(str) == 0;
-	};
-}
+
 
 (function() {
+	"use strict";
+
+	if (typeof String.prototype.startsWith != 'function') {
+		// see below for better implementation!
+		String.prototype.startsWith = function(str) {
+			return this.indexOf(str) === 0;
+		};
+	}
+
+
 	var app = angular.module('angular_cours_app',
 		[ 'ngRoute', 'myLayout', 'myServices', 'angularMarkdownInclude']);
 
@@ -75,14 +80,14 @@ if (typeof String.prototype.startsWith != 'function') {
 
 		$scope.update_breadcrumb = function() {
 			$scope.breadcrumb = $location.path().split('/').slice(1);
-		}
+		};
 
 		$scope.update_hash = function(lesson_desc) {
 			for (var i = 0; i < lesson_desc.content.length; i++) {
 				$scope.hash[lesson_desc.content[i].path] = lesson_desc.content[i].title;
 			}
 			$scope.hash[lesson_desc.path] = lesson_desc.title;
-		}
+		};
 
 		$scope.$on('$routeChangeStart', function(next, current) {
 			//console.log('$routeChangeStart');
@@ -104,7 +109,7 @@ if (typeof String.prototype.startsWith != 'function') {
 
 		$scope.url = function(url) {
 			return '#' + cours_angular_config.hashPrefix + url;
-		}
+		};
 	}]);
 
 	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
