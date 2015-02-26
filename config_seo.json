@@ -1,7 +1,7 @@
 {
-	"baseUrlExtraction": "http://localhost:8000/app/",
+	"baseUrlExtraction": "http://localhost/jlouis/cours_angular/app/",
 	"baseUrlDestination": "http://jlg-consulting.com/orsys/FAN/cours_angular/",
-	"seoSnapshotDir": "C:/wamp/www/cours_angular/app/seo_snapshots",
+	"seoSnapshotDir": "C:/wamp/www/jlouis/cours_angular/app/seo_snapshots",
 	"cacheTime": 600000,
 	"profile": "wamp",
 	"profiles": {
