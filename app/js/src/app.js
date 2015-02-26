@@ -79,6 +79,7 @@
 		};
 
 		$scope.update_breadcrumb = function() {
+			console.log("Update breadcrumb");
 			$scope.breadcrumb = $location.path().split('/').slice(1);
 		};
 
